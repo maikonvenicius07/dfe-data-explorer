@@ -1,3 +1,13 @@
+# V2.3.3 — seleção manual independente de filtros (2026-11-24)
+
+- Removida a seleção inicial automática de todos os 196 registros.
+- Dicionário: filtro por subgrupo, checkbox por campo, checkbox coletivo e estado parcial, botões de seleção filtrada/toda a base e visualização apenas de selecionados.
+- Seleção compartilhada entre dicionário, MOC, árvore, diagrama e Central de Impressão, sem eliminar marcações anteriores.
+- Impressão: exclusividade do conjunto marcado, bloqueio se vazio, prévia com remoção de itens e seleção de colunas MOC.
+- Elementos de contexto não contam como selecionados; chaves internas diferenciam ocorrências homônimas quando houver informação de caminho.
+- Testes de fluxo com B02/W38, validação do PDF, regressões de navegação e testes estáticos.
+- Preservadas as oito telas e o leiaute conhecido, sem migração de dados.
+
 # Histórico de versões
 
 ## V2.3.2-beta.1 — 24/11/2026

@@ -12,8 +12,13 @@ const nodes=[
  {id:'B02',key:'B02',group:'B',parentRef:'B01'},
 ];
 const s=new HierarchicalSelection(nodes);
-assert.equal(s.count(),9);
+assert.equal(s.count(),0);
 s.all(false);assert.equal(s.count(),0);assert.equal(s.stateGroup('W'),'none');
+s.changeKeys(['W02'],true);assert.deepEqual([...s.selected],['W02'],'Selecionar campo individual não pode selecionar filhos');
+s.changeKeys(['W02'],false);assert.equal(s.count(),0);
+s.changeKeys(['B02','W38'],true);assert.equal(s.count(),2,'Seleções de grupos diferentes devem acumular');
+s.changeKeys(['B02'],false);assert.deepEqual([...s.selected],['W38']);
+s.all(false);
 s.changeNode('W02',true);assert.deepEqual([...s.selected].sort(),['W02','W03','W04']);
 assert.equal(s.stateGroup('W'),'partial');
 s.changeNode('W02',false);assert.equal(s.count(),0);

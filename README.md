@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.2-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.3-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -37,3 +37,12 @@ Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos d
 Execute `node tests/test_selection_logic_v23.js`, `python tests/test_productivity_v23.py`, `python tests/test_fullscreen_only_v221.py` e `python -m pytest -q tests/test_import.py`. Executados localmente com aprovação. A suíte gráfica completa das versões antigas possui um caso extenso não concluído no limite local; consulte o relatório.
 
 Arquivos para manter sincronizados: `public/index.html`, `public/styles.css`, `public/selection.js`, `public/app.js` e `public/EXPLORADOR_OFFLINE_COMPLETO.html`. Ao alterar o código, execute `python scripts/build_offline.py`; ao importar MOC validado, execute `python scripts/build_static.py`.
+
+
+## Seleção manual para impressão — V2.3.3
+
+No **Dicionário de Dados**, filtre por grupo, subgrupo, texto ou tipo. Filtros **não marcam registros**. Use a caixa da coluna `Imprimir` para marcar campos individualmente; o checkbox do cabeçalho opera apenas sobre os filtrados, apresentando estado parcial. Os botões permitem marcar/desmarcar filtrados ou toda a documentação. `Somente selecionados` facilita a conferência.
+
+O botão **Imprimir selecionados** leva à Central de Impressão e mantém as marcações de outros grupos. Nessa área, configure A4/A3, orientação e colunas; verifique a lista de campos na prévia e retire os indesejados antes de gerar PDF. Sem seleção, a impressão fica bloqueada. As árvores e o diagrama compartilham o estado de marcação, mas selecionar/navegar até um grupo não marca seus campos automaticamente.
+
+**Atenção:** a base embutida ainda cobre 196 nós do catálogo demonstrativo, não o MOC completo.

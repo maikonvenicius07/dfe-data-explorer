@@ -12,7 +12,7 @@ with sync_playwright() as p:
  assert page.locator('#mocTables tr[data-key]').count()==196
  assert page.locator('[data-view="resumo"]').count()==0
  page.locator('[data-view="impressao"]').click()
- assert '196 / 196' in page.locator('#selectionCount').inner_text()
+ assert '0 / 196' in page.locator('#selectionCount').inner_text()
  page.locator('#printClearSelection').click()
  assert '0 / 196' in page.locator('#selectionCount').inner_text()
  assert page.locator('#btnDoPrint').is_disabled()

@@ -1,16 +1,17 @@
-# Base funcional a preservar — V2.3
+# Funcionalidades preservadas e regras aprovadas — V2.3.3
 
-- HTML offline abre no navegador sem dependências e preserva 196 registros demonstrativos.
-- MOC mantém as dez colunas oficiais, com organização por grupo e estrutura de subgrupos derivada das referências Pai catalogadas.
-- Árvore XML, painel de elementos, visualizador XSD (quando importado), dicionário e Oracle conceitual continuam presentes.
-- Quatro formatos gráficos permanecem; na barra de ações do diagrama, o único botão visível é **Tela cheia**, conforme aprovação da V2.2.1.
-- Impressão A4/A3, retrato/paisagem, tabelas pesquisáveis em PDF, orientação e margens permanecem.
-- A Central de Impressão, agora com seleção livre, não confunde pais de contexto com campos selecionados.
-- Histórico de alterações e monitoramento não alteram Oracle nem criam dados fictícios.
-
-**Regra:** atualizar incrementalmente, testar, registrar mudança e manter rollback possível por tag Git.
-
-## Alteração aprovada em V2.3.1
-
-- A Visão Geral deixa de aparecer no aplicativo; o Leiaute do MOC passa a ser a tela inicial.
-- As demais áreas e a seleção hierárquica de impressão permanecem disponíveis.
+- O MOC é a tela inicial; **Visão Geral foi removida** por solicitação expressa.
+- Manter as oito telas do projeto (MOC, árvore, dicionário, diagrama, XSD, Oracle, atualizações, impressão).
+- Quatro modalidades de diagrama; controle de exibição com o botão visível “Tela cheia”.
+- MOC com dez colunas, três modalidades de apresentação e hierarquia por vínculo pai-filho.
+- O catálogo de 196 nós é **parcial** e jamais deve ser declarado integralmente oficial.
+- A seleção para impressão começa **vazia** e nunca deriva automaticamente dos filtros.
+- Cada checkbox na tabela do dicionário representa **somente o campo correspondente**.
+- O checkbox do cabeçalho seleciona/desmarca os itens exibidos pelos filtros atuais; estado parcial visível.
+- Alterar filtros, grupos, subgrupos, busca, ordenação ou tela não apaga o conjunto selecionado.
+- “Imprimir selecionados” usa exclusivamente o conjunto escolhido independentemente do filtro atual.
+- Na Central de Impressão, checkbox de grupo ou subgrupo é uma ação explícita e pode selecionar seus descendentes; somente abrir o nó não seleciona.
+- Pais não escolhidos podem ser impressos apenas como **contexto hierárquico claramente rotulado**.
+- Nenhum documento é impresso se a seleção estiver vazia.
+- Prévia lista os itens e permite retirá-los; o usuário escolhe as colunas do MOC, papel e orientação.
+- O processo de publicação deverá ser incremental via GitHub e ZIPs completo + modificado + relatório técnico.

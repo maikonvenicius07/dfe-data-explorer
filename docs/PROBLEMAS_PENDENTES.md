@@ -1,14 +1,10 @@
-# Pendências documentadas — não confundir com funcionalidades implementadas
+# Pendências — DF-e Data Explorer V2.3.3
 
-| Gravidade | Item | Estado |
-|---|---|---|
-| Crítico para cobertura | Coleta integral do MOC vigente e auditoria de todas as linhas | Pendente: base embutida contém somente 196 registros selecionados |
-| Crítico para tipos XSD | Download e importação verificada do pacote XSD oficial | Pendente: 0 schemas verificados nesta base |
-| Alto | Monitoramento contínuo, histórico e notificações em hospedagem real | Código preparado, não ativado nem testado remotamente |
-| Médio | Exportação XLSX da seleção exata de campos | Não implementada; CSV atende à seleção, XLSX do backend é geral |
-| Médio | Sincronização das seleções pessoais entre dispositivos | Não implementada; perfis locais no navegador |
-| Médio | Validação integral do leitor de layouts com milhares de registros e todos os schemas | Pendente: teste local com 196 nós e casos selecionados |
-| Médio | Testes de regressão de longos diagramas legados | Teste antigo extenso esgotou o limite de execução local nesta revisão; requer reteste |
-| Baixo | Versão expandida do modo apresentação com roteiro e telas próprias | Modo em tela cheia implementado; roteiro próprio ainda não existe |
-
-O MOC e o pacote XSD não podem ser substituídos por campos inventados. Verificar diariamente o log de sincronização; falhas não validam exclusões de campos.
+- **Cobertura fiscal incompleta:** o catálogo incluído tem 196 registros selecionados. Não é uma extração integral certificada do MOC vigente.
+- **Validação XSD:** o pacote oficial ainda não foi conferido completamente; tipos e relações dependem dessa etapa.
+- **Monitoramento:** a rotina preparada para GitHub Actions depende de configuração operacional, permissões e verificação do resultado em produção.
+- **Exportação XLSX:** a exportação dinâmica do backend ainda não respeita necessariamente a seleção manual do navegador; para seleção exata, usar relatório/PDF e CSV selecionado.
+- **Seleções salvas:** os perfis são armazenados no navegador local; não há sincronização entre aparelhos.
+- **DER/Oracle:** propostas conceituais não são mapeamentos certificados dos campos e não devem ser executadas automaticamente.
+- **Testes de regressão extensos:** parte da suíte gráfica legada não terminou dentro do limite do ambiente de teste; revisar após publicação.
+- **Paginação:** o número de páginas varia por fonte/navegador; exemplos A4 foram verificados, não todas as combinações de relatórios longos.

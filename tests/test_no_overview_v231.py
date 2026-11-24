@@ -19,9 +19,13 @@ with sync_playwright() as pw:
     page.locator('[data-view="diagrama"]').click()
     assert page.locator('#diagramSvg').get_attribute('width')
     page.locator('[data-view="impressao"]').click()
-    assert '196 / 196' in page.locator('#selectionCount').inner_text()
+    assert '0 / 196' in page.locator('#selectionCount').inner_text()
+    assert page.locator('#btnPreparePrint').is_disabled()
+    page.locator('#printTreeSearch').fill('W38')
+    page.locator('[data-tree-key="W38"]').check()
+    assert page.locator('#btnPreparePrint').is_enabled()
     page.locator('#btnPreparePrint').click()
-    assert len(page.locator('#printDocument').inner_text())>500
+    assert len(page.locator('#printDocument').inner_text())>100
     assert not errors,errors
     print('PASS: Visão Geral ausente, MOC inicial, catálogo de 196 nós, menu, diagramas e impressão.')
     browser.close()
