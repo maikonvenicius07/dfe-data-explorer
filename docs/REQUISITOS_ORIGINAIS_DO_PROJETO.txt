@@ -1,0 +1,1375 @@
+# PROJETO — EXPLORADOR INTERATIVO DO LEIAUTE DA NF-e E NFC-e
+
+## XSD Schema Explorer, Documentação Técnica, Modelagem Oracle e Monitoramento de Atualizações
+
+Atue como uma equipe multidisciplinar composta por especialistas seniores em:
+
+- Documentos Fiscais Eletrônicos (DF-e).
+- NF-e e NFC-e.
+- XML e XSD (XML Schema Definition).
+- Legislação e documentação fiscal.
+- Arquitetura e engenharia de dados.
+- Modelagem de banco de dados.
+- Oracle SQL e PL/SQL.
+- Business Intelligence (BI).
+- Desenvolvimento de sistemas web.
+- Visualização interativa de dados.
+- Elaboração de relatórios técnicos.
+- Automação, monitoramento e controle de versões.
+- Testes automatizados e auditoria de sistemas.
+
+## 1. OBJETIVO PRINCIPAL DO PROJETO
+
+Desenvolver uma ferramenta completa denominada **Explorador Interativo do Leiaute da NF-e e NFC-e — XSD Schema Explorer**.
+
+A ferramenta será destinada principalmente aos profissionais de banco de dados, engenharia de dados, Business Intelligence e fiscalização tributária.
+
+O objetivo é transformar a documentação oficial da NF-e e NFC-e em uma representação visual, hierárquica, interativa, técnica e didática, permitindo compreender toda a estrutura dos documentos fiscais eletrônicos.
+
+O sistema deverá facilitar:
+
+- A compreensão dos grupos e subgrupos.
+- A identificação dos elementos e atributos XML.
+- A análise dos relacionamentos hierárquicos.
+- A compreensão das cardinalidades.
+- A consulta aos tipos de dados.
+- A identificação das regras de preenchimento.
+- A modelagem de banco de dados Oracle.
+- O desenvolvimento de processos ETL.
+- A elaboração de consultas SQL.
+- A análise dos grupos tributários.
+- A geração de relatórios técnicos.
+- A impressão de documentos completos ou parciais.
+- O acompanhamento automático das alterações na documentação oficial.
+
+Não quero simplesmente uma reprodução estática da documentação existente. Quero uma ferramenta de exploração, documentação, análise e engenharia de dados fiscais, com atualização permanente.
+
+---
+
+## 2. FONTE OFICIAL DAS INFORMAÇÕES
+
+Utilize como fonte principal o leiaute oficial disponibilizado no Manual de Orientação do Contribuinte (MOC) da NF-e e NFC-e:
+
+**https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html**
+
+Utilize também os respectivos arquivos XSD, Notas Técnicas e demais documentos oficiais necessários para complementar e validar as informações.
+
+As imagens fornecidas deverão servir como referência visual obrigatória para o desenvolvimento do leiaute dos relatórios.
+
+O sistema deverá identificar:
+
+- Versão do leiaute.
+- Número e versão da Nota Técnica.
+- Data de publicação.
+- Data da última consulta.
+- Pacote de schemas utilizado.
+- Data da última atualização da base.
+- Fonte de origem de cada informação.
+
+Não utilize informações fictícias, exemplos genéricos ou estruturas simplificadas como substitutos da documentação oficial.
+
+Quando determinada informação não estiver disponível ou não puder ser confirmada, identifique explicitamente essa situação.
+
+---
+
+## 3. ANÁLISE INTEGRAL DO LEIAUTE OFICIAL
+
+Realize uma análise completa de toda a documentação existente na página oficial.
+
+Identifique e organize:
+
+- Elementos raiz.
+- Grupos oficiais.
+- Subgrupos oficiais.
+- Elementos XML.
+- Atributos XML.
+- Identificadores oficiais.
+- Descrições.
+- Observações.
+- Elementos pais e filhos.
+- Relacionamentos hierárquicos.
+- Tipos de dados.
+- Cardinalidades.
+- Tamanhos mínimos e máximos.
+- Campos obrigatórios.
+- Campos opcionais.
+- Campos condicionais.
+- Campos repetitivos.
+- Valores permitidos.
+- Regras de preenchimento.
+- Campos exclusivos da NF-e.
+- Campos exclusivos da NFC-e.
+- Campos excluídos ou desativados.
+- Alterações introduzidas pelas Notas Técnicas.
+
+Contemple todos os grupos disponíveis na documentação oficial, incluindo aqueles relacionados aos seguintes tributos:
+
+- ICMS.
+- ICMS-ST.
+- FCP.
+- IPI.
+- PIS.
+- COFINS.
+- II.
+- ISSQN.
+- IBS.
+- CBS.
+- Imposto Seletivo.
+- Demais grupos tributários existentes.
+
+Preserve integralmente a nomenclatura, os identificadores, a ordenação, as descrições, as observações e os relacionamentos oficiais.
+
+Não renumere os campos e não elimine informações consideradas pouco importantes.
+
+---
+
+## 4. ANÁLISE DOS ARQUIVOS XSD
+
+Analise integralmente os arquivos XSD correspondentes ao leiaute oficial.
+
+Identifique:
+
+- Elementos raiz.
+- Elementos e atributos.
+- Tipos simples (simpleType).
+- Tipos complexos (complexType).
+- Namespaces.
+- Referências internas e externas.
+- Dependências entre arquivos.
+- Importações (import).
+- Inclusões (include).
+- Cardinalidades (minOccurs e maxOccurs).
+- Atributos obrigatórios e opcionais.
+- Enumerações.
+- Expressões regulares (pattern).
+- Restrições de tamanho.
+- Restrições numéricas.
+- Precisão e escala decimal.
+- Valores mínimos e máximos.
+- Estruturas sequence, choice e all.
+- Regras de unicidade.
+- Restrições de identidade.
+- Documentações existentes nos schemas.
+
+Resolva as referências entre os arquivos XSD e identifique corretamente os tipos reutilizados em diferentes grupos.
+
+Não confunda elementos de mesmo nome pertencentes a caminhos hierárquicos diferentes.
+
+Cruze as informações do MOC com os respectivos arquivos XSD.
+
+Quando existirem divergências entre as fontes, apresente um relatório específico contendo a informação oficial do MOC, a definição encontrada no XSD e a descrição da divergência.
+
+Diferencie claramente:
+
+1. Informação oficial do MOC.
+2. Definição técnica do XSD.
+3. Interpretação técnica.
+4. Sugestão de modelagem Oracle.
+
+---
+
+## 5. EXPLORADOR HIERÁRQUICO INTERATIVO
+
+Desenvolva um explorador visual em formato de árvore que represente a estrutura real do XML.
+
+A hierarquia deverá apresentar:
+
+- Documento raiz.
+- Grupos.
+- Subgrupos.
+- Elementos.
+- Atributos.
+- Estruturas repetitivas.
+- Estruturas de escolha.
+- Relacionamentos entre elementos pais e filhos.
+
+O usuário deverá conseguir:
+
+- Expandir e recolher grupos.
+- Expandir e recolher subgrupos.
+- Expandir toda a estrutura.
+- Recolher toda a estrutura.
+- Pesquisar por identificador oficial.
+- Pesquisar por nome da tag.
+- Pesquisar por descrição.
+- Pesquisar por XPath.
+- Filtrar por grupo ou subgrupo.
+- Filtrar por tributo.
+- Filtrar por tipo de dado.
+- Filtrar por cardinalidade.
+- Filtrar por obrigatoriedade.
+- Selecionar qualquer elemento.
+- Visualizar os detalhes do elemento selecionado.
+- Navegar entre pais e filhos.
+- Copiar o XPath completo.
+- Localizar o elemento no relatório oficial.
+- Localizar a tabela e coluna Oracle sugeridas.
+
+Utilize cores, ícones, recuos e conectores para facilitar a identificação dos diferentes níveis hierárquicos.
+
+A estrutura visual deverá representar a hierarquia real do XML, distinguindo-a da organização editorial dos grupos do MOC.
+
+---
+
+## 6. DIAGRAMA VISUAL INTERATIVO
+
+Além do explorador em árvore, desenvolva um diagrama gráfico que permita compreender visualmente os relacionamentos existentes.
+
+O diagrama deverá conter:
+
+- Grupos principais.
+- Subgrupos.
+- Elementos.
+- Atributos.
+- Conectores hierárquicos.
+- Identificação dos elementos pais e filhos.
+- Cardinalidades.
+- Grupos repetitivos.
+- Grupos opcionais e obrigatórios.
+- Estruturas de escolha exclusiva.
+
+Disponibilize recursos de:
+
+- Ampliação e redução (zoom).
+- Movimentação do diagrama.
+- Centralização automática.
+- Tela cheia.
+- Expansão e recolhimento dos níveis.
+- Seleção de grupos específicos.
+- Visualização horizontal.
+- Visualização vertical.
+- Destaque do caminho hierárquico.
+- Exportação em SVG e PNG.
+- Impressão.
+- Geração de PDF.
+
+Evite diagramas excessivamente extensos ou com elementos sobrepostos.
+
+Permita visualizar a estrutura completa ou selecionar apenas determinado grupo, como ICMS, IBS, CBS, produtos, emitente ou destinatário.
+
+O objetivo é facilitar a compreensão da estrutura por profissionais de banco de dados, mesmo que não possuam conhecimento aprofundado de XML.
+
+---
+
+## 7. LEIAUTE DE RELATÓRIO — PADRÃO VISUAL DO MOC
+
+Este é um dos requisitos mais importantes do projeto.
+
+Além do diagrama interativo, desenvolva uma área denominada **Leiaute do Relatório**, destinada à consulta de toda a documentação em formato tradicional de relatório técnico.
+
+Utilize como referência visual o site oficial do MOC e as imagens fornecidas.
+
+### 7.1. Organização do conteúdo
+
+Organize o relatório respeitando a ordem oficial dos grupos e subgrupos.
+
+Exemplos de organização:
+
+- Leiaute da NF-e.
+- Grupo A — Dados da Nota Fiscal eletrônica.
+- Grupo B — Identificação da Nota Fiscal eletrônica.
+- Grupo C — Identificação do Emitente.
+- Grupo E — Identificação do Destinatário.
+- Grupo H — Detalhamento de Produtos e Serviços.
+- Grupos de tributação.
+- Grupo W — Total da NF-e.
+- Grupo W03 — Total da NF-e — IBS / CBS / IS.
+
+Os exemplos acima são ilustrativos. Utilize os títulos exatos e a organização encontrada na documentação oficial.
+
+Cada grupo deverá possuir uma seção própria, com título, identificação, tabela de elementos e respectivos subgrupos.
+
+### 7.2. Estrutura das tabelas
+
+Preserve as dez colunas originais do MOC:
+
+| Coluna | Conteúdo |
+|---|---|
+| # | Número de ordenação oficial |
+| ID | Identificador oficial |
+| Campo | Nome da tag ou atributo XML |
+| Descrição | Descrição oficial |
+| Ele | Classificação do elemento |
+| Pai | Identificador do elemento pai |
+| Tipo | Tipo de dado |
+| Ocor. | Ocorrência ou cardinalidade |
+| Tam. | Tamanho do campo |
+| Observação | Orientações e regras oficiais |
+
+Preserve o conteúdo completo das descrições e observações, inclusive quando forem extensas.
+
+Não omita informações para reduzir artificialmente o tamanho do relatório.
+
+### 7.3. Identidade visual
+
+Utilize um leiaute semelhante ao padrão visual apresentado nas imagens do MOC:
+
+- Fundo branco ou claro.
+- Títulos em azul-escuro.
+- Cabeçalhos de tabelas em azul e verde.
+- Texto branco nos cabeçalhos.
+- Faixas suaves para identificação dos grupos.
+- Barra lateral dourada nos títulos das seções.
+- Linhas de grupos e subgrupos com fundo verde-claro.
+- Destaque em negrito para grupos estruturais.
+- Linhas alternadas em branco e cinza-claro.
+- Bordas finas e discretas.
+- Tipografia profissional.
+- Espaçamento compacto e uniforme.
+- Colunas de descrição e observação com largura adequada.
+
+A aparência deverá ser institucional, moderna, organizada e profissional, sem sugerir que o explorador seja um sistema oficial do governo.
+
+Evite espaços excessivos entre os grupos e elementos decorativos que prejudiquem a impressão.
+
+### 7.4. Interatividade do relatório
+
+O relatório deverá permitir:
+
+- Expandir e recolher grupos.
+- Navegar por um sumário.
+- Pesquisar campos.
+- Filtrar grupos.
+- Selecionar grupos para impressão.
+- Clicar nos identificadores dos elementos pais.
+- Clicar nas tags para consultar detalhes técnicos.
+- Copiar nomes de campos e caminhos XPath.
+- Localizar o elemento no diagrama.
+- Localizar a tabela e coluna Oracle sugeridas.
+
+### 7.5. Modos de visualização
+
+Disponibilize três modos:
+
+**Modo oficial:** apresenta as dez colunas e a organização original do MOC.
+
+**Modo hierárquico:** acrescenta recuos, conectores e identificação dos níveis de profundidade.
+
+**Modo técnico Oracle:** acrescenta XPath, tipo XSD, tipo Oracle, tabela, coluna e relacionamentos sugeridos.
+
+As informações complementares não deverão modificar ou substituir o conteúdo oficial.
+
+---
+
+## 8. RELATÓRIO OTIMIZADO PARA IMPRESSÃO E PDF
+
+A qualidade da impressão deverá ser tratada como uma funcionalidade principal do sistema, e não como um recurso secundário.
+
+Desenvolva um leiaute independente para impressão, evitando simplesmente imprimir a tela da aplicação.
+
+### 8.1. Estrutura do relatório impresso
+
+O relatório completo deverá conter:
+
+1. Capa.
+2. Identificação do documento.
+3. Versão do leiaute oficial.
+4. Nota Técnica de referência.
+5. Data de atualização.
+6. Data de geração do relatório.
+7. Identificação das fontes consultadas.
+8. Sumário.
+9. Visão geral da estrutura.
+10. Diagramas hierárquicos.
+11. Grupos e subgrupos.
+12. Tabelas detalhadas.
+13. Dicionário de dados.
+14. Modelagem Oracle, quando selecionada.
+15. Histórico de alterações, quando selecionado.
+16. Referências técnicas.
+
+### 8.2. Configurações de impressão
+
+Implemente:
+
+- Formato A4.
+- Orientação retrato.
+- Orientação paisagem.
+- Margens padronizadas.
+- Numeração automática das páginas.
+- Cabeçalhos e rodapés.
+- Repetição dos cabeçalhos das tabelas.
+- Quebras de página inteligentes.
+- Preservação dos títulos junto às respectivas tabelas.
+- Tratamento de observações extensas.
+- Ajuste proporcional das colunas.
+- Ausência de conteúdo cortado.
+- Ausência de páginas em branco desnecessárias.
+- Legibilidade em impressão colorida.
+- Legibilidade em preto e branco.
+- Remoção de menus, botões e controles interativos.
+
+Utilize preferencialmente orientação paisagem para as tabelas completas de dez colunas.
+
+Não reduza excessivamente o tamanho da fonte para encaixar uma tabela na página. Priorize a legibilidade e a distribuição adequada do conteúdo.
+
+Para diagramas muito grandes, disponibilize uma visão geral seguida de diagramas detalhados por grupo, permitindo compreender a estrutura sem comprometer a leitura.
+
+Utilize CSS específico para impressão, incluindo @media print e @page. Caso os recursos de impressão do navegador não sejam suficientes para garantir a paginação, utilize um mecanismo dedicado de geração de PDF.
+
+### 8.3. Opções de geração de relatórios
+
+Permita gerar:
+
+- Relatório completo do leiaute.
+- Relatório resumido.
+- Relatório de um grupo específico.
+- Relatório de vários grupos selecionados.
+- Relatório de todos os tributos.
+- Relatório exclusivo de ICMS.
+- Relatório exclusivo de IBS.
+- Relatório exclusivo de CBS.
+- Relatório exclusivo do Imposto Seletivo.
+- Relatório de produtos e serviços.
+- Relatório dos diagramas hierárquicos.
+- Relatório do dicionário de dados.
+- Relatório da modelagem Oracle.
+- Relatório do DER.
+- Relatório das alterações entre versões.
+
+Disponibilize opções para incluir ou excluir capa, sumário, diagramas, observações técnicas e sugestões de modelagem.
+
+### 8.4. Pré-visualização
+
+Antes da impressão, permita visualizar:
+
+- Os grupos selecionados.
+- A orientação das páginas.
+- O formato das tabelas.
+- A organização dos diagramas.
+- A quantidade de páginas, quando disponível.
+- O resultado final do relatório.
+
+O PDF deverá possuir texto pesquisável e selecionável, preferencialmente com sumário navegável e marcadores por grupo.
+
+O relatório deverá possuir qualidade suficiente para distribuição institucional, documentação de projetos, estudos técnicos e impressão física.
+
+---
+
+## 9. DICIONÁRIO DE DADOS COMPLETO
+
+Desenvolva um dicionário de dados interativo contendo todas as informações oficiais do MOC, complementadas pelos dados técnicos extraídos dos arquivos XSD.
+
+Inclua:
+
+| Informação | Finalidade |
+|---|---|
+| ID oficial | Identificação do campo |
+| Grupo | Grupo oficial |
+| Subgrupo | Subdivisão hierárquica |
+| Campo | Nome da tag XML |
+| Descrição | Descrição oficial |
+| Pai | Elemento pai |
+| XPath | Caminho completo |
+| Namespace | Identificação do namespace |
+| Tipo MOC | Tipo oficial documentado |
+| Tipo XSD | Tipo definido no schema |
+| Tipo Oracle | Tipo sugerido para armazenamento |
+| MinOccurs | Cardinalidade mínima |
+| MaxOccurs | Cardinalidade máxima |
+| Obrigatoriedade | Classificação estrutural e condicional |
+| Tamanho mínimo | Restrição de tamanho |
+| Tamanho máximo | Restrição de tamanho |
+| Precisão | Precisão numérica |
+| Escala | Casas decimais |
+| Valores permitidos | Enumerações e restrições |
+| Arquivo XSD | Origem técnica |
+| Tabela Oracle | Tabela sugerida |
+| Coluna Oracle | Coluna sugerida |
+| Aplicabilidade | NF-e, NFC-e ou ambas |
+| Nota Técnica | Referência confirmada |
+| Observação | Orientações oficiais |
+| Situação | Ativo, alterado, excluído ou desativado |
+
+Diferencie a obrigatoriedade local de um campo da obrigatoriedade efetiva, considerando grupos pais opcionais e estruturas de escolha.
+
+Disponibilize:
+
+- Pesquisa.
+- Filtros.
+- Ordenação.
+- Seleção de colunas.
+- Agrupamento.
+- Exportação para Excel.
+- Exportação para CSV.
+- Exportação para JSON.
+- Impressão.
+- Geração de PDF.
+
+---
+
+## 10. PAINEL DE DETALHAMENTO DOS ELEMENTOS
+
+Ao selecionar qualquer elemento no explorador, diagrama ou relatório, apresente um painel com:
+
+- Identificador oficial.
+- Nome da tag.
+- Descrição.
+- Grupo e subgrupo.
+- Elemento pai.
+- Elementos filhos.
+- Caminho XPath.
+- Namespace.
+- Tipo de dado.
+- Cardinalidade.
+- Obrigatoriedade.
+- Restrições.
+- Valores permitidos.
+- Observações oficiais.
+- Exemplo ilustrativo de preenchimento XML.
+- Trecho correspondente do arquivo XSD.
+- Tipo Oracle sugerido.
+- Tabela e coluna sugeridas.
+- Nota Técnica relacionada.
+- Histórico de alterações do campo.
+- Link para a documentação oficial.
+
+Permita navegar diretamente entre os elementos relacionados.
+
+Identifique claramente os exemplos ilustrativos, diferenciando-os das informações oficiais.
+
+---
+
+## 11. MODELAGEM DE BANCO DE DADOS ORACLE
+
+Desenvolva uma proposta de modelagem relacional adequada ao armazenamento, extração e análise de grandes volumes de documentos fiscais eletrônicos.
+
+A modelagem deverá considerar:
+
+- Entidades principais.
+- Entidades dependentes.
+- Tabelas.
+- Colunas.
+- Chaves primárias (PK).
+- Chaves estrangeiras (FK).
+- Chaves naturais.
+- Chaves substitutas.
+- Relacionamentos 1:1.
+- Relacionamentos 1:N.
+- Grupos repetitivos.
+- Restrições de integridade.
+- Índices.
+- Particionamento.
+- Estratégias para evitar duplicidades.
+- Rastreabilidade dos registros.
+- Preservação dos dados históricos.
+
+Considere especialmente a organização de informações relacionadas a:
+
+- Chave de acesso.
+- Identificação da NF-e.
+- Emitente.
+- Destinatário.
+- Endereços.
+- Documentos referenciados.
+- Produtos e serviços.
+- Itens.
+- Tributação por item.
+- ICMS.
+- IPI.
+- PIS.
+- COFINS.
+- IBS.
+- CBS.
+- Imposto Seletivo.
+- Totais.
+- Transporte.
+- Pagamentos.
+- Informações adicionais.
+
+Preserve os zeros à esquerda dos códigos e identificadores fiscais quando necessário.
+
+Utilize tipos de dados Oracle adequados, considerando:
+
+- VARCHAR2.
+- CHAR.
+- NUMBER.
+- DATE.
+- TIMESTAMP.
+- TIMESTAMP WITH TIME ZONE.
+- CLOB.
+- XMLTYPE, quando aplicável.
+
+Considere a precisão dos valores monetários, as restrições dos schemas, os fusos horários e o volume esperado de armazenamento.
+
+Não converta automaticamente códigos fiscais em números apenas porque o MOC os classifica como numéricos.
+
+Apresente alternativas de modelagem quando houver mais de uma solução tecnicamente adequada, explicando as vantagens e desvantagens.
+
+---
+
+## 12. DIAGRAMA DE ENTIDADE-RELACIONAMENTO — DER
+
+Desenvolva um DER interativo que represente a proposta de armazenamento relacional.
+
+O diagrama deverá apresentar:
+
+- Tabelas.
+- Colunas.
+- Tipos de dados.
+- Chaves primárias.
+- Chaves estrangeiras.
+- Relacionamentos.
+- Cardinalidades.
+- Entidades dependentes.
+- Grupos repetitivos.
+- Restrições de integridade.
+
+Ao selecionar uma tabela, permita identificar quais grupos e elementos do XML deram origem àquela entidade.
+
+Ao selecionar um elemento no explorador XSD, permita localizar sua tabela e coluna correspondentes.
+
+Disponibilize visualizações resumidas e detalhadas, por área de negócio ou tributo.
+
+Permita exportar e imprimir o DER completo ou apenas os relacionamentos selecionados.
+
+---
+
+## 13. SCRIPTS ORACLE SQL
+
+Gere sugestões de scripts SQL relacionados à modelagem proposta, incluindo:
+
+- CREATE TABLE.
+- ALTER TABLE.
+- PRIMARY KEY.
+- FOREIGN KEY.
+- UNIQUE.
+- CHECK CONSTRAINT.
+- CREATE INDEX.
+- Particionamento.
+- INSERT.
+- MERGE.
+- SELECT.
+- JOIN.
+- XMLTABLE.
+- Processos de extração de XML.
+- Processos ETL.
+- Consultas de validação.
+- Identificação de registros duplicados.
+- Consultas de conferência.
+
+Os scripts deverão ser organizados, comentados e disponibilizados para download.
+
+Utilize aliases claros, nomes padronizados e exemplos didáticos.
+
+Informe os pré-requisitos, a versão Oracle considerada e as premissas utilizadas.
+
+Os scripts representam propostas técnicas e deverão ser revisados antes de qualquer utilização em produção.
+
+**O sistema não deverá executar automaticamente nenhuma alteração no banco de dados Oracle de produção.**
+
+---
+
+## 14. MONITORAMENTO AUTOMÁTICO DO SITE OFICIAL
+
+Como a principal fonte de informações será a documentação oficial do MOC, desenvolva um mecanismo automático de monitoramento.
+
+**Fonte monitorada:**
+
+https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html
+
+A ferramenta deverá consultar o site diariamente, em horário configurável, e identificar alterações relevantes.
+
+A verificação deverá considerar:
+
+- Novas versões do leiaute.
+- Novas Notas Técnicas.
+- Atualização das Notas Técnicas existentes.
+- Novos grupos.
+- Novos subgrupos.
+- Novos elementos.
+- Novos atributos.
+- Alterações de descrições.
+- Alterações de observações.
+- Alterações de tipos de dados.
+- Alterações de cardinalidades.
+- Alterações de tamanhos.
+- Alterações de obrigatoriedade.
+- Alterações de regras de preenchimento.
+- Alterações hierárquicas.
+- Exclusões ou desativações de campos.
+- Novos pacotes XSD publicados nas fontes oficiais correspondentes.
+
+Não utilize somente a data de atualização ou a identificação da Nota Técnica.
+
+Compare também o conteúdo estruturado dos grupos e campos, pois poderão existir alterações sem mudança no indicador principal da versão.
+
+Ignore alterações exclusivamente visuais, como cores, menus, estilos e outros elementos que não afetem a documentação técnica.
+
+---
+
+## 15. PROCESSO AUTOMÁTICO DE ATUALIZAÇÃO
+
+Quando o sistema identificar alterações na documentação oficial, execute o seguinte procedimento:
+
+1. Consulte a fonte oficial.
+2. Capture o conteúdo atualizado.
+3. Preserve uma cópia da versão anterior.
+4. Registre a data da consulta.
+5. Extraia os grupos, subgrupos e elementos.
+6. Compare o conteúdo anterior com o conteúdo atualizado.
+7. Identifique exatamente o que foi modificado.
+8. Valide a integridade da nova documentação.
+9. Registre as alterações encontradas.
+10. Atualize somente as informações modificadas na base estruturada.
+11. Atualize os diagramas.
+12. Atualize o explorador hierárquico.
+13. Atualize o leiaute do relatório.
+14. Atualize o dicionário de dados.
+15. Atualize os indicadores.
+16. Analise os impactos na modelagem Oracle.
+17. Gere o relatório de alterações.
+18. Registre a nova versão no histórico.
+19. Notifique o usuário.
+20. Disponibilize a documentação atualizada.
+
+A atualização deverá ocorrer de maneira incremental, segura e rastreável.
+
+Não será necessário reconstruir toda a ferramenta quando houver uma alteração na documentação oficial.
+
+Caso ocorra falha na extração, inconsistência nos dados, indisponibilidade da fonte ou redução inesperada da quantidade de campos, interrompa a atualização.
+
+Preserve a última versão válida até que as novas informações possam ser verificadas.
+
+Não classifique automaticamente como excluído um campo que deixou de ser localizado devido a erro de comunicação ou mudança na estrutura da página.
+
+---
+
+## 16. COMPARAÇÃO ENTRE VERSÕES
+
+Desenvolva uma funcionalidade que permita comparar quaisquer duas versões armazenadas.
+
+Para cada alteração identificada, apresente:
+
+- Grupo.
+- Subgrupo.
+- ID oficial.
+- Nome do campo.
+- XPath.
+- Tipo de alteração.
+- Propriedade modificada.
+- Informação anterior.
+- Informação atualizada.
+- Data da detecção.
+- Nota Técnica relacionada, quando confirmada.
+- Data da publicação, quando disponível.
+- Impacto técnico.
+- Impacto potencial no Oracle.
+- Referência oficial.
+
+Utilize a seguinte identificação visual:
+
+| Cor | Significado |
+|---|---|
+| Verde | Campo incluído |
+| Amarelo ou laranja | Campo alterado |
+| Vermelho | Campo excluído ou desativado |
+| Azul | Novo grupo ou subgrupo |
+| Cinza | Campo sem alteração |
+
+Utilize também textos e símbolos para garantir que as diferenças permaneçam identificáveis em impressão preto e branco.
+
+O sistema deverá permitir filtrar as alterações por versão, período, Nota Técnica, grupo, tributo e tipo de alteração.
+
+---
+
+## 17. CENTRAL DE ATUALIZAÇÕES
+
+Crie uma área no menu principal denominada **Central de Atualizações**.
+
+Apresente:
+
+- Fonte oficial monitorada.
+- Versão oficial identificada.
+- Versão atualmente utilizada.
+- Última verificação.
+- Última atualização bem-sucedida.
+- Próxima verificação programada.
+- Situação da sincronização.
+- Quantidade de inclusões.
+- Quantidade de alterações.
+- Quantidade de exclusões.
+- Novos grupos.
+- Campos afetados.
+- Histórico de versões.
+- Erros de monitoramento.
+- Impactos potenciais no Oracle.
+
+Disponibilize os comandos:
+
+- Verificar atualizações agora.
+- Visualizar alterações.
+- Atualizar base.
+- Comparar versões.
+- Consultar histórico.
+- Gerar relatório de alterações.
+- Exportar alterações para Excel.
+- Gerar PDF das alterações.
+- Imprimir alterações.
+- Restaurar versão anterior.
+- Configurar frequência de verificação.
+- Configurar notificações.
+
+---
+
+## 18. SISTEMA DE NOTIFICAÇÕES
+
+Sempre que houver alteração relevante na documentação oficial, o sistema deverá me avisar.
+
+Disponibilize preferencialmente:
+
+- Notificação dentro do sistema.
+- Indicador de novas atualizações no menu.
+- Notificação por e-mail, quando configurada.
+- Histórico de notificações.
+- Controle de notificações lidas e não lidas.
+
+A notificação deverá informar:
+
+- Nova versão ou Nota Técnica.
+- Data da publicação.
+- Data em que a alteração foi identificada.
+- Grupos afetados.
+- Campos incluídos.
+- Campos modificados.
+- Campos excluídos ou desativados.
+- Principais alterações.
+- Impactos técnicos.
+- Situação da atualização da base.
+- Link para consultar o relatório completo.
+
+Não envie notificações duplicadas sobre a mesma alteração.
+
+Notifique também quando houver falhas persistentes no monitoramento, evitando que o usuário acredite que a documentação está atualizada quando a fonte estiver indisponível.
+
+O monitoramento deverá funcionar mesmo quando o navegador estiver fechado, mediante serviço ou rotina agendada devidamente configurada.
+
+---
+
+## 19. HISTÓRICO E CONTROLE DE VERSÕES
+
+Mantenha um histórico permanente das versões processadas.
+
+Para cada versão, registre:
+
+- Identificação do leiaute.
+- Número da Nota Técnica.
+- Versão da Nota Técnica.
+- Data da publicação.
+- Data da consulta.
+- Data da atualização.
+- Quantidade de grupos.
+- Quantidade de subgrupos.
+- Quantidade de elementos.
+- Quantidade de atributos.
+- Quantidade de inclusões.
+- Quantidade de alterações.
+- Quantidade de exclusões.
+- Situação da validação.
+- Identificador ou hash do conteúdo.
+- Cópia estruturada da documentação.
+
+Permita consultar, comparar, exportar e imprimir versões anteriores.
+
+Disponibilize um mecanismo seguro de restauração da última versão válida.
+
+Nunca elimine silenciosamente a documentação histórica.
+
+---
+
+## 20. RELATÓRIO DE ALTERAÇÕES DO LEIAUTE
+
+Desenvolva um relatório específico denominado **Relatório de Alterações do Leiaute da NF-e e NFC-e**.
+
+O relatório deverá apresentar:
+
+1. Identificação da versão anterior.
+2. Identificação da versão atual.
+3. Nota Técnica relacionada.
+4. Data da atualização.
+5. Resumo executivo.
+6. Indicadores quantitativos.
+7. Novos grupos e subgrupos.
+8. Novos elementos e atributos.
+9. Campos alterados.
+10. Campos excluídos ou desativados.
+11. Comparativo entre valores anteriores e atuais.
+12. Alterações hierárquicas.
+13. Impactos no Oracle.
+14. Sugestões de adequação.
+15. Referências oficiais.
+
+Utilize o mesmo padrão visual do relatório principal inspirado no MOC.
+
+Permita gerar versões completas ou resumidas, com exportação para PDF, Excel e impressão em A4.
+
+O objetivo é possibilitar a identificação imediata de tudo que mudou, sem necessidade de reler toda a documentação oficial.
+
+---
+
+## 21. ANÁLISE DE IMPACTO DAS ATUALIZAÇÕES NO ORACLE
+
+Sempre que houver alterações na documentação oficial, identifique possíveis impactos sobre:
+
+- Estrutura das tabelas.
+- Inclusão de novas colunas.
+- Alteração de tipos de dados.
+- Alteração de tamanhos.
+- Precisão e escala numérica.
+- Chaves primárias.
+- Chaves estrangeiras.
+- Relacionamentos.
+- Restrições de integridade.
+- Índices.
+- Particionamento.
+- Processos ETL.
+- Consultas XMLTABLE.
+- Consultas SQL.
+- Indicadores de Business Intelligence.
+- Relatórios existentes.
+- Dados históricos.
+
+Classifique os impactos como:
+
+- Informativo.
+- Baixo.
+- Médio.
+- Alto.
+- Crítico.
+
+Quando aplicável, apresente sugestões de scripts Oracle SQL para adequação da estrutura.
+
+Não realize alterações automáticas em bancos de dados externos.
+
+Qualquer adequação deverá depender de avaliação e aprovação do profissional responsável.
+
+---
+
+## 22. PAINEL DE INDICADORES
+
+Desenvolva uma visão geral contendo indicadores calculados dinamicamente.
+
+Apresente:
+
+- Total de grupos.
+- Total de subgrupos.
+- Total de elementos.
+- Total de atributos.
+- Total de campos obrigatórios.
+- Total de campos opcionais.
+- Total de campos condicionais.
+- Total de grupos repetitivos.
+- Total de tipos de dados.
+- Total de campos por tributo.
+- Total de arquivos XSD.
+- Total de entidades Oracle sugeridas.
+- Total de relacionamentos.
+- Total de divergências entre MOC e XSD.
+- Total de versões armazenadas.
+- Total de alterações na versão atual.
+- Data da última atualização.
+
+Disponibilize gráficos e tabelas interativas, permitindo selecionar um indicador para consultar os elementos correspondentes.
+
+Não utilize valores fictícios no sistema final.
+
+Documente os critérios utilizados para calcular cada indicador, distinguindo declarações XSD únicas de ocorrências em diferentes caminhos XML.
+
+---
+
+## 23. INTERFACE PRINCIPAL DO SISTEMA
+
+Desenvolva uma interface moderna, profissional, intuitiva e responsiva.
+
+Organize preferencialmente o menu principal nas seguintes áreas:
+
+1. Visão geral.
+2. Leiaute oficial do MOC.
+3. Explorador interativo de XSD.
+4. Diagrama hierárquico.
+5. Leiaute do relatório.
+6. Dicionário de dados.
+7. Relacionamentos e cardinalidades.
+8. Modelagem Oracle.
+9. Diagrama de Entidade-Relacionamento.
+10. Visualizador de XML e XSD.
+11. Scripts Oracle SQL.
+12. Central de atualizações.
+13. Comparação entre versões.
+14. Histórico de alterações.
+15. Análise de impacto no Oracle.
+16. Relatórios e impressão.
+17. Exportação de dados.
+18. Configurações.
+19. Manual de utilização.
+
+Utilize um padrão visual uniforme em todas as áreas.
+
+Priorize a facilidade de navegação, a clareza das informações e a produtividade dos profissionais de banco de dados.
+
+Mantenha o contexto do grupo ou elemento selecionado durante a navegação entre as diferentes visualizações.
+
+---
+
+## 24. EXPORTAÇÃO DE INFORMAÇÕES
+
+Disponibilize exportação para:
+
+| Formato | Finalidade |
+|---|---|
+| PDF | Relatórios técnicos e impressão |
+| Excel (XLSX) | Dicionário de dados e análise |
+| CSV | Integração e tratamento de dados |
+| JSON | Dados estruturados e versionamento |
+| SVG | Diagramas vetoriais |
+| PNG | Imagens dos diagramas |
+| SQL | Scripts Oracle |
+| HTML | Consulta local e documentação |
+
+Permita exportar:
+
+- Toda a documentação.
+- Grupos específicos.
+- Subgrupos específicos.
+- Campos selecionados.
+- Informações tributárias.
+- Dicionário de dados.
+- Modelagem Oracle.
+- Diagramas.
+- Alterações entre versões.
+- Histórico de atualizações.
+
+As exportações deverão respeitar os filtros selecionados pelo usuário, com opção de exportar também a base completa.
+
+---
+
+## 25. ARQUITETURA TÉCNICA RECOMENDADA
+
+Utilize preferencialmente uma arquitetura composta por:
+
+- HTML.
+- CSS.
+- JavaScript.
+- Node.js ou Python.
+- PostgreSQL ou SQLite.
+- API REST.
+- Arquivos JSON versionados.
+- Biblioteca adequada para diagramas interativos.
+- Serviço de monitoramento agendado.
+- Sistema de logs.
+- Mecanismo de backup e restauração.
+- Mecanismo de geração de relatórios e PDF.
+- Testes automatizados.
+
+Separe claramente:
+
+1. Coleta das informações oficiais.
+2. Processamento e interpretação dos arquivos XSD.
+3. Validação e comparação dos dados.
+4. Armazenamento versionado.
+5. Interface de visualização.
+6. Geração de relatórios.
+7. Modelagem Oracle.
+8. Monitoramento e notificações.
+
+Todas as visualizações deverão utilizar uma única base estruturada e versionada.
+
+Não mantenha cópias independentes dos dados para cada relatório ou diagrama, evitando divergências.
+
+O sistema deverá permitir consultas locais utilizando a última versão válida, mesmo quando a fonte oficial estiver indisponível.
+
+O monitoramento automático deverá ser executado por um serviço agendado, independentemente da abertura do navegador.
+
+Caso a ferramenta seja disponibilizada em hospedagem gratuita, avalie as limitações do serviço para armazenamento persistente, execução de tarefas agendadas e disponibilidade.
+
+Apresente alternativas de implantação e seus possíveis custos antes de recomendar serviços pagos.
+
+---
+
+## 26. DESEMPENHO E SEGURANÇA
+
+Garanta que o sistema:
+
+- Possua carregamento rápido.
+- Utilize renderização sob demanda de grupos extensos.
+- Evite processamento desnecessário.
+- Utilize armazenamento eficiente.
+- Suporte grandes volumes de elementos.
+- Preserve as versões históricas.
+- Possua mecanismos de recuperação.
+- Registre erros e falhas.
+- Proteja configurações e credenciais.
+- Não exponha informações sensíveis.
+- Valide arquivos XSD importados.
+- Utilize apenas fontes oficiais autorizadas.
+- Evite consultas excessivas ao site oficial.
+- Preserve a última versão válida.
+- Impeça atualizações incompletas.
+
+Ao processar arquivos XML e XSD, utilize mecanismos seguros contra entidades externas indevidas, referências não autorizadas, arquivos maliciosos e consumo excessivo de recursos.
+
+Não permita que uma falha de monitoramento comprometa o funcionamento do explorador.
+
+---
+
+## 27. POSSIBILIDADE DE EXPANSÃO FUTURA
+
+Embora o projeto inicialmente seja destinado à NF-e e NFC-e, desenvolva uma arquitetura reutilizável.
+
+Prepare o sistema para incorporar futuramente:
+
+- CT-e.
+- CT-e OS.
+- MDF-e.
+- NF3e.
+- NFCom.
+- NFS-e.
+- Outros documentos fiscais eletrônicos.
+- Arquivos XSD personalizados.
+
+Permita importar novos schemas, selecionar elementos raiz e gerar automaticamente a estrutura hierárquica, o dicionário de dados e os relatórios correspondentes.
+
+Não misture estruturas ou versões de documentos fiscais diferentes.
+
+---
+
+## 28. AUDITORIA E TESTES OBRIGATÓRIOS
+
+Antes da entrega, realize uma auditoria completa do projeto.
+
+### 28.1. Validação dos dados
+
+Verifique:
+
+- Cobertura de todos os grupos oficiais.
+- Integridade dos identificadores.
+- Preservação das descrições.
+- Preservação das observações.
+- Relacionamentos entre pais e filhos.
+- Caminhos XPath.
+- Namespaces.
+- Cardinalidades.
+- Tipos de dados.
+- Restrições.
+- Estruturas de escolha.
+- Dependências entre arquivos XSD.
+- Existência de elementos duplicados.
+- Consistência entre MOC e XSD.
+
+### 28.2. Validação das funcionalidades
+
+Teste:
+
+- Pesquisa.
+- Filtros.
+- Expansão dos grupos.
+- Navegação hierárquica.
+- Diagramas.
+- Detalhamento dos campos.
+- Dicionário de dados.
+- Modelagem Oracle.
+- DER.
+- Exportação.
+- Impressão.
+- Geração de PDF.
+
+### 28.3. Validação do monitoramento
+
+Simule:
+
+- Site sem alterações.
+- Inclusão de um campo.
+- Inclusão de um grupo.
+- Alteração de descrição.
+- Alteração de cardinalidade.
+- Alteração de tipo de dado.
+- Alteração de tamanho.
+- Exclusão de campo.
+- Nova Nota Técnica.
+- Indisponibilidade do site.
+- Mudança na estrutura HTML.
+- Extração incompleta.
+- Falha no armazenamento.
+- Atualização interrompida.
+- Restauração de versão anterior.
+- Notificação de atualização.
+- Prevenção de notificações duplicadas.
+
+### 28.4. Validação da impressão
+
+Verifique visualmente os PDFs gerados, incluindo:
+
+- Capa.
+- Sumário.
+- Cabeçalhos.
+- Rodapés.
+- Numeração de páginas.
+- Títulos dos grupos.
+- Legibilidade das tabelas.
+- Repetição dos cabeçalhos.
+- Observações extensas.
+- Quebras de página.
+- Diagramas.
+- Orientação retrato e paisagem.
+- Impressão em preto e branco.
+- Ausência de conteúdo cortado.
+- Ausência de páginas desnecessárias.
+
+Não considere a impressão aprovada apenas porque o arquivo PDF foi gerado. Confira efetivamente sua qualidade visual e a integridade do conteúdo.
+
+Apresente os resultados dos testes realizados, diferenciando testes executados, simulações, testes não executados e limitações encontradas.
+
+---
+
+## 29. ETAPAS DE DESENVOLVIMENTO
+
+Organize o desenvolvimento de maneira progressiva.
+
+**Etapa 1 — Fundação do projeto**
+
+- Análise da documentação oficial.
+- Análise dos arquivos XSD.
+- Extração das informações.
+- Estruturação da base.
+- Validação da cobertura dos dados.
+
+**Etapa 2 — Explorador visual**
+
+- Interface principal.
+- Explorador hierárquico.
+- Diagramas interativos.
+- Painel de detalhamento.
+- Pesquisas e filtros.
+
+**Etapa 3 — Relatórios e impressão**
+
+- Leiaute de relatório inspirado no MOC.
+- Dicionário de dados.
+- Exportação para Excel.
+- Geração de PDF.
+- Impressão profissional.
+
+**Etapa 4 — Modelagem Oracle**
+
+- Proposta de tabelas.
+- Relacionamentos.
+- DER.
+- Scripts SQL.
+- Exemplos XMLTABLE.
+- Estratégias de armazenamento.
+
+**Etapa 5 — Atualização automática**
+
+- Monitoramento da fonte oficial.
+- Comparação entre versões.
+- Histórico.
+- Atualização segura da base.
+- Notificações.
+- Relatório de alterações.
+
+**Etapa 6 — Análise de impacto**
+
+- Identificação das alterações técnicas.
+- Impactos na modelagem Oracle.
+- Sugestões de scripts de adequação.
+- Relatórios comparativos.
+
+**Etapa 7 — Auditoria final**
+
+- Testes automatizados.
+- Testes de desempenho.
+- Validação da documentação.
+- Validação dos relatórios.
+- Validação do monitoramento.
+- Revisão de segurança.
+- Manual de utilização.
+
+Valide cada etapa antes de iniciar a seguinte.
+
+Preserve as funcionalidades aprovadas durante as evoluções do projeto.
+
+---
+
+## 30. ENTREGAS OBRIGATÓRIAS
+
+Ao concluir o desenvolvimento, entregue:
+
+- Projeto completo com todos os arquivos.
+- Código-fonte organizado.
+- Base estruturada de informações.
+- Explorador interativo de XSD.
+- Diagrama hierárquico completo.
+- Leiaute de relatório baseado no MOC.
+- Dicionário de dados.
+- Modelagem Oracle.
+- Diagrama de Entidade-Relacionamento.
+- Scripts Oracle SQL sugeridos.
+- Relatórios completos em PDF.
+- Relatórios parciais por grupo.
+- Planilha Excel com o dicionário de dados.
+- Sistema de monitoramento.
+- Central de atualizações.
+- Comparador de versões.
+- Histórico de alterações.
+- Sistema de notificações.
+- Relatório de impacto no Oracle.
+- Manual de instalação.
+- Manual de utilização.
+- Relatório técnico.
+- Relatório de auditoria.
+- Relação das fontes oficiais.
+- Histórico de versões do projeto.
+
+Disponibilize o projeto completo em arquivo ZIP.
+
+Nas futuras atualizações, disponibilize três arquivos separados:
+
+1. ZIP completo atualizado.
+2. ZIP contendo exclusivamente os arquivos novos ou modificados, preservando a estrutura original.
+3. Relatório técnico detalhado em Markdown.
+
+---
+
+## 31. RESULTADO FINAL ESPERADO
+
+Quero desenvolver uma verdadeira plataforma de documentação, exploração e engenharia de dados fiscais.
+
+A ferramenta deverá combinar:
+
+- A fidelidade da documentação oficial do MOC.
+- A estrutura técnica dos arquivos XSD.
+- A visualização hierárquica interativa.
+- A facilidade de consulta de um dicionário de dados.
+- A capacidade de modelagem Oracle.
+- A qualidade de relatórios técnicos profissionais.
+- A facilidade de impressão e distribuição em PDF.
+- O monitoramento automático das fontes oficiais.
+- O controle de versões.
+- A identificação de alterações.
+- A análise dos impactos no banco de dados.
+
+Um profissional de banco de dados, mesmo sem conhecimento aprofundado sobre documentos fiscais eletrônicos, deverá conseguir compreender toda a estrutura da NF-e e NFC-e, identificar os campos, consultar seus relacionamentos e entender como armazenar e extrair essas informações utilizando Oracle SQL.
+
+Sempre que o site oficial sofrer uma alteração relevante, o sistema deverá identificar exatamente o que mudou, atualizar a documentação com segurança, preservar o histórico e me notificar.
+
+Também deverá ser possível gerar um relatório completo, parcial ou comparativo, com qualidade visual adequada à impressão física e à distribuição em PDF.
+
+**Não quero apenas um site bonito, um diagrama genérico ou uma reprodução estática do MOC. Quero uma ferramenta técnica, interativa, confiável, permanentemente atualizável e especialmente desenvolvida para profissionais de banco de dados e fiscalização tributária.**
+
+Antes de iniciar a implementação, apresente:
+
+- A análise dos requisitos.
+- A arquitetura proposta.
+- A estrutura de armazenamento.
+- O planejamento das etapas.
+- As tecnologias recomendadas.
+- As possíveis limitações técnicas.
+- Os riscos identificados.
+- As alternativas de implantação.
+- Os critérios de aceitação de cada funcionalidade.
+
+Após essa análise, desenvolva a solução respeitando integralmente os requisitos apresentados.
+
+As prioridades do projeto são:
+
+**Fidelidade à documentação oficial, integridade das informações, compreensão da hierarquia, qualidade da modelagem Oracle, interatividade, atualização automática e excelência na geração de relatórios para impressão.**
