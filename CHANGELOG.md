@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## V2.3.2-beta.1 — 24/11/2026
+
+- Ajustada entrada do GitHub Pages quando a publicação está configurada como `main / (root)`: novo `index.html` na raiz encaminha ao aplicativo em `public/`.
+- Adicionado `.nojekyll` para evitar processamento Jekyll da entrada no modo branch.
+- Incluído o arquivo raiz no gatilho do workflow de publicação via GitHub Actions, sem modificar a estrutura do aplicativo.
+- Incluído teste de regressão para verificar que as **oito janelas restantes** aparecem no menu e possuem telas correspondentes nos dois HTMLs, com `Leiaute do MOC` como tela inicial e **sem Visão Geral**.
+- Preservadas integralmente as telas existentes, o catálogo demonstrativo, as regras de impressão, diagramas e JavaScript do aplicativo.
+
+
 ## V2.3.1-beta.1 — 24/11/2026
 
 - Removida a página **Visão Geral** e seu item de navegação.

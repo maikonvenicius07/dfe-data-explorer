@@ -1,0 +1,58 @@
+"""Regressão: o Pages deve abrir o aplicativo, preservando todas as telas exceto Visão Geral."""
+from pathlib import Path
+from html.parser import HTMLParser
+
+R = Path(__file__).resolve().parents[1]
+VIEWS = {'moc', 'arvore', 'dicionario', 'diagrama', 'xsd', 'oracle', 'atualizacoes', 'impressao'}
+
+class Tags(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.menu = []
+        self.sections = []
+        self.active_menu = []
+        self.active_sections = []
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == 'button' and 'data-view' in a:
+            self.menu.append(a['data-view'])
+            if 'active' in a.get('class', '').split():
+                self.active_menu.append(a['data-view'])
+        if tag == 'section' and a.get('id', '').startswith('view-'):
+            view = a['id'][5:]
+            self.sections.append(view)
+            if 'active' in a.get('class', '').split():
+                self.active_sections.append(view)
+
+
+def test_entrada_pages_modo_branch():
+    # Branch main /root: precisa abrir o aplicativo e NÃO o README.
+    content = (R / 'index.html').read_text(encoding='utf-8')
+    assert 'url=./public/' in content
+    assert 'href="./public/"' in content
+    assert (R / 'public/index.html').is_file()
+    assert (R / '.nojekyll').is_file()
+
+
+def test_oito_telas_mantidas_em_ambos_html():
+    for name in ('index.html', 'EXPLORADOR_OFFLINE_COMPLETO.html'):
+        t = Tags()
+        t.feed((R / 'public' / name).read_text(encoding='utf-8'))
+        assert set(t.menu) == VIEWS, (name, t.menu)
+        assert len(t.menu) == len(VIEWS)
+        assert set(t.sections) == VIEWS, (name, t.sections)
+        assert len(t.sections) == len(VIEWS)
+        assert t.active_menu == ['moc']
+        assert t.active_sections == ['moc']
+        assert 'resumo' not in t.menu
+        assert 'resumo' not in t.sections
+
+
+def test_workflow_github_pages_e_validacao():
+    workflow = (R / '.github/workflows/publicar_paginas.yml').read_text(encoding='utf-8')
+    assert "      - 'public/**'" in workflow
+    assert "      - 'index.html'" in workflow
+    assert 'actions/upload-pages-artifact@v4' in workflow
+    assert 'actions/deploy-pages@v4' in workflow
+    assert 'path: public' in workflow

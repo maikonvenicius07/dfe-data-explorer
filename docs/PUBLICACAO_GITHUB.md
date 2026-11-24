@@ -1,5 +1,17 @@
 # Publicação e continuidade do projeto
 
+## Publicação existente — correção V2.3.2
+
+O repositório já utilizado é `https://github.com/maikonvenicius07/dfe-data-explorer` e o endereço público é `https://maikonvenicius07.github.io/dfe-data-explorer/`.
+
+**O erro identificado:** o site exibiu o conteúdo do README no endereço raiz enquanto a opção em Settings → Pages estava em **Deploy from a branch**, `main / (root)`. A interface completa estava em `public/index.html`.
+
+**Correção de compatibilidade:** a raiz agora contém `index.html` que encaminha o navegador para `public/`, onde estão todas as janelas exceto Visão Geral. Assim, o modo `main / (root)` deixa de exibir o README em vez da aplicação. O modo **GitHub Actions** também continua suportado: o workflow publica diretamente `public/` e a raiz de redirecionamento não é incluída no artefato de Actions.
+
+Para atualizar pelo GitHub Desktop: extrair o ZIP incremental, copiar seus arquivos na raiz do repositório preservando caminhos e a pasta `.github`, clicar em Commit to main e Push origin. Conferir Actions e testar o site com `Ctrl+F5` se houver cache antigo. Não subir o ZIP como arquivo isolado.
+
+Se preferir um único método de publicação, em Settings → Pages → Source escolha **GitHub Actions**. Isso usa o workflow do projeto e evita a possível concorrência entre deploy da branch e deploy de Actions. Com esse modo, o arquivo `public/index.html` passa a ser a página inicial diretamente. O novo `index.html` da raiz é apenas uma proteção para o modo branch.
+
 ## Caminho recomendado: GitHub Pages + GitHub Actions
 
 **O que está preparado:** o workflow `.github/workflows/publicar_paginas.yml` publica a pasta `public/`; `.github/workflows/atualizar_moc.yml` agenda uma verificação diária e, somente se validada, copia o catálogo ao site estático. O aplicativo também roda localmente pelo HTML único.

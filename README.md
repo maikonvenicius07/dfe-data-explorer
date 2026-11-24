@@ -1,12 +1,12 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.1-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.2-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
 ## Abrir imediatamente
 
-Abra `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
+Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde estão todas as oito telas restantes. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
 
 ## Recursos preservados e ampliados
 
@@ -20,7 +20,7 @@ Abra `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita inst
 
 ## Repositório permanente e publicação sem reconstruir o projeto
 
-Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos de instalação, configuração do GitHub Pages, rotina agendada e recuperação de versões. Os workflows já estão incluídos, porém **nenhum repositório foi criado ou publicado automaticamente**.
+Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos de instalação, configuração do GitHub Pages, rotina agendada e recuperação de versões. O repositório está em https://github.com/maikonvenicius07/dfe-data-explorer. O projeto inclui workflow de GitHub Actions e entrada compatível com publicação pela branch `/ (root)`. Confirme a configuração em Settings → Pages e teste o endereço público após cada push.
 
 **Fluxo incremental recomendado:** 1. baixar e preservar a última versão; 2. comparar os arquivos; 3. modificar apenas o necessário; 4. testar; 5. atualizar `VERSION`, `CHANGELOG.md` e relatório; 6. enviar commit; 7. publicar; 8. preservar tags de versões anteriores.
 
@@ -30,7 +30,7 @@ Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos d
 2. A rotina agendada está preparada, mas só será executada após a configuração do GitHub e ativação do Actions. A implantação no Render exige configurar `ADMIN_TOKEN` e armazenamento persistente.
 3. A seleção salva utiliza `localStorage` do navegador; não é sincronizada entre computadores e pode ser apagada quando os dados locais do navegador forem limpos.
 4. O XLSX gerado pelo backend utiliza o catálogo oficial completo armazenado no servidor; **não** aplica a seleção da impressão. Para exportar exatamente os campos marcados, utilize CSV da Central de Impressão.
-5. Não foi feita publicação externa, nem teste de infraestrutura do GitHub Pages, Render ou de atualização real no site oficial nesta versão.
+5. O endereço público foi verificado antes desta correção e estava exibindo o README. A publicação desta atualização e seu funcionamento externo dependem de commit/push no GitHub. Não houve teste em Render nem validação completa da base oficial.
 
 ## Verificações
 
