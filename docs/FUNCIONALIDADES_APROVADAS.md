@@ -9,3 +9,8 @@
 - Histórico de alterações e monitoramento não alteram Oracle nem criam dados fictícios.
 
 **Regra:** atualizar incrementalmente, testar, registrar mudança e manter rollback possível por tag Git.
+
+## Alteração aprovada em V2.3.1
+
+- A Visão Geral deixa de aparecer no aplicativo; o Leiaute do MOC passa a ser a tela inicial.
+- As demais áreas e a seleção hierárquica de impressão permanecem disponíveis.

@@ -7,7 +7,9 @@ with sync_playwright() as playwright:
  errors=[]
  page.on('pageerror',lambda e: errors.append(str(e)))
  page.set_content((root/'public/EXPLORADOR_OFFLINE_COMPLETO.html').read_text(encoding='utf-8'),wait_until='load',timeout=25000)
- assert page.locator('#stats').inner_text().startswith('196')
+ assert page.locator('#view-moc').is_visible()
+ assert page.locator('#mocTables tr[data-key]').count()==196
+ assert page.locator('[data-view="resumo"]').count()==0
  page.locator('[data-view="moc"]').click()
  page.locator('#groupMoc').select_option('W')
  assert page.locator('#mocTables tr[data-key]').count()==42

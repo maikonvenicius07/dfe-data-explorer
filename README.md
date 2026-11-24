@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.0-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.1-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -10,7 +10,7 @@ Abra `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita inst
 
 ## Recursos preservados e ampliados
 
-- Visão Geral com indicadores, gráficos por grupo e profundidade e modo apresentação.
+- A aplicação abre diretamente no Leiaute do MOC; a tela Visão Geral foi retirada por solicitação do usuário.
 - Leiaute MOC nas dez colunas e modo hierárquico com subgrupos.
 - Explorador, ficha do campo, dicionário de dados com filtros, ordenação e colunas selecionáveis.
 - Diagramas horizontal, vertical, compacto e DER **proposto**, não oficial.

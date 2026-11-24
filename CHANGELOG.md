@@ -1,5 +1,15 @@
 # Histórico de versões
 
+## V2.3.1-beta.1 — 24/11/2026
+
+- Removida a página **Visão Geral** e seu item de navegação.
+- Tela inicial alterada para **Leiaute do MOC**.
+- Removidas as chamadas do painel executivo que deixaram de ter interface.
+- Atualizados testes e HTML offline independente.
+- Preservados catálogo, diagrama, explorador, dicionário e Central de Impressão.
+- No pacote completo, mantido o workflow de GitHub Pages já corrigido e aprovado no repositório, sem incluí-lo na atualização incremental.
+
+
 ## V2.3.0-beta.1 — 24/11/2026
 
 **Base:** V2.2.1. Não houve reconstrução do sistema.

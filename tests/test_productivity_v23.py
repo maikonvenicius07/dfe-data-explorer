@@ -8,10 +8,9 @@ with sync_playwright() as p:
  page=b.new_page(viewport={'width':1480,'height':950},device_scale_factor=1)
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.set_content((R/'public/EXPLORADOR_OFFLINE_COMPLETO.html').read_text(encoding='utf8'),wait_until='load',timeout=20000)
- assert page.locator('#stats').inner_text().startswith('196')
- assert page.locator('#executiveMetrics .executive-metric').count()==6
- assert page.locator('#groupBars .dashboard-bar').count()>10
- page.screenshot(path=str(R/'docs/v23_dashboard.png'),full_page=False)
+ assert page.locator('#view-moc').is_visible()
+ assert page.locator('#mocTables tr[data-key]').count()==196
+ assert page.locator('[data-view="resumo"]').count()==0
  page.locator('[data-view="impressao"]').click()
  assert '196 / 196' in page.locator('#selectionCount').inner_text()
  page.locator('#printClearSelection').click()
@@ -64,5 +63,5 @@ with sync_playwright() as p:
  assert page.locator('.diagram-toolbar button:visible').count()==1
  assert page.locator('.diagram-toolbar button:visible').inner_text()=='Tela cheia'
  assert not errors,errors
- print('PASS: 196 nós, dashboard, seleção de subgrupo, campo W38, estados parciais, presets, impressão, PDF, dicionário, tela cheia')
+ print('PASS: 196 nós, tela inicial MOC, seleção de subgrupo, campo W38, estados parciais, presets, impressão, PDF, dicionário, tela cheia')
  b.close()

@@ -13,7 +13,9 @@ with sync_playwright() as p:
  page=b.new_page(viewport={'width':1440,'height':900},device_scale_factor=1)
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.set_content(H,wait_until='load',timeout=25000)
- assert page.locator('#stats').inner_text().startswith('196'), 'seed dataset changed'
+ assert page.locator('#view-moc').is_visible()
+ assert page.locator('#mocTables tr[data-key]').count()==196
+ assert page.locator('[data-view="resumo"]').count()==0, 'seed dataset changed'
  for view in ['moc','arvore','dicionario','diagrama','xsd','oracle','atualizacoes','impressao']:
   page.locator('[data-view="'+view+'"]').click();assert page.locator('#view-'+view).is_visible(),view
  page.locator('[data-view="diagrama"]').click()
