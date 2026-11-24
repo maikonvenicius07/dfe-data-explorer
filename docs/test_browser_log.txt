@@ -1,0 +1,20 @@
+ERR early []
+init: Documento NF-e · 16 nós visíveis de 196 catalogados · 12 ramificações recolhidas. Abra somente as que desejar.
+nodes: 19 expand: 14
+group options: 22
+W initial: 1 Grupo W · 1 nós visíveis de 196 catalogados · 1 ramificações recolhidas. Abra somente as que desejar.
+W expanded: 8
+W34 expanded: 11
+W36 expanded: 14
+preview current: Visualização atual
+
+Visualização atual · Compacto por blocos · 11 nós · W · A4 paisagem · 10 pt
+
+A prévia abaixo contém a MESMA estrutura que será enviada para PDF, inclusive os nós acessíveis por rol items: 11
+W38 shown?: 0
+count with W37 18 pdf list nodes 14 W38? 1
+pdf bytes 78020
+full nodes 196
+vertical 14
+compact 18
+ERR []

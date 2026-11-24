@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.3-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.4-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -46,3 +46,13 @@ No **Dicionário de Dados**, filtre por grupo, subgrupo, texto ou tipo. Filtros 
 O botão **Imprimir selecionados** leva à Central de Impressão e mantém as marcações de outros grupos. Nessa área, configure A4/A3, orientação e colunas; verifique a lista de campos na prévia e retire os indesejados antes de gerar PDF. Sem seleção, a impressão fica bloqueada. As árvores e o diagrama compartilham o estado de marcação, mas selecionar/navegar até um grupo não marca seus campos automaticamente.
 
 **Atenção:** a base embutida ainda cobre 196 nós do catálogo demonstrativo, não o MOC completo.
+
+## Diagrama com expansão progressiva — V2.3.4
+
+Na aba **Diagrama XML**, use `+` para expandir apenas os filhos diretos de cada nó, e `−` para recolher somente aquela ramificação. Os controles da barra permitem abrir/recolher tudo ou apenas o elemento selecionado. Alterar o formato horizontal/vertical/compacto preserva as ramificações já abertas. O documento inicia com a raiz e seus grupos superiores; o filtro `Grupo W` começa apenas com W01. Pesquisar um campo expande seus ancestrais.
+
+Impressão: **visualização atual** (exatamente os nós expandidos/visíveis na árvore, inclusive os fora da área de rolagem), **estrutura completa do catálogo** (todos os 196 nós disponíveis, sem alterar as expansões) e **seleção manual** (somente os campos explicitamente marcados, com pais de contexto). Para manter a legibilidade em A4/A3, o PDF refluí os mesmos nós em **cartões hierárquicos pagináveis**: a distribuição geométrica na tela SVG não é reproduzida pixel a pixel. O conteúdo e os relacionamentos de pai-filho são preservados.
+
+Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tests/test_import.py`. Arquivos sincronizados: `public/diagram-state.js`, `public/app.js`, `public/index.html`, `public/styles.css`, `public/EXPLORADOR_OFFLINE_COMPLETO.html`. Execute `python scripts/build_offline.py` após modificações.
+
+**Limite:** os arquivos oficiais XSD ainda não foram importados; a seleção de 196 nós não é o leiaute integral.

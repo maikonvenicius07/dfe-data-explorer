@@ -127,3 +127,27 @@ button:disabled{opacity:.48;cursor:not-allowed}
 .preview-selected-item small{font-size:10px;color:#6b8295;margin-top:3px}
 @media(max-width:760px){.preview-selected-item{align-items:flex-start}.dict-metrics span{flex:1}}
 @media print{.print-columns-settings,.preview-selection-items,.dict-metrics,.dict-header-check{display:none!important}}
+
+/* V2.3.4 — expansão progressiva e impressão conforme os nós visíveis. */
+.diagram-controls{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:7px 0 8px}
+.diagram-controls .btn{padding:8px 11px;font-size:11px}
+.diagram-expand{cursor:pointer}.diagram-expand:hover rect{fill:#d6eefb;stroke:#12577b;stroke-width:2.4}
+.print-diagram-document{background:white;color:#213f54}.print-diagram-document h1{font-size:18pt;color:#184564;margin:0 0 6mm}
+.print-live-hierarchy{display:block;padding:1mm 0}
+.print-live-node{display:flex;gap:3mm;align-items:start;margin:0 0 2.2mm calc(var(--print-depth)*6mm);padding:2.5mm 3mm;border-left:2px solid #74a5b5;border-bottom:1px solid #e3edf2;break-inside:avoid;page-break-inside:avoid;font-size:9.5pt;background:#f8fbfd}
+.print-live-node b{font-family:Consolas,monospace;color:#195374}.print-live-node small{color:#54728b;font-size:8pt;margin-left:1.4mm}
+.print-live-node .print-live-symbol{flex:none;width:6mm;height:6mm;line-height:5mm;text-align:center;background:#e3f3e9;border:1px solid #accdbc;border-radius:4px;font-weight:bold;color:#235e46}
+.print-live-node .print-live-desc{font-size:8.3pt;color:#536b7c;overflow-wrap:anywhere}
+.print-live-compact{display:grid;grid-template-columns:1fr 1fr;column-gap:5mm}.print-live-compact .print-live-node{margin-left:calc(var(--print-depth)*2mm)}
+.print-live-vertical .print-live-node{border-left-color:#326f9f}
+.print-live-oracle{display:grid;grid-template-columns:1fr 1fr;gap:4mm}.print-live-oracle section{border:1px solid #9bb8cc;padding:3mm;font:8pt/1.4 Consolas,monospace;break-inside:avoid}
+.preview-sheet .print-page{display:block!important}.preview-sheet .print-live-node{font-size:11px}.preview-sheet .print-diagram-document h1{font-size:19px}
+@media(max-width:760px){.diagram-controls .btn{flex:1;min-width:135px}.print-live-compact{grid-template-columns:1fr}}
+@media print{.print-live-node{break-inside:avoid;page-break-inside:avoid}.print-live-hierarchy{display:block!important}.print-live-compact{display:grid!important;grid-template-columns:1fr 1fr}.print-diagram-document{break-inside:auto}.print-diagram-document h1{break-after:avoid}.print-page .print-diagram-document{padding:0}.print-live-node .print-live-desc{white-space:normal}}
+
+.print-live-context{background:#f1f4f7!important;border-left-style:dashed!important}.print-live-context b{color:#66788b!important}
+
+/* Hierarquia do PDF: manter cada ramo sequencial; colunas alternadas escondiam o parentesco. */
+.print-live-compact,.print-live-vertical{display:block!important}
+.print-live-compact .print-live-node{margin-left:calc(var(--print-depth)*6mm)!important}
+@media print{.print-live-compact,.print-live-vertical{display:block!important}}

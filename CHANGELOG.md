@@ -1,3 +1,14 @@
+# V2.3.4 — expansão progressiva e três modos distintos de impressão (2026-11-24)
+
+- Corrigido o diagrama de profundidade fixa: expansão `+ / −` individual por ramificação, com estado preservado ao alternar formatos.
+- Visão inicial resumida, expansão de ancestrais na pesquisa, expansão total apenas por ação explícita.
+- Três modos de impressão independentes: visualização atual, catálogo completo e seleção manual; sem modificar os nós abertos ao imprimir.
+- Prévia e impressão usam os mesmos registros; PDF usa cartões hierárquicos pagináveis, texto pesquisável, recuos e referência de grupo por página.
+- Corrigido o bloqueio da impressão atual quando nenhum campo estava marcado manualmente.
+- Nova lógica isolada em `diagram-state.js`, com teste Node e CI atualizado.
+- Gerado PDF de exemplo do Grupo W e PDF do catálogo disponível (196 nós). Não representa cobertura oficial completa.
+- Nenhuma tela anterior, dado, regra de impressão selecionada nem banco de dados foi removido.
+
 # V2.3.3 — seleção manual independente de filtros (2026-11-24)
 
 - Removida a seleção inicial automática de todos os 196 registros.
