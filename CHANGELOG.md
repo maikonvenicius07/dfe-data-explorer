@@ -1,8 +1,8 @@
-## V2.3.6-beta.1 — GitHub Pages e validação (25/11/2026)
+## V2.3.7 — Diagrama integrado alinhado ao diagrama interativo
 
-- Corrigidos os gatilhos de `index.html` e `.nojekyll` em `.github/workflows/publicar_paginas.yml`.
-- Preservada a ação `actions/upload-pages-artifact@v4` e a publicação `actions/deploy-pages@v4`.
-- Nenhuma alteração no código das oito janelas, no catálogo ou na seleção integrada.
+- A seção **Diagrama XML** da impressão integrada passou a usar o mesmo idioma visual do diagrama interativo, com cartões, conectores e destaque claro entre **selecionado** e **contexto**.
+- A pré-visualização e a impressão dos modos **visualização atual**, **estrutura completa** e **elementos selecionados** agora geram um SVG paginável, em vez da antiga lista linear.
+- O leiaute do diagrama impresso foi reorganizado para aproveitar melhor o espaço, mantendo a leitura horizontal, vertical ou compacta conforme o formato escolhido.
 
 # V2.3.5-beta.1 — seleção única e relatório integrado (25/11/2026)
 
