@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'public/**'
+      - 'index.html'
+      - '.nojekyll'
       - '.github/workflows/publicar_paginas.yml'
   workflow_dispatch:
 
