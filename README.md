@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.7-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.8-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -79,3 +79,7 @@ Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tes
 - Diagrama vetorial com conectores pai-filho e formatos horizontal, vertical e compacto; contextos e referências de continuação não contam como novos campos.
 - PDFs demonstrativos em `docs/exemplos_v237/`.
 - Teste de navegador opcional: `pip install playwright pymupdf`, `playwright install chromium` e `python tests/test_integrated_print_v237.py` (ou configure `CHROMIUM_PATH`).
+
+## Impressão horizontal e PDF direto (V2.3.8)
+
+O diagrama XML inicia em árvore horizontal. Na Central de Impressão, mantenha **Mesmo formato do Diagrama XML** ou escolha explicitamente a árvore horizontal. Use **Baixar PDF direto** para gerar as quatro seções ou o diagrama sem passar pelo driver Microsoft Print to PDF. A4 paisagem é o padrão; A3 paisagem permite mais nós por página. A seleção e o contexto são preservados. A impressão nativa continua disponível. Os modos legados usam a impressão do navegador. Exemplos reais em `docs/exemplos_v238/`.

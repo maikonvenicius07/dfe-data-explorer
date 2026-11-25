@@ -1,3 +1,11 @@
+## V2.3.8-beta.1 — diagrama horizontal e PDF direto (25/11/2026)
+
+- Diagrama horizontal por padrão, com a Central de Impressão seguindo o formato da tela ou uma escolha explícita.
+- Árvore horizontal paginada por caminhos, com caixas arredondadas e curvas pai-filho; sem seleção implícita de irmãos ou descendentes.
+- PDF direto local, vetorial e pesquisável para os modos integrados e diagramas, com dimensões físicas A4/A3 e /Rotate 0; não depende do driver Windows.
+- Mantida impressão nativa, com dimensões CSS explícitas e aviso de orientação; preservadas as oito telas, o catálogo e a seleção compartilhada.
+- Teste de regressão reproduz os 13 campos do PDF do usuário e valida três configurações físicas do PDF, além da impressão nativa e do catálogo inteiro.
+
 ## V2.3.7-beta.1 — seleção e impressão integradas (25/11/2026)
 
 - Unificados os atalhos Imprimir selecionados nas quatro telas, sempre abrindo o relatório integrado.
