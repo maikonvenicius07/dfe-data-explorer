@@ -1,3 +1,9 @@
+## V2.3.6-beta.1 — GitHub Pages e validação (25/11/2026)
+
+- Corrigidos os gatilhos de `index.html` e `.nojekyll` em `.github/workflows/publicar_paginas.yml`.
+- Preservada a ação `actions/upload-pages-artifact@v4` e a publicação `actions/deploy-pages@v4`.
+- Nenhuma alteração no código das oito janelas, no catálogo ou na seleção integrada.
+
 # V2.3.5-beta.1 — seleção única e relatório integrado (25/11/2026)
 
 - Integrados os checkboxes de seleção nos quatro módulos MOC, Árvore XML, Dicionário e Diagrama SVG.

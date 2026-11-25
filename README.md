@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.5-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.6-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
