@@ -213,20 +213,18 @@ button:disabled{opacity:.48;cursor:not-allowed}
 .integrated-document .print-cover .print-integrated-summary{margin-top:9mm;padding-top:5mm}
 @media print{.integrated-document .print-cover{min-height:0!important;padding:14mm 9mm 9mm!important}}
 
+body.integrated-print-mode .legacy-print-option{display:none!important}
 body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 
-
-/* V2.3.7 — diagrama impresso e integrado com o mesmo idioma visual do diagrama interativo. */
-.diagram-print-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:0 0 10px;color:#355368;font-size:12px}
-.diagram-print-legend span{display:inline-flex;gap:7px;align-items:center}
-.legend-swatch{display:inline-block;width:16px;height:16px;border-radius:4px;border:2px solid #6fa1ba;background:#edf5fb}
-.legend-selected{border-color:#1d826b;background:#d8efe7}
-.legend-context{border-style:dashed;border-color:#9faeb8;background:#f4f6f8}
-.print-live-diagram-wrap{overflow:auto;border:1px solid #d9e6ee;border-radius:12px;background:#f8fbfd;padding:8px}
-.print-live-svg{display:block;max-width:none;height:auto}
-.diagram-section-note{margin:0 0 8px;color:#5c7385;font-size:11px}
-.preview-sheet .print-live-diagram-wrap{max-height:none}
-.preview-sheet .diagram-print-legend{font-size:11px}
-.print-integrated-diagram{display:block}
-.print-integrated-diagram .print-live-diagram-wrap{margin-bottom:4mm}
-@media print{.print-live-diagram-wrap{overflow:visible;border-color:#c7d6df;break-inside:auto;page-break-inside:auto}.print-live-svg{max-width:100%;height:auto}.diagram-print-legend{break-after:avoid}}
+/* V2.3.7 — diagramas vetoriais com conectores e referências de continuidade. */
+.print-graph-fragment{margin:3mm 0 5mm;break-inside:avoid;page-break-inside:avoid;max-width:100%}
+.print-graph-fragment figcaption{color:#526b7e;font-size:9pt;margin:0 0 2mm;break-after:avoid}
+.print-graph-fragment svg{display:block;max-width:100%;height:auto;overflow:visible;font-family:Arial,sans-serif}
+.integrated-document .print-integrated-section:first-child{break-before:auto;page-break-before:auto}
+.integrated-document .print-integrated-section{break-inside:auto}
+.integrated-document .moc-table th{white-space:normal;overflow-wrap:anywhere}
+.integrated-document .integrated-dictionary-table th{width:auto!important}
+.integrated-document .integrated-dictionary-table td{min-width:0!important}
+@media print{.print-graph-fragment{break-inside:avoid;page-break-inside:avoid}.print-graph-fragment svg{max-width:100%;height:auto}.integrated-document .print-integrated-section:first-child{break-before:auto;page-break-before:auto}}
+.integrated-document > .print-source:first-child + .print-integrated-section,.integrated-document > .print-integrated-summary:first-child + .print-integrated-section{break-before:auto;page-break-before:auto}
+.print-graph-compact svg{background:#f8fbfc;border:1px solid #d9e5ea;border-radius:5px}

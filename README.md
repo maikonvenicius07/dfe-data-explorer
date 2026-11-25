@@ -58,7 +58,7 @@ Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tes
 **Limite:** os arquivos oficiais XSD ainda não foram importados; a seleção de 196 nós não é o leiaute integral.
 
 
-## V2.3.7 — uma seleção nas quatro visualizações
+## V2.3.5 — uma seleção nas quatro visualizações
 
 - Leiaute do MOC, Explorador Hierárquico, Dicionário de Dados e Diagrama XML compartilham o **mesmo conjunto de identificadores internos**. Em todas essas áreas, marcar um campo é independente de filtrar, expandir e navegar.
 - Nas caixas do diagrama (horizontal, vertical e compacto) há controles de marcação; pais e subgrupos são marcados **individualmente**, e o comando **Marcar filhos / Selecionar descendentes** é explícito e separado.
@@ -69,3 +69,13 @@ Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tes
 - Para validar: `node tests/test_integrated_selection_v235.js`, `python tests/test_cross_view_v233.py`, `python tests/test_custom_print_v233.py` e `python scripts/build_offline.py`. Para publicar, faça commit/push dos arquivos modificados e confira as Actions.
 
 **Limite importante:** a publicação ainda utiliza a base demonstrativa de 196 nós; o projeto não inclui a importação e validação integral do MOC e dos XSD oficiais nesta atualização.
+
+## Seleção e impressão integrada (V2.3.7)
+
+- Marque campos em qualquer uma das quatro telas. Filtros, expansão e seleção são operações independentes.
+- **Imprimir selecionados** abre a Central com as quatro seções e o conjunto acumulado. Desabilite as seções que não deseja.
+- **Imprimir visíveis (4 visões)** captura os registros da visão atual, incluindo a rolagem, sem marcar outros campos nem alterar a seleção acumulada.
+- **Documentação disponível completa** exige escolha explícita e cobre apenas o catálogo carregado.
+- Diagrama vetorial com conectores pai-filho e formatos horizontal, vertical e compacto; contextos e referências de continuação não contam como novos campos.
+- PDFs demonstrativos em `docs/exemplos_v237/`.
+- Teste de navegador opcional: `pip install playwright pymupdf`, `playwright install chromium` e `python tests/test_integrated_print_v237.py` (ou configure `CHROMIUM_PATH`).
