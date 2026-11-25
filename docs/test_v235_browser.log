@@ -1,0 +1,34 @@
+initial title Explorador de NF-e e NFC-e | MOC • XSD • Oracle errors [] nodes 196
+tabs ['▤ Leiaute do MOC', '⌁ Explorador hierárquico', '≡ Dicionário de dados', '◇ Diagrama XML', '⌘ Visualizador XSD', '▦ Modelagem Oracle', '◴ Atualizações e histórico', '▣ Central de impressão']
+initial Base: 196Filtrados: 196Selecionados para imprimir: 0
+B02 MOC boxes 1
+MOC selected count 1 elementos marcados para impressão nas quatro visualizações.
+tree B02 checked True
+dict B02 checked True
+W38 visible 1
+count after 2 Base: 196
+Filtrados: 1
+Selecionados para imprimir: 2
+B diagram nodes ['B01']
+SVG B02 present 1
+SVG B02 status true
+after svg uncheck Selecionado:
+A01 · infNFe
+Imprimir este elemento
+Selecionar descendentes
+1 marcados
+Localizar no relatório MOC
+Ver ficha técnica
+print type integrated print count 2 / 196
+campos selecionados · 0 grupos completos · 2 parciais · 0 subgrupos
+sections [('moc', 1), ('tree', 1), ('dictionary', 1), ('diagram', 1)]
+moc rows 2 dict rows 2
+integ diagram nodes 9
+selected marks W38 in diagram 1
+extra W03 0
+two sections [('moc', 1), ('tree', 0), ('dictionary', 1), ('diagram', 0)]
+pdf 185791
+after remove dict rows 1
+full rows 196
+disabled when empty True
+errors []

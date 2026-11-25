@@ -151,3 +151,67 @@ button:disabled{opacity:.48;cursor:not-allowed}
 .print-live-compact,.print-live-vertical{display:block!important}
 .print-live-compact .print-live-node{margin-left:calc(var(--print-depth)*6mm)!important}
 @media print{.print-live-compact,.print-live-vertical{display:block!important}}
+
+/* V2.3.5 — seleção única nas quatro visualizações, sem seleção implícita por filtros ou expansão */
+.selection-shared-note{margin:5px 0 12px;font-size:12px;font-weight:700;color:#28745d}
+.moc-desc-button,.tree-descendants-btn,.print-desc-action{border:1px solid #bcd6ce;background:#f3faf5;color:#216857;border-radius:5px;font:10px/1.2 inherit;cursor:pointer;padding:4px 6px;white-space:nowrap}
+.tree-descendants-btn{font:10px/1.1 system-ui,sans-serif;margin-left:auto}
+.moc-desc-button:hover,.tree-descendants-btn:hover,.print-desc-action:hover{background:#dceee4}
+.diagram-check-control{cursor:pointer;outline:none}
+.diagram-check-control:hover rect,.diagram-check-control:focus-visible rect{stroke:#155c46;stroke-width:3}
+.diagram-node.marked-for-print>rect:first-child{stroke:#1b8a6d;stroke-width:3}
+.diagram-selected-count{font-size:11px;font-weight:700;color:#1d765e}
+.integrated-sections{border:1px solid #c9dfec;background:#f6fbfe;border-radius:10px;margin:14px 0;padding:12px 15px;display:flex;flex-wrap:wrap;gap:10px 22px}
+.integrated-sections legend{font-size:12px;font-weight:800;color:#174d73;padding:0 8px}
+.integrated-sections label{display:inline-flex;align-items:center;gap:7px;color:#244c66;font-size:12px;font-weight:650;cursor:pointer}
+.integrated-sections input{accent-color:#14795d;width:16px;height:16px}
+.print-tree-line input[data-tree-key]{accent-color:#16765b}
+.print-tree-group-head .print-desc-action{margin-left:auto;font-size:10px;padding:5px 9px}
+.print-tree-line .print-desc-action{margin-left:auto}
+.print-integrated-section{break-before:page;page-break-before:always;margin:0 0 10mm;}
+.print-integrated-section h2{color:#143e61;font-size:15pt;border-bottom:2px solid #39779b;padding-bottom:3mm;break-after:avoid}
+.print-integrated-group h3,.print-integrated-diagram-group h3{font-size:10.5pt;background:#e2f2e8;border-left:4px solid #b58e42;padding:3mm;margin:6mm 0 3mm;break-after:avoid}
+.print-integrated-group{break-inside:auto}
+.print-integrated-tree-row{--indent:0;display:flex;gap:3mm;align-items:center;padding:2.7mm 3mm 2.7mm calc(3mm + var(--indent)*5mm);background:#f7fbfd;border-bottom:1px solid #dae6ee;border-left:2px solid #4c91af;break-inside:avoid;page-break-inside:avoid;font-size:9pt}
+.print-integrated-tree-row b{font:700 9pt/1.35 Consolas,monospace;color:#17466a}
+.print-integrated-tree-row small{font-size:7.5pt;margin-left:auto;color:#28785f}
+.print-integrated-tree-row.only-context{background:#f0f2f4;border-left-style:dashed}
+.print-integrated-tree-row.only-context b,.print-integrated-tree-row.only-context small{color:#6b7884}
+.integrated-tree-line{font-size:12pt;color:#6d9db5}
+.integrated-dictionary-table{table-layout:auto!important;min-width:0!important;}
+.integrated-dictionary-table td{overflow-wrap:anywhere;white-space:normal}
+.print-integrated-diagram{display:block}
+.print-integrated-diagram-group{break-inside:auto}
+.integrated-diagram-row{--indent:0;display:flex;align-items:stretch;margin:0 0 2mm calc(min(var(--indent),8)*5mm);gap:2mm;break-inside:avoid;page-break-inside:avoid;min-height:15mm}
+.integrated-connector{width:5mm;height:13mm;flex:none;align-self:flex-start}
+.integrated-node-card{width:min(100%,150mm);border:1px solid #8eb7c9;border-left:3px solid #2f829f;border-radius:6px;background:#edf5fb;padding:2mm 3mm;min-width:0}
+.integrated-node-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5mm;color:#19537b;font-size:9pt}
+.integrated-node-top b{font:700 9pt Consolas,monospace}
+.integrated-node-top span{font-size:7pt;font-weight:800;color:#16765f}
+.integrated-node-details{font-size:8pt;color:#415e74;line-height:1.4;overflow-wrap:anywhere}
+.integrated-diagram-row.only-context .integrated-node-card{background:#f4f6f8;border-color:#c9d2da;border-left-style:dashed}
+.integrated-diagram-row.only-context .integrated-node-top span{color:#6d7884}
+.print-integrated-compact .integrated-node-card{padding:1.5mm 2mm}
+.print-integrated-vertical .integrated-node-card{border-left-color:#2c997d}
+.print-integrated-summary{margin:6mm 0 10mm;break-inside:auto}
+.print-integrated-summary p{font-size:10pt}
+.integrated-document .moc-table thead{display:table-header-group}
+.integrated-document .moc-table tr{break-inside:avoid;page-break-inside:avoid}
+.integrated-document .moc-table{font-size:8pt!important;min-width:0!important;width:100%;table-layout:fixed!important}
+.integrated-document .moc-table th,.integrated-document .moc-table td{padding:5px 4px;overflow-wrap:anywhere}
+#printPreviewRender .preview-sheet{max-height:760px;overflow:auto;box-shadow:0 10px 25px #193b581a}
+#printPreviewRender .preview-sheet .print-page{font-size:11px!important;padding:12px}
+#printPreviewRender .preview-sheet .print-integrated-section{break-before:auto;page-break-before:auto;border-top:1px dashed #b6cbd9;padding-top:15px;margin-top:25px}
+@media(max-width:760px){.integrated-sections{display:grid;grid-template-columns:1fr}.print-tree-group-head .print-desc-action{font-size:9px;white-space:normal}.integrated-diagram-row{margin-left:calc(min(var(--indent),8)*2mm)}}
+@media print{.integrated-sections{display:none!important}.print-integrated-section{break-before:page;page-break-before:always}.print-integrated-tree-row,.integrated-diagram-row{break-inside:avoid;page-break-inside:avoid}#printPreviewRender{display:none!important}}
+
+/* V2.3.5: o sumário segue na capa e as cadeias pequenas não são divididas entre páginas. */
+.print-cover .print-integrated-summary{margin-top:16mm;border-top:1px solid #bed4e1;padding-top:7mm}
+.print-integrated-diagram-group{break-inside:avoid;page-break-inside:avoid}
+@media print{.print-cover .print-integrated-summary{break-inside:avoid}.print-integrated-diagram-group{break-inside:avoid;page-break-inside:avoid}}
+.integrated-document .print-cover{min-height:0!important;padding:14mm 9mm 9mm!important;break-inside:avoid;page-break-inside:avoid}
+.integrated-document .print-cover .print-integrated-summary{margin-top:9mm;padding-top:5mm}
+@media print{.integrated-document .print-cover{min-height:0!important;padding:14mm 9mm 9mm!important}}
+
+body.integrated-print-mode .legacy-print-option{display:none!important}
+body:not(.integrated-print-mode) .integrated-sections{display:none!important}

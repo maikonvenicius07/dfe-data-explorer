@@ -25,6 +25,8 @@ with sync_playwright() as p:
  page.locator('#diagramGroup').select_option('W')
  page.locator('#diagramFocus').select_option('W37')
  page.locator('#diagramDepth').select_option('3')
+ # V2.3.4+: a profundidade é progressiva; expandir W37 antes de localizar W38.
+ page.locator('[data-expand-key="W37"]').first.click()
  # Select the node in diagram; controls should sync with dictionary.
  page.locator('#diagramSvg [data-node-key="W38"]').first.click()
  assert page.locator('#diagramPrintSelected').count()==1

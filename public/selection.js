@@ -17,7 +17,7 @@
       for (const n of this.nodes) {
         const p=unique.get(n.parentRef);
         // Só usar pais identificados sem ambiguidade, dentro do grupo, sem ciclos.
-        if(p && !duplicates.has(n.parentRef) && p.key!==n.key && p.group===n.group) {
+        if(p && !duplicates.has(n.parentRef) && p.key!==n.key) {
           this.parent.set(n.key,p.key);
           if(!this.children.has(p.key)) this.children.set(p.key,[]);
           this.children.get(p.key).push(n.key);
@@ -43,7 +43,7 @@
     countsByGroup(){const obj={};for(const [g,arr] of this.groups)obj[g]=arr.filter(n=>this.selected.has(n.key)).length;return obj;}
     orderedRows(){return this.nodes.filter(n=>this.selected.has(n.key));}
     // Grupo pode ter múltiplas raízes editoriais, sem inventar vínculo entre elas.
-    tree(group){const list=this.groups.get(group)||[],roots=list.filter(n=>!this.parent.has(n.key));return roots.length?roots:list;}
+    tree(group){const list=this.groups.get(group)||[],roots=list.filter(n=>!this.parent.has(n.key)||this.map.get(this.parent.get(n.key))?.group!==group);return roots.length?roots:list;}
   }
   return {HierarchicalSelection};
 });

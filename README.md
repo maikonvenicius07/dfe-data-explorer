@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.4-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.5-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -56,3 +56,16 @@ Impressão: **visualização atual** (exatamente os nós expandidos/visíveis na
 Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tests/test_import.py`. Arquivos sincronizados: `public/diagram-state.js`, `public/app.js`, `public/index.html`, `public/styles.css`, `public/EXPLORADOR_OFFLINE_COMPLETO.html`. Execute `python scripts/build_offline.py` após modificações.
 
 **Limite:** os arquivos oficiais XSD ainda não foram importados; a seleção de 196 nós não é o leiaute integral.
+
+
+## V2.3.5 — uma seleção nas quatro visualizações
+
+- Leiaute do MOC, Explorador Hierárquico, Dicionário de Dados e Diagrama XML compartilham o **mesmo conjunto de identificadores internos**. Em todas essas áreas, marcar um campo é independente de filtrar, expandir e navegar.
+- Nas caixas do diagrama (horizontal, vertical e compacto) há controles de marcação; pais e subgrupos são marcados **individualmente**, e o comando **Marcar filhos / Selecionar descendentes** é explícito e separado.
+- A **Central de Impressão** inicia no modo **Imprimir selecionados — quatro visualizações**. Quatro caixas de opção ligadas por padrão permitem incluir/excluir MOC, árvore, dicionário e diagrama, sem mudar a seleção. A opção **Documentação disponível completa** é explícita e limita-se ao catálogo carregado (196 nós na base demonstrativa).
+- Nas seções MOC e Dicionário, somente registros selecionados são linhas de dados. Árvore e Diagrama incluem os ancestrais indispensáveis, identificados como *PAI / CONTEXTO* e não contabilizados como seleção.
+- A pré-visualização usa o mesmo documento que a impressão e permite retirar campos. A impressão é bloqueada sem elementos ou se nenhuma seção estiver marcada.
+- O relatório pode ser impresso em A4/A3, retrato/paisagem; existe um exemplo de teste em `docs/EXEMPLO_INTEGRADO_B02_W38_V2_3_5.pdf`, com seis páginas A4 paisagem e texto pesquisável.
+- Para validar: `node tests/test_integrated_selection_v235.js`, `python tests/test_cross_view_v233.py`, `python tests/test_custom_print_v233.py` e `python scripts/build_offline.py`. Para publicar, faça commit/push dos arquivos modificados e confira as Actions.
+
+**Limite importante:** a publicação ainda utiliza a base demonstrativa de 196 nós; o projeto não inclui a importação e validação integral do MOC e dos XSD oficiais nesta atualização.

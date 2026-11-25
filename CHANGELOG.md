@@ -1,3 +1,16 @@
+# V2.3.5-beta.1 — seleção única e relatório integrado (25/11/2026)
+
+- Integrados os checkboxes de seleção nos quatro módulos MOC, Árvore XML, Dicionário e Diagrama SVG.
+- Distinguidas as ações: filtrar, expandir, marcar nó isolado e selecionar descendentes de forma explícita.
+- Adicionado controle individual em cada cartão SVG, estado sincronizado e contagem de seleção.
+- Ajustada a árvore de seleção para não repetir grupos quando o pai pertence a grupo editorial diferente.
+- Central de Impressão: quatro seções independentes, todas ativas inicialmente, com prévia integral e remoção de campos.
+- MOC e dicionário imprimem apenas registros marcados; árvore e diagrama exibem ancestrais exclusivamente como contexto.
+- Incluído modo explícito para imprimir todos os registros do catálogo carregado, sem alterar a seleção manual.
+- Ajustadas quebras de página, capa e sumário; PDF de teste B02/W38 A4 paisagem, seis páginas e texto pesquisável.
+- Acrescentado teste de regressão Node e atualizada automação de validação do GitHub.
+- Preservadas as oito janelas e a base demonstrativa de 196 nós. A importação integral do MOC e XSD permanece pendente.
+
 # V2.3.4 — expansão progressiva e três modos distintos de impressão (2026-11-24)
 
 - Corrigido o diagrama de profundidade fixa: expansão `+ / −` individual por ramificação, com estado preservado ao alternar formatos.
