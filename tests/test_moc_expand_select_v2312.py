@@ -40,7 +40,8 @@ def run():
         # Technical mode uses the same row caret.
         page.locator('#mocMode').select_option('oracle');arrow('W01');arrow('W23');expected|={'W24','W25','W26','W27','W28','W29','W30'};assert picked()==expected
         page.locator('#mocPrintSelected').click()
-        for sec in ('moc','tree','dictionary','diagram'):
+        assert page.locator('#printDocument [data-integrated-section]').count()==1
+        for sec in ('moc',):
             scope=page.locator(f'#printDocument [data-integrated-section="{sec}"]')
             selector='tr[data-key]' if sec=='moc' else '[data-integrated-key]:not([data-context="true"]):not([data-reference="true"])'
             keys=scope.locator(selector).evaluate_all('(els)=>els.map(e=>e.dataset.key||e.dataset.integratedKey)')
@@ -55,6 +56,6 @@ def run():
                 assert all(pg.rotation==0 and pg.rect.width>pg.rect.height for pg in doc)
         assert not errors,errors
         b.close()
-    print('PASS V2.3.12: expansão progressiva, seleção exata, recolhimento, filtros, quatro seções e PDF.')
+    print('PASS V2.3.12: expansão progressiva, seleção exata, recolhimento, filtros, MOC exclusivo e PDF.')
 
 if __name__=='__main__':run()

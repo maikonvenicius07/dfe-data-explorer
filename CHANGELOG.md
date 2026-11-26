@@ -1,3 +1,8 @@
+## V2.3.13-beta.1 — 26/11/2026
+
+- Impressão e PDF exclusivamente do Leiaute do MOC com os registros marcados, sem capa, sumário, árvore, dicionário ou diagrama.
+- Central simplificada; papel, orientação, colunas, observações e seleção preservados.
+
 ## V2.3.12-beta.1 — 26/11/2026
 
 - A seta individual do Leiaute MOC seleciona o registro expandido e seus filhos diretos visíveis, progressivamente.

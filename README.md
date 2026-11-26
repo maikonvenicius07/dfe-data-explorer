@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.12-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.13-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -13,9 +13,9 @@ Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer
 - A aplicação abre diretamente no Leiaute do MOC; a tela Visão Geral foi retirada por solicitação do usuário.
 - Leiaute MOC nas dez colunas e modo hierárquico com subgrupos.
 - Navegação simplificada: MOC, Modelagem Oracle, Atualizações e histórico e Central de impressão. Os módulos de árvore, dicionário, diagrama e XSD permanecem internos para preservar a infraestrutura de relatórios; não são páginas acessíveis pelo menu.
-- Diagramas horizontal, vertical e compacto disponíveis na impressão; DER **proposto**, não oficial, na Modelagem Oracle.
+- A impressão agora contém exclusivamente as tabelas do MOC com os registros selecionados. DER **proposto**, não oficial, continua na Modelagem Oracle.
 - Central de Impressão com árvore de caixas de seleção: grupo, subgrupo, subdivisão, elementos e atributos; seleção parcial, pesquisa e conjuntos salvos no navegador.
-- Os pais não selecionados entram **apenas como contexto** no relatório hierárquico, com identificação visual. As contagens e exportação CSV consideram os campos efetivamente marcados.
+- Nenhum pai ou filho não selecionado é incluído como linha do relatório. Os títulos editoriais organizam os registros marcados.
 - PDF A4/A3 pelo navegador, relatórios por grupo, comparativos e modelagem Oracle; catálogo XSD, monitoramento e histórico se houver dados verificados.
 
 ## Repositório permanente e publicação sem reconstruir o projeto
@@ -95,3 +95,7 @@ Selecione os campos no MOC ou na Central de impressão. Os botões + filhos e �
 ## V2.3.12 — seleção progressiva ao expandir no MOC
 
 A seta individual de um grupo XML ou subgrupo marca o próprio registro e os filhos diretos apresentados na tabela. Expanda os níveis seguintes para selecionar seus campos. Recolher mantém a seleção; use as caixas individuais ou − filhos para desmarcar. Filtros, busca, cabeçalhos editoriais e Expandir tudo continuam sendo ações de visualização.
+
+## V2.3.13 — impressão exclusiva do MOC
+
+A Central gera apenas a seção Leiaute do MOC, sem capa, sumário ou outras representações. Selecione registros explicitamente; a impressão vazia é bloqueada. Para imprimir tudo, use Selecionar toda documentação.

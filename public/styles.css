@@ -228,3 +228,6 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 
 /* V2.3.10: módulos legados fora da navegação; motores de relatório mantidos. */
 .view[hidden]{display:none!important}
+
+/* V2.3.13: controles legados permanecem internos, sem ocupar a Central de impressão. */
+#view-impressao [hidden]{display:none!important}

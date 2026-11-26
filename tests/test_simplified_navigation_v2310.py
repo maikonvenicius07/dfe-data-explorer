@@ -45,12 +45,13 @@ def run():
         page.locator('#mocPrintSelected').click()
         assert page.locator('#view-impressao').is_visible()
         assert page.locator('#printDiagramFormat').input_value()=='horizontal'
-        for sec in ('moc','tree','dictionary','diagram'):
+        assert page.locator('#printDocument [data-integrated-section]').count()==1
+        for sec in ('moc',):
             scope=page.locator(f'#printDocument [data-integrated-section="{sec}"]')
             selector='tr[data-key]' if sec=='moc' else '[data-integrated-key]:not([data-context="true"]):not([data-reference="true"])'
             keys=scope.locator(selector).evaluate_all('(els)=>els.map(e=>e.dataset.key||e.dataset.integratedKey)')
             assert sorted(keys)==['B02','W03'],(sec,keys)
-        assert page.locator('#printDocument figure[data-layout="horizontal"]').count()>0
+        assert page.locator('#printDocument figure').count()==0
         with tempfile.TemporaryDirectory() as tmp:
             for size,orient in [('A4','landscape'),('A4','portrait'),('A3','landscape')]:
                 page.locator('#pageSize').select_option(size);page.locator('#pageOrient').select_option(orient)
@@ -64,11 +65,11 @@ def run():
                         for b in pg.get_text('dict')['blocks']:
                             for l in b.get('lines',[]): assert abs(l['dir'][0]-1)<.01 and abs(l['dir'][1])<.01
                 print(f'PDF {size} {orient}: orientação e seleção OK',flush=True)
-        page.locator('#printSectionTree').uncheck();page.locator('#printSectionDict').uncheck()
-        assert page.locator('#printDocument [data-integrated-section]').count()==2
+        assert page.locator('#integratedSections').is_hidden()
+        assert page.locator('#printDocument [data-integrated-section]').count()==1
         page.locator('#printClearSelection').click();assert page.locator('#btnDownloadPdf').is_disabled()
         assert not errors,errors
         browser.close()
-    print('PASS: menu de quatro telas, módulos ocultos, seleção e PDF integrado.')
+    print('PASS: menu de quatro telas, módulos ocultos, seleção e PDF exclusivo do MOC.')
 
 if __name__=='__main__':run()
