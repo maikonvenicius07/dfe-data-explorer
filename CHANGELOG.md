@@ -1,3 +1,8 @@
+## V2.3.12-beta.1 — 26/11/2026
+
+- A seta individual do Leiaute MOC seleciona o registro expandido e seus filhos diretos visíveis, progressivamente.
+- Recolher mantém a seleção; filtros, expansão global e botões +/− filhos permanecem independentes.
+
 ## V2.3.11-beta.1 — 26/11/2026
 
 - Removida a faixa de atalhos “Divisões XML neste grupo” do Leiaute MOC em todos os grupos.

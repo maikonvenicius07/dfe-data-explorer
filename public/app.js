@@ -94,7 +94,7 @@ function mocHierarchyTable(entries,mode='hierarchy',interactive=true,observation
  const headers=['#','ID','Campo','Descrição','Ele','Pai','Tipo','Ocor.','Tam.','Observação'];
  const rows=entries.map(({n,depth})=>{
   const ch=(children.get(n.id)||[]).filter(k=>k.group===n.group),isParent=ch.length>0,isOpen=mocNodeOpen.has(n.key),level=Math.min(depth,12);
-  const caret=interactive&&isParent?`<button class="moc-node-toggle" data-moc-toggle="${safe(n.key)}" aria-label="${isOpen?'Recolher':'Expandir'} ${safe(n.tag)}" title="${isOpen?'Recolher':'Expandir'} ${safe(n.tag)}">${isOpen?'▾':'▸'}</button>`:`<span class="moc-node-spacer">${isParent?'▾':'·'}</span>`;
+  const caret=interactive&&isParent?`<button class="moc-node-toggle" data-moc-toggle="${safe(n.key)}" aria-label="${isOpen?'Recolher':'Expandir e selecionar'} ${safe(n.tag)}" title="${isOpen?'Recolher sem alterar a seleção':'Expandir e selecionar este registro e filhos diretos visíveis'} · ${safe(n.tag)}">${isOpen?'▾':'▸'}</button>`:`<span class="moc-node-spacer">${isParent?'▾':'·'}</span>`;
   const groupMark=structural(n)?`<span class="moc-structural">${depth===0?'Grupo XML':'Subgrupo'}</span>`:n.kind==='A'||n.kind==='ID'?'<span class="moc-attribute">@ atributo</span>':'';
   const technical=mode==='oracle'?`<span class="moc-technical">XPath: ${safe(n.xpath||'Não confirmado')}<br>Tipo XSD: ${safe(n.xsdType||'Não validado')} · Oracle: <b>não mapeado</b></span>`:'';
   const check=interactive?`<input type="checkbox" class="moc-print-check" data-moc-print="${safe(n.key)}" aria-label="Imprimir ${safe(n.id)}" ${printSelection.selected.has(n.key)?'checked':''}>`:'';
@@ -115,7 +115,15 @@ function renderMoc(){
  return `<article class="moc-group ${mocOpen.has(g)?'':'closed'}" data-group="${safe(g)}"><div class="moc-title"><button data-toggle-moc="${safe(g)}">${mocOpen.has(g)?'▾':'▸'}</button>${officialCatalog()?'Grupo editorial':'Seção de referência'} ${safe(g)} — ${safe(groupLabel(g))}<small>${matched.length} de ${all.length} linhas · ${sub.length} divisões estruturais</small></div><div class="moc-group-body"><div class="table-scroller">${rows}</div></div></article>`;
  }).join('')||'<p>Nenhum campo corresponde aos filtros.</p>';
  $('#mocTables').querySelectorAll('[data-toggle-moc]').forEach(el=>el.onclick=()=>{const g=el.dataset.toggleMoc;mocOpen.has(g)?mocOpen.delete(g):mocOpen.add(g);renderMoc()});
- $('#mocTables').querySelectorAll('[data-moc-toggle]').forEach(el=>el.onclick=e=>{e.stopPropagation();const k=el.dataset.mocToggle;mocNodeOpen.has(k)?mocNodeOpen.delete(k):mocNodeOpen.add(k);renderMoc()});
+ $('#mocTables').querySelectorAll('[data-moc-toggle]').forEach(el=>el.onclick=e=>{
+  e.stopPropagation();const k=el.dataset.mocToggle,n=byKey.get(k);if(!n)return;
+  if(mocNodeOpen.has(k)){mocNodeOpen.delete(k);renderMoc();return;}
+  mocNodeOpen.add(k);
+  // A seta individual marca o próprio nó e apenas os filhos diretos apresentados na tabela.
+  // Busca, filtro, expansão global e recolhimento continuam sem alterar a seleção.
+  const direct=mocHierarchyEntries(n.group,query).filter(x=>x.ancestors.at(-1)===k).map(x=>x.n.key);
+  printSelection.changeKeys([k,...direct],true);syncPrintSelection();
+ });
  $('#mocTables').querySelectorAll('[data-moc-print]').forEach(el=>el.onchange=e=>{e.stopPropagation();printSelection.changeKeys([el.dataset.mocPrint],el.checked);syncPrintSelection()});
  $('#mocTables').querySelectorAll('[data-moc-descendants]').forEach(el=>el.onclick=e=>{e.stopPropagation();printSelection.toggleNode(el.dataset.mocDescendants);syncPrintSelection()});
  $('#mocTables').querySelectorAll('[data-moc-to-diagram]').forEach(el=>el.onclick=e=>{e.stopPropagation();jumpToDiagram(el.dataset.mocToDiagram)});

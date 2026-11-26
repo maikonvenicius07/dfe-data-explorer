@@ -16,3 +16,5 @@
 - Nenhum documento é impresso se a seleção estiver vazia.
 - Prévia lista os itens e permite retirá-los; o usuário escolhe as colunas do MOC, papel e orientação.
 - O processo de publicação deverá ser incremental via GitHub e ZIPs completo + modificado + relatório técnico.
+
+- Desde V2.3.12, exceção no Leiaute MOC: expandir pela seta individual marca o nó e seus filhos diretos apresentados na tabela; recolher não desmarca. Expandir tudo, filtros e busca não marcam.

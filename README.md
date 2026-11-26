@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.11-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.12-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -91,3 +91,7 @@ O botão `+ filhos` marca o nó e todos os descendentes; quando a ramificação 
 ## V2.3.11 — navegação simplificada
 
 Selecione os campos no MOC ou na Central de impressão. Os botões + filhos e − filhos continuam disponíveis. A Central permite incluir as quatro representações no PDF, sem manter quatro telas separadas. O formato horizontal é o padrão; o botão Baixar PDF direto mantém a orientação escolhida.
+
+## V2.3.12 — seleção progressiva ao expandir no MOC
+
+A seta individual de um grupo XML ou subgrupo marca o próprio registro e os filhos diretos apresentados na tabela. Expanda os níveis seguintes para selecionar seus campos. Recolher mantém a seleção; use as caixas individuais ou − filhos para desmarcar. Filtros, busca, cabeçalhos editoriais e Expandir tudo continuam sendo ações de visualização.
