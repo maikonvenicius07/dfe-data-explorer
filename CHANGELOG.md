@@ -1,3 +1,10 @@
+# V2.3.15-beta.1 — hierarquia do MOC na impressão
+
+- Prévia e impressão reutilizam a travessia hierárquica da tabela MOC e somente depois filtram os registros selecionados.
+- PDF direto respeita profundidade, conectores, cor de grupo e negrito; larguras compartilhadas com HTML.
+- Título editorial e cabeçalhos repetidos em páginas seguintes.
+- Preservados seleção progressiva, menu simplificado e saída exclusiva MOC.
+
 # V2.3.14-beta.1 — simplificação de controles
 
 - Seleção concentrada no Leiaute do MOC; Central de impressão sem segunda árvore ou lista de revisão repetida.

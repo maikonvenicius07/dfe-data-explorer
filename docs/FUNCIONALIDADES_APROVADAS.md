@@ -20,3 +20,5 @@
 - Desde V2.3.12, exceção no Leiaute MOC: expandir pela seta individual marca o nó e seus filhos diretos apresentados na tabela; recolher não desmarca. Expandir tudo, filtros e busca não marcam.
 
 - Desde V2.3.13, somente a seção Leiaute do MOC com registros escolhidos, sem capa, sumário ou demais representações.
+
+- Desde V2.3.15, prévia e PDF MOC preservam a mesma profundidade hierárquica da tabela de tela, sem adicionar pais não selecionados como linhas. Os títulos editoriais e cabeçalhos repetem-se na paginação.

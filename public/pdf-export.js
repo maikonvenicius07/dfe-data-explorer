@@ -20,11 +20,27 @@ function createPDF(root,opts={}){
  function need(h){if(y+h>B&&ops.length)finish();}
  function paragraph(t,fs=F,bold=false,color='#17384f',indent=0){const a=wrap(t,U-indent,fs,bold);for(const l of a){need(fs+4);y+=fs+2;text(l,M+indent,y,fs,bold,color);y+=2;}y+=4;}
  function heading(t,fs=F+4){need(fs*2+12);paragraph(t,fs,true);line(M,y,W-M,y,'#286080',.9);y+=6;}
- function table(el){const rs=[...el.querySelectorAll('tr')].map(r=>[...r.children].map(c=>normalized(c.textContent)));if(!rs.length)return;const header=rs.shift(),n=header.length;if(!n)return;const weights=header.map(h=>/descri|observa|xpath/i.test(h)?3.4:/campo|grupo|elemento/i.test(h)?1.6:/^#|^ele$|^pai$|ocor|tam|tipo/i.test(h)?.8:1.1),total=weights.reduce((a,b)=>a+b,0),widths=weights.map(w=>U*w/total),fs=Math.max(7,F-1.5),lh=fs+3;
- const cells=(r,bold)=>header.map((_,i)=>wrap(r[i]||'',widths[i]-7,fs,bold));
- function draw(r,a,start,count,bold,index){const hh=count*lh+7;let x=M;for(let i=0;i<n;i++){rect(x,y,widths[i],hh,bold?(mono?'#e1e1e1':'#285c78'):(index%2?'#f3f7fa':'#fff'),'#d1dce3',.35);for(let j=0;j<count;j++)if(a[i][start+j]!==undefined)text(a[i][start+j],x+3.5,y+fs+4+j*lh,fs,bold,bold&&!mono?'#ffffff':'#17384f');x+=widths[i];}y+=hh;}
- const ha=cells(header,true),hn=Math.max(...ha.map(a=>a.length)),headerH=hn*lh+7;need(headerH+lh+7);draw(header,ha,0,hn,true,0);
- for(let i=0;i<rs.length;i++){const r=rs[i],a=cells(r,false),max=Math.max(...a.map(l=>l.length));let start=0;while(start<max){let cap=Math.floor((B-y-7)/lh);if(cap<1||((max-start)<=Math.floor((B-M-headerH-7)/lh)&&(max-start)>cap)){finish();draw(header,ha,0,hn,true,0);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();draw(header,ha,0,hn,true,0);}}}y+=9;}
+ function table(el){
+ const hierarchical=el.classList.contains('print-hierarchy-table');
+ const hr=el.tHead?.querySelector('tr:has(th)')||el.querySelector('tr');if(!hr)return;
+ const hs=[...hr.children],header=hs.map(c=>normalized(c.textContent)),n=header.length;if(!n)return;
+ const rs=[...el.querySelectorAll('tbody tr')],weights=hs.map((h,i)=>Number(h.dataset.weight)||(/descri|observa|xpath/i.test(header[i])?3.4:/campo|grupo|elemento/i.test(header[i])?1.6:/^#|^ele$|^pai$|ocor|tam|tipo/i.test(header[i])?.8:1.1)),total=weights.reduce((a,b)=>a+b,0),widths=weights.map(w=>U*w/total),fs=Math.max(7,F-1.5),lh=fs+3;
+ const fieldIndex=hs.findIndex(h=>h.dataset.mocCol==='2'),step=Number(el.dataset.indentStep)||0;
+ const groupTitle=el.dataset.groupTitle||'';
+ const kind=r=>hierarchical?r.dataset.kind||'element':'element';
+ const indent=r=>hierarchical&&fieldIndex>=0?(Number(r.dataset.depth)||0)*step:0;
+ const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+ (indent(r)>0?5:0):0;return wrap(c?.textContent||'',Math.max(8,widths[i]-7-off),fs,head||(kind(r)==='structural'&&isField));});
+ function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',root=structural&&Number(r.dataset.depth)===0,attr=kind(r)==='attribute';
+ for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=d+(d>0?5:0);const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?(mono?'#e2e2e2':root?'#d9eaf7':'#e4f2e9'):attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
+ rect(x,y,widths[i],hh,fill,'#d1dce3',.35);
+ if(isField&&d>0){const cx=x+3.5+d-2.5,cy=y+fs+1;line(cx,y+2,cx,cy,mono?'#777777':'#aacad2',.8);line(cx,cy,cx+5,cy,mono?'#777777':'#aacad2',.8);}
+ for(let j=0;j<count;j++)if(a[i][start+j]!==undefined)text(a[i][start+j],x+3.5+off,y+fs+4+j*lh,fs,head||(structural&&isField),head?'#ffffff':'#17384f');x+=widths[i];}y+=hh;}
+ const ha=cells(hr,true),hn=Math.max(...ha.map(a=>a.length)),headerH=hn*lh+7;
+ const groupLines=groupTitle?wrap(groupTitle+' (continuação)',U-14,fs+1,true):[],groupH=groupLines.length?(groupLines.length*(fs+4)+8):0;
+ function drawHeader(continued=false){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}draw(hr,ha,0,hn,true,0);}
+ const first=rs.length?Math.max(...cells(rs[0]).map(a=>a.length)):1;
+ need(groupH+3+headerH+Math.min(first,Math.max(1,Math.floor((B-M-headerH-groupH-10)/lh)))*lh+7);drawHeader();
+ for(let i=0;i<rs.length;i++){const r=rs[i],a=cells(r),max=Math.max(...a.map(l=>l.length));let start=0;while(start<max){let cap=Math.floor((B-y-7)/lh);const fresh=Math.floor((B-M-headerH-groupH-10)/lh);if(cap<1||((max-start)<=fresh&&(max-start)>cap)){finish();drawHeader(true);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();drawHeader(true);}}}y+=9;}
  function svgFigure(fig){const svg=fig.querySelector('svg');if(!svg){paragraph(fig.textContent);return;}const vb=svg.getAttribute('viewBox').split(/\s+/).map(Number),sw=vb[2],sh=vb[3],widthAttr=Number(svg.getAttribute('width'))||sw,heightAttr=Number(svg.getAttribute('height'))||sh;let k=Math.min(U/sw,(B-M-24)/sh,widthAttr*.75/sw,heightAttr*.75/sh);let height=sh*k;need(height+24);paragraph(fig.querySelector('figcaption')?.textContent||'Diagrama XML',Math.max(8,F-1),true);if(y+height>B){finish();}const ox=M,oy=y;
  function path(d,dx,dy,stroke,width){let a=d.match(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/gi)||[],i=0,px=0,py=0,cmd=[];const X=v=>num(ox+(dx+v)*k),Y=v=>num(H-oy-(dy+v)*k),read=()=>Number(a[i++]);while(i<a.length){const op=a[i++];if(op==='M'||op==='L'){px=read();py=read();cmd.push(`${X(px)} ${Y(py)} ${op==='M'?'m':'l'}`);}else if(op==='H'){px=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='V'){py=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='C'){const x1=read(),y1=read(),x2=read(),y2=read();px=read();py=read();cmd.push(`${X(x1)} ${Y(y1)} ${X(x2)} ${Y(y2)} ${X(px)} ${Y(py)} c`);}else return;}
  ops.push(`q ${rgb(stroke)} RG ${num(width*k)} w ${cmd.join(' ')} S Q`);}

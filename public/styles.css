@@ -242,3 +242,27 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 .preview-remove-inline:hover,.preview-remove-inline:focus-visible{background:#fae9e9;border-color:#8a3740}
 @media(max-width:760px){.print-presets .selection-aside{grid-template-columns:1fr}}
 @media print{.preview-remove-inline{display:none!important}}
+
+/* V2.3.15 — mesma hierarquia do MOC na prévia e nas duas saídas de impressão. */
+.integrated-document .print-hierarchy-table{font-size:var(--print-font,8.5pt)!important;line-height:1.35}
+.integrated-document .print-hierarchy-table th{font-size:inherit;white-space:normal}
+.integrated-document .print-hierarchy-table td{min-width:0!important;max-width:none!important;vertical-align:top;font-weight:normal;word-break:normal;overflow-wrap:anywhere}
+.integrated-document .print-hierarchy-table td[data-moc-col="1"],.integrated-document .print-hierarchy-table td[data-moc-col="5"]{font-variant-numeric:tabular-nums;white-space:normal}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural{background:#e4f2e9!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="0"]{background:#d9eaf7!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-attribute{background:#fffaf0!important}
+.print-hierarchy-field{position:relative;min-width:0;padding-left:calc(var(--depth)*var(--print-step,8pt) + 5pt);overflow-wrap:anywhere}
+.print-hierarchy-table tr[data-depth="0"] .print-hierarchy-field{padding-left:0}
+.print-hierarchy-field::before{content:'';position:absolute;left:calc(var(--depth)*var(--print-step,8pt) - 2.5pt);top:0;width:5pt;height:.65em;border-left:1px solid #aacad2;border-bottom:1px solid #aacad2}
+.print-hierarchy-table tr[data-depth="0"] .print-hierarchy-field::before{display:none}
+.print-hierarchy-table .moc-kind-structural .print-field-tag{font-weight:700;color:#174b6b}
+.integrated-document .print-hierarchy-table .print-group-heading td{background:#e2f2e8!important;color:#254e6e;font-weight:700;border-left:3px solid #b58e42;padding:7px 8px;font-size:calc(var(--print-font,8.5pt) + 1pt)}
+.integrated-document .print-integrated-group{margin-top:12px}
+.integrated-document .print-hierarchy-table thead{display:table-header-group;break-inside:avoid}
+.print-page.bw .print-hierarchy-table tr.moc-kind-structural,.print-page.bw .print-hierarchy-table tr.moc-kind-structural[data-depth="0"]{background:#e2e2e2!important}
+.print-page.bw .print-hierarchy-table tr.moc-kind-attribute{background:#f1f1f1!important}
+.print-page.bw .print-hierarchy-table .print-group-heading td{background:#eee!important;border-left-color:#444;color:#111}
+.print-page.bw .print-field-tag{color:#111!important}.print-page.bw .print-hierarchy-field::before{border-color:#777}
+#printPreviewRender .preview-review-cell{position:relative;padding-right:25px!important}
+#printPreviewRender .preview-remove-inline{position:absolute;right:3px;top:3px;margin:0;width:17px;height:17px;font-size:12px}
+@media print{.integrated-document .print-hierarchy-table tr{break-inside:avoid;page-break-inside:avoid}.integrated-document .print-hierarchy-table thead{display:table-header-group}.integrated-document .print-integrated-group{break-inside:auto;page-break-inside:auto}.integrated-document .print-hierarchy-table .print-field-tag{font-size:inherit}}

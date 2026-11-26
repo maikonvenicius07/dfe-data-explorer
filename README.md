@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.14-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.15-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -15,7 +15,7 @@ Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer
 - Navegação simplificada: MOC, Modelagem Oracle, Atualizações e histórico e Central de impressão. Os módulos de árvore, dicionário, diagrama e XSD permanecem internos para preservar a infraestrutura de relatórios; não são páginas acessíveis pelo menu.
 - A impressão agora contém exclusivamente as tabelas do MOC com os registros selecionados. DER **proposto**, não oficial, continua na Modelagem Oracle.
 - Seleção exclusivamente no Leiaute do MOC; a Central de Impressão oferece prévia com retirada individual de registros, configurações, conjuntos salvos opcionais e geração do documento.
-- Nenhum pai ou filho não selecionado é incluído como linha do relatório. Os títulos editoriais organizam os registros marcados.
+- Nenhum pai ou filho não selecionado é incluído como linha do relatório. A impressão preserva a profundidade e a ordem hierárquica do MOC, com recuos na coluna Campo e destaques nos grupos/subgrupos. Os títulos editoriais e cabeçalhos repetem-se nas páginas seguintes.
 - PDF A4/A3 direto ou pelo navegador, exclusivamente com as linhas selecionadas do MOC; exportação CSV da seleção, modelagem Oracle separada, monitoramento e histórico.
 
 ## Repositório permanente e publicação sem reconstruir o projeto
