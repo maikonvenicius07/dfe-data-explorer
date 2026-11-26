@@ -23,6 +23,16 @@ def run():
                 assert page.locator(f'#view-{old}').is_hidden()
         page.locator('[data-view="moc"]').click()
         assert page.locator('[data-moc-to-diagram]').count()==0
+        for mode in ('official','hierarchy','oracle'):
+            page.locator('#mocMode').select_option(mode)
+            page.locator('#groupMoc').select_option('')
+            page.locator('#expandMoc').click()
+            assert page.locator('#mocTables .moc-group').count()>1
+            assert page.locator('#mocTables .moc-subgroup-nav, #mocTables [data-moc-subgroup]').count()==0
+            assert page.locator('#mocTables').get_by_text('Divisões XML neste grupo:',exact=True).count()==0
+            assert page.locator('#mocTables .moc-group-body > .table-scroller').count()==page.locator('#mocTables .moc-group').count()
+        page.locator('#mocMode').select_option('hierarchy')
+        print('Faixa removida em todos os grupos e nos três modos do MOC.',flush=True)
         page.locator('#groupMoc').select_option('B');page.locator('#expandMoc').click()
         page.locator('[data-moc-print="B02"]').check()
         page.locator('#groupMoc').select_option('W');page.locator('#expandMoc').click()

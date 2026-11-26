@@ -64,9 +64,6 @@
 /* V2.2 — MOC baseado na mesma árvore de pais e filhos usada no diagrama */
 .moc-explainer{font-size:12px;color:#506d80;margin:12px 2px}.moc-legend{display:flex;gap:15px;flex-wrap:wrap;padding:10px 13px;background:#eef5fa;border-radius:8px;font-size:11px;color:#315874;margin-bottom:14px}
 .moc-group .moc-group-body{display:block}.moc-group.closed .moc-group-body{display:none}
-.moc-subgroup-nav{padding:12px 15px;background:#f5faf7;display:flex;gap:7px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #d5e7de}
-.moc-subgroup-label{font-size:11px;font-weight:800;color:#355768;margin-right:5px}.moc-subgroup-link{padding:6px 9px;background:white;border:1px solid #bad8c8;border-radius:6px;color:#235b58;font-size:11px;font-weight:700}.moc-subgroup-link:hover{background:#dbeee5}
-.moc-subgroup-link small{color:#607c72;font-weight:400;margin-left:4px}
 .moc-hierarchy-table td{vertical-align:middle}.moc-hierarchy-table td:nth-child(3){min-width:230px;max-width:420px;white-space:normal}
 .moc-hierarchy-table tr.moc-kind-structural{background:#e4f2e9!important;border-top:1px solid #b8d6c5}
 .moc-hierarchy-table tr.moc-kind-structural.moc-level-0{background:#d9eaf7!important}
@@ -81,7 +78,7 @@
 .moc-technical{font-size:10px;display:block;color:#536f80;font-weight:400;line-height:1.5;overflow-wrap:anywhere;margin:3px 0 3px 26px}
 .diagram-selection{display:flex;align-items:center;flex-wrap:wrap;gap:8px;background:#eaf3f8;border:1px solid #d1e3ed;border-radius:8px;padding:9px 12px;margin-bottom:11px;font-size:11px;color:#28506c}
 .diagram-area{height:700px}.diagram-area svg{background:white}
-@media(max-width:760px){.moc-field-cell{padding-left:calc(var(--depth)*12px)}.moc-subgroup-nav{padding:8px}.diagram-area{height:580px}}
+@media(max-width:760px){.moc-field-cell{padding-left:calc(var(--depth)*12px)}.diagram-area{height:580px}}
 @media print{.moc-hierarchy-table .moc-field-cell{padding-left:calc(var(--depth)*2.5mm)}.moc-hierarchy-table .moc-node-spacer{width:12px}.moc-hierarchy-table .moc-structural{display:inline;font-size:6.7pt;border:none}.moc-hierarchy-table .moc-see-diagram{display:none!important}.moc-hierarchy-table tr.moc-kind-structural{background:#e4f2e9!important}.moc-hierarchy-table .moc-field-main b{font-size:7.5pt;white-space:normal}.moc-hierarchy-table .moc-technical{font-size:6.6pt}}
 
 /* v2.2.1: a barra do diagrama exibe somente Tela cheia. */
@@ -236,7 +233,7 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 .view[hidden]{display:none!important}
 </style></head>
 <body>
-<header class="topbar"><div class="identity"><div class="mark">NF</div><div><div class="eyebrow">Engenharia de dados fiscais · versão 2.3.10</div><h1>Explorador do Leiaute NF-e e NFC-e</h1><p>MOC · Oracle · Relatórios e impressão</p></div></div>
+<header class="topbar"><div class="identity"><div class="mark">NF</div><div><div class="eyebrow">Engenharia de dados fiscais · versão 2.3.11</div><h1>Explorador do Leiaute NF-e e NFC-e</h1><p>MOC · Oracle · Relatórios e impressão</p></div></div>
 <div class="top-actions"><span class="status-chip" id="badgeStatus">Catálogo de demonstração</span><a class="btn light" href="https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a><button class="btn primary" id="btnPrintTop">Imprimir relatório</button></div></header>
 <div class="app"><nav class="sidebar" aria-label="Navegação principal">
 <div class="navsection">Exploração</div>
@@ -511,13 +508,11 @@ function renderMoc(){
  $('#mocTables').innerHTML=groups.filter(g=>!fg||fg===g).map(g=>{
  const matched=filterRows(query,g);if(!matched.length)return '';
  const all=nodes.filter(n=>n.group===g),sub=all.filter(n=>structural(n)&&((children.get(n.id)||[]).some(ch=>ch.group===g)));
- const nav=`<div class="moc-subgroup-nav"><span class="moc-subgroup-label">Divisões XML neste grupo:</span>${sub.map(n=>`<button class="moc-subgroup-link" data-moc-subgroup="${safe(n.key)}" title="Abrir o subgrupo ${safe(n.tag)}">${safe(n.id)} · ${safe(n.tag)} <small>${(children.get(n.id)||[]).filter(x=>x.group===g).length} filhos</small></button>`).join('')||'<span>Não há subgrupos estruturais catalogados nesta seleção.</span>'}</div>`;
  const rows=mode==='official'?mocTable(matched,true,true):mocHierarchyTable(mocHierarchyEntries(g,query),mode);
- return `<article class="moc-group ${mocOpen.has(g)?'':'closed'}" data-group="${safe(g)}"><div class="moc-title"><button data-toggle-moc="${safe(g)}">${mocOpen.has(g)?'▾':'▸'}</button>${officialCatalog()?'Grupo editorial':'Seção de referência'} ${safe(g)} — ${safe(groupLabel(g))}<small>${matched.length} de ${all.length} linhas · ${sub.length} divisões estruturais</small></div><div class="moc-group-body">${nav}<div class="table-scroller">${rows}</div></div></article>`;
+ return `<article class="moc-group ${mocOpen.has(g)?'':'closed'}" data-group="${safe(g)}"><div class="moc-title"><button data-toggle-moc="${safe(g)}">${mocOpen.has(g)?'▾':'▸'}</button>${officialCatalog()?'Grupo editorial':'Seção de referência'} ${safe(g)} — ${safe(groupLabel(g))}<small>${matched.length} de ${all.length} linhas · ${sub.length} divisões estruturais</small></div><div class="moc-group-body"><div class="table-scroller">${rows}</div></div></article>`;
  }).join('')||'<p>Nenhum campo corresponde aos filtros.</p>';
  $('#mocTables').querySelectorAll('[data-toggle-moc]').forEach(el=>el.onclick=()=>{const g=el.dataset.toggleMoc;mocOpen.has(g)?mocOpen.delete(g):mocOpen.add(g);renderMoc()});
  $('#mocTables').querySelectorAll('[data-moc-toggle]').forEach(el=>el.onclick=e=>{e.stopPropagation();const k=el.dataset.mocToggle;mocNodeOpen.has(k)?mocNodeOpen.delete(k):mocNodeOpen.add(k);renderMoc()});
- $('#mocTables').querySelectorAll('[data-moc-subgroup]').forEach(el=>el.onclick=()=>{const k=el.dataset.mocSubgroup;const n=byKey.get(k);if(!n)return;mocNodeOpen.add(k);ancestorKeys(n).forEach(x=>mocNodeOpen.add(x));choose(k);renderMoc();document.querySelector(`#mocTables tr[data-key="${CSS.escape(k)}"]`)?.scrollIntoView({block:'center',behavior:'smooth'})});
  $('#mocTables').querySelectorAll('[data-moc-print]').forEach(el=>el.onchange=e=>{e.stopPropagation();printSelection.changeKeys([el.dataset.mocPrint],el.checked);syncPrintSelection()});
  $('#mocTables').querySelectorAll('[data-moc-descendants]').forEach(el=>el.onclick=e=>{e.stopPropagation();printSelection.toggleNode(el.dataset.mocDescendants);syncPrintSelection()});
  $('#mocTables').querySelectorAll('[data-moc-to-diagram]').forEach(el=>el.onclick=e=>{e.stopPropagation();jumpToDiagram(el.dataset.mocToDiagram)});

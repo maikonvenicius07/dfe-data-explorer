@@ -1,3 +1,8 @@
+## V2.3.11-beta.1 — 26/11/2026
+
+- Removida a faixa de atalhos “Divisões XML neste grupo” do Leiaute MOC em todos os grupos.
+- Mantidos títulos, contagens, tabelas, expansão individual, seleção e impressão.
+
 ## V2.3.10-beta.1 — 26/11/2026
 
 - Navegação reduzida a quatro telas: MOC, Oracle, Atualizações e Central de impressão.

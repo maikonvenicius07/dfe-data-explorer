@@ -3,6 +3,7 @@
 - O MOC é a tela inicial; **Visão Geral foi removida** por solicitação expressa.
 - Desde V2.3.10, manter apenas quatro telas acessíveis (MOC, Oracle, atualizações, impressão). Os quatro módulos retirados do menu permanecem internos; suas representações de relatório continuam disponíveis.
 - Diagramas horizontal, vertical e compacto na Central de impressão; DER proposto na Modelagem Oracle.
+- Desde V2.3.11, não exibir a faixa redundante de atalhos “Divisões XML neste grupo”; a navegação interna ocorre pela tabela hierárquica.
 - MOC com dez colunas, três modalidades de apresentação e hierarquia por vínculo pai-filho.
 - O catálogo de 196 nós é **parcial** e jamais deve ser declarado integralmente oficial.
 - A seleção para impressão começa **vazia** e nunca deriva automaticamente dos filtros.

@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.10-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.11-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -88,6 +88,6 @@ O diagrama XML inicia em árvore horizontal. Na Central de Impressão, mantenha 
 
 O botão `+ filhos` marca o nó e todos os descendentes; quando a ramificação está completa, muda para `− filhos` e desmarca o mesmo conjunto. Em seleção parcial, completa a ramificação. A caixa individual continua independente e as demais seleções são preservadas. A mesma ação vale na árvore, ficha técnica, diagrama e Central de Impressão.
 
-## V2.3.10 — navegação simplificada
+## V2.3.11 — navegação simplificada
 
 Selecione os campos no MOC ou na Central de impressão. Os botões + filhos e − filhos continuam disponíveis. A Central permite incluir as quatro representações no PDF, sem manter quatro telas separadas. O formato horizontal é o padrão; o botão Baixar PDF direto mantém a orientação escolhida.

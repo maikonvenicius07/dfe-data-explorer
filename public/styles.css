@@ -61,9 +61,6 @@
 /* V2.2 — MOC baseado na mesma árvore de pais e filhos usada no diagrama */
 .moc-explainer{font-size:12px;color:#506d80;margin:12px 2px}.moc-legend{display:flex;gap:15px;flex-wrap:wrap;padding:10px 13px;background:#eef5fa;border-radius:8px;font-size:11px;color:#315874;margin-bottom:14px}
 .moc-group .moc-group-body{display:block}.moc-group.closed .moc-group-body{display:none}
-.moc-subgroup-nav{padding:12px 15px;background:#f5faf7;display:flex;gap:7px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #d5e7de}
-.moc-subgroup-label{font-size:11px;font-weight:800;color:#355768;margin-right:5px}.moc-subgroup-link{padding:6px 9px;background:white;border:1px solid #bad8c8;border-radius:6px;color:#235b58;font-size:11px;font-weight:700}.moc-subgroup-link:hover{background:#dbeee5}
-.moc-subgroup-link small{color:#607c72;font-weight:400;margin-left:4px}
 .moc-hierarchy-table td{vertical-align:middle}.moc-hierarchy-table td:nth-child(3){min-width:230px;max-width:420px;white-space:normal}
 .moc-hierarchy-table tr.moc-kind-structural{background:#e4f2e9!important;border-top:1px solid #b8d6c5}
 .moc-hierarchy-table tr.moc-kind-structural.moc-level-0{background:#d9eaf7!important}
@@ -78,7 +75,7 @@
 .moc-technical{font-size:10px;display:block;color:#536f80;font-weight:400;line-height:1.5;overflow-wrap:anywhere;margin:3px 0 3px 26px}
 .diagram-selection{display:flex;align-items:center;flex-wrap:wrap;gap:8px;background:#eaf3f8;border:1px solid #d1e3ed;border-radius:8px;padding:9px 12px;margin-bottom:11px;font-size:11px;color:#28506c}
 .diagram-area{height:700px}.diagram-area svg{background:white}
-@media(max-width:760px){.moc-field-cell{padding-left:calc(var(--depth)*12px)}.moc-subgroup-nav{padding:8px}.diagram-area{height:580px}}
+@media(max-width:760px){.moc-field-cell{padding-left:calc(var(--depth)*12px)}.diagram-area{height:580px}}
 @media print{.moc-hierarchy-table .moc-field-cell{padding-left:calc(var(--depth)*2.5mm)}.moc-hierarchy-table .moc-node-spacer{width:12px}.moc-hierarchy-table .moc-structural{display:inline;font-size:6.7pt;border:none}.moc-hierarchy-table .moc-see-diagram{display:none!important}.moc-hierarchy-table tr.moc-kind-structural{background:#e4f2e9!important}.moc-hierarchy-table .moc-field-main b{font-size:7.5pt;white-space:normal}.moc-hierarchy-table .moc-technical{font-size:6.6pt}}
 
 /* v2.2.1: a barra do diagrama exibe somente Tela cheia. */
