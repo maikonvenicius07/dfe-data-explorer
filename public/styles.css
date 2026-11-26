@@ -307,3 +307,25 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
  .print-physical-page:not(:last-child){break-after:page;page-break-after:always}
  .print-physical-page{break-inside:avoid-page;page-break-inside:avoid}
 }
+
+/* V2.3.17: structural bands, continuous rails and explicit branch closure. */
+.integrated-document .print-hierarchy-table{border-collapse:collapse;table-layout:fixed}
+.integrated-document .print-hierarchy-table td[data-moc-col="2"]{--tree-ink:#316c76;--branch-anchor:calc(3.75pt + var(--print-font,8.5pt)*.675 + 1pt)}
+.print-branch-lines i{border-left-width:1.65pt}
+.print-branch-lines .print-elbow{border-bottom-width:1.65pt}
+.print-branch-lines .print-tee::after{border-top-width:1.65pt}
+.print-branch-lines .print-block-end{top:auto;bottom:0;height:0;width:auto;right:0;border:0;border-bottom:1pt solid #67968a}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural td{border-top:1.2pt solid #67968a;border-bottom:0.7pt solid #a6c3b8}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="0"]{background:#c5dce8!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="1"]{background:#c9e3d2!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="2"]{background:#d5e9db!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural:not([data-depth="0"]):not([data-depth="1"]):not([data-depth="2"]){background:#e3efdf!important}
+.print-hierarchy-table .moc-kind-structural .print-field-tag{font-weight:750;display:block;color:#123e45}
+.print-branch-label{display:block;font-size:.82em;line-height:1.2;font-weight:700;letter-spacing:.035em;color:#365e54;margin-top:2pt}
+.print-page.bw .print-hierarchy-table td[data-moc-col="2"]{--tree-ink:#333}
+.print-page.bw .print-hierarchy-table tr.moc-kind-structural td{border-top:1.2pt solid #666}
+.print-page.bw .print-branch-label{color:#333}
+.moc-map-section .print-graph-fragment{margin:0 0 3mm;break-inside:avoid}
+.moc-structural-map svg{display:block;max-width:100%;height:auto}
+.print-map-option{display:flex!important;align-items:center;gap:7px;align-self:center}
+@media print{.moc-structural-map{break-inside:avoid-page}.print-branch-label{print-color-adjust:exact;-webkit-print-color-adjust:exact}}

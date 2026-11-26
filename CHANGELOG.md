@@ -1,3 +1,11 @@
+# V2.3.17-beta.1 — blocos hierárquicos no MOC
+
+- Faixas de grupo com nível explícito, trilhos de conexão reforçados, delimitação dos ramos e mais espaço na coluna Campo.
+- Mapa vetorial opcional com pais de contexto destacados, sem alterar a seleção. Tabela continua sendo a única saída padrão.
+- Identificação da versão no PDF e referências versionadas de CSS/JS para reduzir cache antigo.
+- Paginação tenta manter pequenos ramos juntos; preserva cabeçalhos de continuação.
+- Catálogos, seleção progressiva e menu simplificado preservados.
+
 # V2.3.16-beta.1 — árvore gráfica contínua na impressão MOC
 
 - A coluna Campo utiliza linhas de continuidade, bifurcações e encerramentos calculados pelos caminhos de pai e filhos do catálogo, preservando a profundidade original.

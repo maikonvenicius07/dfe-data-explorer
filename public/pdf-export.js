@@ -16,7 +16,7 @@ function createPDF(root,opts={}){
  function line(x1,t1,x2,t2,color='#b5cad3',sw=.7){ops.push(`q ${rgb(color)} RG ${num(sw)} w ${num(x1)} ${num(H-t1)} m ${num(x2)} ${num(H-t2)} l S Q`);}
  function measure(t,fs,bold=false){cv.font=`${bold?'bold ':''}${fs*96/72}px Arial`;return cv.measureText(t).width*72/96;}
  function wrap(t,width,fs,bold=false){const a=[];let cur='';for(let w of normalized(t).split(' ')){if(cur&&measure(cur+' '+w,fs,bold)>width){a.push(cur);cur='';}while(w.length>1&&measure(w,fs,bold)>width){let n=1;while(n<w.length&&measure(w.slice(0,n+1),fs,bold)<=width)n++;a.push(w.slice(0,n));w=w.slice(n);}if(w)cur+=(cur?' ':'')+w;}if(cur)a.push(cur);return a.length?a:[''];}
- function finish(){if(!ops.length)return;line(M,H-M-9,W-M,H-M-9);text('DF-e Data Explorer · documentação técnica',M,H-M+2,7,false,'#526779');text('Página '+(pages.length+1),W-M-45,H-M+2,7,false,'#526779');pages.push(ops.join('\n'));ops=[];y=M;}
+ function finish(){if(!ops.length)return;line(M,H-M-9,W-M,H-M-9);text('DF-e Data Explorer · V2.3.17',M,H-M+2,7,false,'#526779');text('Página '+(pages.length+1),W-M-45,H-M+2,7,false,'#526779');pages.push(ops.join('\n'));ops=[];y=M;}
  function need(h){if(y+h>B&&ops.length)finish();}
  function paragraph(t,fs=F,bold=false,color='#17384f',indent=0){const a=wrap(t,U-indent,fs,bold);for(const l of a){need(fs+4);y+=fs+2;text(l,M+indent,y,fs,bold,color);y+=2;}y+=4;}
  function heading(t,fs=F+4){need(fs*2+12);paragraph(t,fs,true);line(M,y,W-M,y,'#286080',.9);y+=6;}
@@ -30,19 +30,21 @@ function createPDF(root,opts={}){
  const kind=r=>hierarchical?r.dataset.kind||'element':'element';
  const indent=r=>hierarchical&&fieldIndex>=0?(Number(r.dataset.depth)||0)*step:0;
  const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+8:0;
- if(isField){const tag=c?.querySelector('.print-field-tag')?.textContent||'',ctx=c?.querySelector('.print-field-context')?.textContent||'',width=Math.max(8,widths[i]-7-off);return [...wrap(tag,width,fs,kind(r)==='structural').map(t=>({t,b:kind(r)==='structural'})),...(ctx?wrap(ctx,width,fs-1,false).map(t=>({t,b:false,context:true})):[])];}
+ if(isField){const tag=c?.querySelector('.print-field-tag')?.textContent||'',ctx=c?.querySelector('.print-field-context')?.textContent||'',label=c?.querySelector('.print-branch-label')?.textContent||'',width=Math.max(8,widths[i]-7-off);return [...wrap(tag,width,fs,kind(r)==='structural').map(t=>({t,b:kind(r)==='structural'})),...(label?wrap(label,width,fs-1,true).map(t=>({t,b:true,label:true})):[]),...(ctx?wrap(ctx,width,fs-1,false).map(t=>({t,b:false,context:true})):[])];}
  return wrap(c?.textContent||'',Math.max(8,widths[i]-7),fs,head).map(t=>({t,b:head}));});
  function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',depth=Number(r.dataset.depth)||0,attr=kind(r)==='attribute';
- const fills=mono?['#dedede','#dddddd','#e8e8e8','#f0f0f0']:['#d9eaf7','#d7eadc','#e2f0df','#edf5e8'];
+ const fills=mono?['#dedede','#dddddd','#e8e8e8','#f0f0f0']:['#c5dce8','#c9e3d2','#d5e9db','#e3efdf'];
  for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=isField?d+8:0;const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?fills[Math.min(depth,3)]:attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
  rect(x,y,widths[i],hh,fill,'#d1dce3',.35);
- if(isField){const ink=mono?'#565656':'#5e8795',lane=l=>x+3.5+4+(l-1)*step,mid=y+fs*.55+4;
-  for(const l of (r.dataset.rails||'').split(',').filter(Boolean).map(Number))line(lane(l),y,lane(l),y+hh,ink,.85);
-  if(depth>0){line(lane(depth),y,lane(depth),r.dataset.tail==='true'||start+count<a[i].length?y+hh:mid,ink,.85);if(start===0)line(lane(depth),mid,lane(depth)+step+1,mid,ink,.85);}
-  if(r.dataset.child==='true')line(lane(depth+1),mid,lane(depth+1),y+hh,ink,.85);
+ if(structural&&!head&&start===0)line(x,y,x+widths[i],y,mono?'#666666':'#67968a',1.2);
+ if(isField){const ink=mono?'#333333':'#316c76',lane=l=>x+3.5+4+(l-1)*step,mid=y+fs*.55+4;
+  for(const l of (r.dataset.rails||'').split(',').filter(Boolean).map(Number))line(lane(l),y,lane(l),y+hh,ink,1.65);
+  if(depth>0){line(lane(depth),y,lane(depth),r.dataset.tail==='true'||start+count<a[i].length?y+hh:mid,ink,1.65);if(start===0)line(lane(depth),mid,lane(depth)+step+1,mid,ink,1.65);}
+  if(r.dataset.child==='true')line(lane(depth+1),mid,lane(depth+1),y+hh,ink,1.65);
+  const ends=(r.dataset.ends||'').split(',').filter(Boolean).map(Number);if(ends.length&&start+count>=Math.max(...a.map(c=>c.length)))line(lane(Math.min(...ends)),y+hh-1,x+widths[i],y+hh-1,mono?'#666666':'#67968a',1);
  }
  const visible=a[i].slice(start,start+count),offset=0;
- for(let j=0;j<visible.length;j++){const l=visible[j];text(l.t,x+3.5+off,y+fs+4+j*lh+offset,l.context?fs-1:fs,l.b,head?'#ffffff':l.context?'#576b76':'#17384f');}x+=widths[i];}y+=hh;}
+ for(let j=0;j<visible.length;j++){const l=visible[j];text(l.t,x+3.5+off,y+fs+4+j*lh+offset,l.context||l.label?fs-1:fs,l.b,head?'#ffffff':l.context?'#576b76':l.label?'#365e54':'#17384f');}x+=widths[i];}y+=hh;}
  const ha=cells(hr,true),hn=Math.max(...ha.map(a=>a.length)),headerH=hn*lh+7;
  const groupLines=groupTitle?wrap(groupTitle+' (continuação)',U-14,fs+1,true):[],groupH=groupLines.length?(groupLines.length*(fs+4)+8):0;
  function drawHeader(continued=false,firstRow=null){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}if(continued&&firstRow?.dataset.path){const a=wrap('Caminho na continuação: '+firstRow.dataset.path,U-12,Math.max(7,fs-1));for(const l of a){text(l,M+5,y+fs,Math.max(7,fs-1),false,'#576b76');y+=fs+3;}y+=3;}draw(hr,ha,0,hn,true,0);}
@@ -53,7 +55,7 @@ function createPDF(root,opts={}){
  for(let i=0;i<prepared.length;i++){const {r,a,max}=prepared[i];let start=0;
   // Avoid orphaned group headings; if a tiny trailing page is inevitable, move a small complete branch instead.
   const next=prepared[i+1],freshH=B-M-headerH-groupH-45,remain=B-y;
-  const pair=rowHeight(prepared[i])+(r.dataset.child==='true'&&next?rowHeight(next):0);
+  let end=i+1;while(end<prepared.length&&Number(prepared[end].r.dataset.depth)>Number(r.dataset.depth))end++;const block=prepared.slice(i,end),pair=r.dataset.child==='true'&&next?(block.length<=5?block.reduce((sum,o)=>sum+rowHeight(o),0):rowHeight(prepared[i])+rowHeight(next)):rowHeight(prepared[i]);
   const tail=prepared.slice(i),tailH=tail.reduce((sum,o)=>sum+rowHeight(o),0),tailOverflow=tailH-remain;
   const moveTail=tail.length>=5&&tail.length<=9&&tailOverflow>0&&tailOverflow<=3*(lh+7)&&tailH<=freshH&&kind(r)==='structural';
   if((pair>remain&&pair<=freshH||moveTail)&&y>M+groupH+headerH+30){finish();drawHeader(true,r);}

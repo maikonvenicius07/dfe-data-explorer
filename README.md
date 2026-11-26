@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.16-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.17-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -106,3 +106,6 @@ Selecione no MOC, clique em Imprimir selecionados e confira a própria tabela na
 
 ### V2.3.16 — impressão em árvore
 A coluna Campo apresenta trilhas verticais contínuas e bifurcações reais da seleção. Pais ausentes são identificados como contexto, sem criar novos registros. A impressão nativa e o PDF direto preservam o mesmo modelo. A4 paisagem é o padrão; para maior legibilidade, prefira A3. O botão **Baixar PDF direto** evita conversões pelo driver de impressão. Exemplos reais em `docs/exemplos_v2316/`.
+
+### V2.3.17 — blocos hierárquicos e versão verificável
+A impressão mantém a tabela única de dez colunas, com faixas estruturais, níveis explícitos, trilhos reforçados e linhas de fechamento dos ramos. O mapa hierárquico é opcional e inicia desmarcado; ele usa a mesma seleção e distingue os pais de contexto. O PDF mostra V2.3.17 no cabeçalho/rodapé. Confira essa identificação depois da publicação. Assets possuem `?v=2.3.17`; o HTML offline é reconstruído a partir dos mesmos módulos. Exemplos em `docs/exemplos_v2317/`.

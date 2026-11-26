@@ -24,3 +24,5 @@
 - Desde V2.3.15, prévia e PDF MOC preservam a mesma profundidade hierárquica da tabela de tela, sem adicionar pais não selecionados como linhas. Os títulos editoriais e cabeçalhos repetem-se na paginação.
 
 - Desde V2.3.16, a impressão MOC mostra linhas de árvore contínuas e término dos ramos, com profundidade original, pais ausentes apenas como contexto textual, e cabeçalhos de continuação. Nenhuma seção além do MOC é incluída.
+
+- V2.3.17: tabela MOC por faixas estruturais com conectores contínuos e encerramentos de ramos; mapa opcional desmarcado inicialmente, sem reintroduzir telas. Versão da aplicação identificada na saída PDF.
