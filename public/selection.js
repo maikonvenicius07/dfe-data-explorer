@@ -32,6 +32,8 @@
     }
     changeKeys(keys,checked) {for(const k of keys)if(this.map.has(k)){if(checked)this.selected.add(k);else this.selected.delete(k);}}
     changeNode(key,checked) {for(const k of this.descendants(key))checked?this.selected.add(k):this.selected.delete(k);}
+    // A ação coletiva é explícita e reversível: ramo parcial completa; ramo completo limpa.
+    toggleNode(key) {const keys=this.descendants(key);if(!keys.length)return false;const checked=this.stateKeys(keys)!=='all';this.changeKeys(keys,checked);return checked;}
     changeGroup(group,checked) {for(const n of this.groups.get(group)||[])checked?this.selected.add(n.key):this.selected.delete(n.key);}
     all(checked){if(checked)this.selected=new Set(this.nodes.map(n=>n.key));else this.selected.clear();}
     stateKeys(keys){let amount=0;for(const k of keys)if(this.selected.has(k))amount++;return amount===0?'none':amount===keys.length?'all':'partial';}

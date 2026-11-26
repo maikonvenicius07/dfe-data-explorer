@@ -1,3 +1,10 @@
+## V2.3.9-beta.1 — seleção reversível de filhos (25/11/2026)
+
+- Botões de seleção de ramificações alternam entre marcar e desmarcar o mesmo conjunto (nó + descendentes).
+- Estado parcial completa a seleção; estado completo permite limpar sem afetar outras ramificações.
+- A ação e os rótulos são compartilhados entre MOC, árvore, ficha técnica, diagrama e Central de Impressão.
+- Preservados seleção individual, filtros, expansão, catálogo e geração de PDF da V2.3.8.
+
 ## V2.3.8-beta.1 — diagrama horizontal e PDF direto (25/11/2026)
 
 - Diagrama horizontal por padrão, com a Central de Impressão seguindo o formato da tela ou uma escolha explícita.

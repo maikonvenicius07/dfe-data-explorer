@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.8-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.9-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -83,3 +83,7 @@ Testes: `node tests/test_diagram_progressive_v234.js` e `python -m pytest -q tes
 ## Impressão horizontal e PDF direto (V2.3.8)
 
 O diagrama XML inicia em árvore horizontal. Na Central de Impressão, mantenha **Mesmo formato do Diagrama XML** ou escolha explicitamente a árvore horizontal. Use **Baixar PDF direto** para gerar as quatro seções ou o diagrama sem passar pelo driver Microsoft Print to PDF. A4 paisagem é o padrão; A3 paisagem permite mais nós por página. A seleção e o contexto são preservados. A impressão nativa continua disponível. Os modos legados usam a impressão do navegador. Exemplos reais em `docs/exemplos_v238/`.
+
+## Seleção reversível de ramificações (V2.3.9)
+
+O botão `+ filhos` marca o nó e todos os descendentes; quando a ramificação está completa, muda para `− filhos` e desmarca o mesmo conjunto. Em seleção parcial, completa a ramificação. A caixa individual continua independente e as demais seleções são preservadas. A mesma ação vale na árvore, ficha técnica, diagrama e Central de Impressão.
