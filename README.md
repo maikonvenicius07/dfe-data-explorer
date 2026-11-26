@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.15-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.16-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -103,3 +103,6 @@ A Central gera apenas a seção Leiaute do MOC, sem capa, sumário ou outras rep
 ## V2.3.14 — interface enxuta
 
 Selecione no MOC, clique em Imprimir selecionados e confira a própria tabela na Central. O botão × de cada linha da prévia retira o registro da seleção, sem entrar no PDF. As opções de papel, fonte, margens, cor e colunas atualizam a prévia automaticamente. Observação é controlada na seleção de colunas. Ações de seleção integral redundantes ficam ocultas quando o filtro abrange toda a base. Testes antigos que dependem dos controles removidos são históricos.
+
+### V2.3.16 — impressão em árvore
+A coluna Campo apresenta trilhas verticais contínuas e bifurcações reais da seleção. Pais ausentes são identificados como contexto, sem criar novos registros. A impressão nativa e o PDF direto preservam o mesmo modelo. A4 paisagem é o padrão; para maior legibilidade, prefira A3. O botão **Baixar PDF direto** evita conversões pelo driver de impressão. Exemplos reais em `docs/exemplos_v2316/`.

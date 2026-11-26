@@ -1,3 +1,11 @@
+# V2.3.16-beta.1 — árvore gráfica contínua na impressão MOC
+
+- A coluna Campo utiliza linhas de continuidade, bifurcações e encerramentos calculados pelos caminhos de pai e filhos do catálogo, preservando a profundidade original.
+- Pais ausentes são indicados como contexto textual, sem linhas adicionais nem mudança da seleção.
+- Destaques por nível, maior largura da coluna Campo e conectores vetoriais nos dois motores.
+- Paginação do navegador a partir de clone da tabela, com cabeçalhos de continuação e caminho de contexto; PDF direto também identifica continuações.
+- Mantida a impressão exclusiva do MOC e o menu simplificado. Catálogos inalterados.
+
 # V2.3.15-beta.1 — hierarquia do MOC na impressão
 
 - Prévia e impressão reutilizam a travessia hierárquica da tabela MOC e somente depois filtram os registros selecionados.

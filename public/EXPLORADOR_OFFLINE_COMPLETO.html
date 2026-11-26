@@ -269,9 +269,50 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 #printPreviewRender .preview-review-cell{position:relative;padding-right:25px!important}
 #printPreviewRender .preview-remove-inline{position:absolute;right:3px;top:3px;margin:0;width:17px;height:17px;font-size:12px}
 @media print{.integrated-document .print-hierarchy-table tr{break-inside:avoid;page-break-inside:avoid}.integrated-document .print-hierarchy-table thead{display:table-header-group}.integrated-document .print-integrated-group{break-inside:auto;page-break-inside:auto}.integrated-document .print-hierarchy-table .print-field-tag{font-size:inherit}}
+
+/* V2.3.16 — árvore gráfica verdadeira, linhas ancoradas à altura INTEIRA da célula. */
+.integrated-document .print-hierarchy-table td[data-moc-col="2"]{position:relative;vertical-align:middle;overflow:visible;--tree-ink:#5e8795}
+.print-hierarchy-field{padding-left:calc(var(--depth)*var(--print-step,12pt) + 5pt);position:relative;z-index:1}
+.print-hierarchy-table tr[data-depth="0"] .print-hierarchy-field{padding-left:5pt}
+.print-hierarchy-field::before{display:none!important}
+.print-branch-lines{position:absolute;inset:0;pointer-events:none;z-index:0}
+.print-branch-lines i{position:absolute;left:calc(4pt + (var(--lane) - 1)*var(--print-step,12pt));width:0;border-left:1.1px solid var(--tree-ink);display:block}
+.print-branch-lines .print-rail{top:0;bottom:0}
+.print-branch-lines .print-elbow{top:0;height:50%;width:calc(var(--print-step,12pt) + 1pt);border-bottom:1.1px solid var(--tree-ink)}
+.print-branch-lines .print-tee{height:100%;border-bottom:0}
+.print-branch-lines .print-tee::after{content:'';position:absolute;top:50%;left:0;width:100%;border-top:1.1px solid var(--tree-ink)}
+.print-branch-lines .print-child-stem{top:50%;bottom:0}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="1"]{background:#d7eadc!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural[data-depth="2"]{background:#e2f0df!important}
+.integrated-document .print-hierarchy-table tr.moc-kind-structural:not([data-depth="0"]):not([data-depth="1"]):not([data-depth="2"]){background:#edf5e8!important}
+.print-field-context{display:block;font-size:.82em;line-height:1.3;color:#576b76;font-weight:400;overflow-wrap:anywhere;margin-top:2pt}
+.integrated-document .print-hierarchy-table td[data-moc-col="0"],.integrated-document .print-hierarchy-table td[data-moc-col="1"],.integrated-document .print-hierarchy-table td[data-moc-col="5"]{word-break:normal;overflow-wrap:normal}
+.print-page.bw .print-hierarchy-table td[data-moc-col="2"]{--tree-ink:#565656}
+.print-page.bw .print-hierarchy-table tr.moc-kind-structural[data-depth="1"]{background:#ddd!important}
+.print-page.bw .print-hierarchy-table tr.moc-kind-structural[data-depth="2"]{background:#e8e8e8!important}
+.print-page.bw .print-hierarchy-table tr.moc-kind-structural:not([data-depth="0"]):not([data-depth="1"]):not([data-depth="2"]){background:#f0f0f0!important}
+@media print{.print-hierarchy-table tr[data-child="true"]{break-after:avoid-page;page-break-after:avoid}.print-branch-lines i{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* Align the elbow with the first line of the tag, even for multiline observations/context. */
+.integrated-document .print-hierarchy-table td[data-moc-col="2"]{vertical-align:top;--branch-anchor:calc(3.75pt + var(--print-font,8.5pt)*.675)}
+.print-hierarchy-field{padding-left:calc(var(--depth)*var(--print-step,12pt) + 8pt)}
+.print-hierarchy-table tr[data-depth="0"] .print-hierarchy-field{padding-left:8pt}
+.print-branch-lines .print-elbow{height:var(--branch-anchor)}
+.print-branch-lines .print-tee{height:100%}
+.print-branch-lines .print-tee::after,.print-branch-lines .print-child-stem{top:var(--branch-anchor)}
+#printBrowserPages{display:none}
+#printBrowserPages.print-browser-measure{display:block!important;position:absolute!important;left:-20000px!important;top:0!important;visibility:hidden!important;pointer-events:none!important}
+.print-physical-page{display:flow-root;margin:0;padding:0}
+.print-continuation-path td{background:#f3f6f7;color:#465d68;font-size:.85em;padding:4px 6px}
+@media print{
+ body.print-browser-paginated #printDocument{display:none!important}
+ body.print-browser-paginated #printBrowserPages{display:block!important;width:100%!important}
+ .print-physical-page:not(:last-child){break-after:page;page-break-after:always}
+ .print-physical-page{break-inside:avoid-page;page-break-inside:avoid}
+}
 </style></head>
 <body>
-<header class="topbar"><div class="identity"><div class="mark">NF</div><div><div class="eyebrow">Engenharia de dados fiscais · versão 2.3.15</div><h1>Explorador do Leiaute NF-e e NFC-e</h1><p>MOC · Oracle · Relatórios e impressão</p></div></div>
+<header class="topbar"><div class="identity"><div class="mark">NF</div><div><div class="eyebrow">Engenharia de dados fiscais · versão 2.3.16</div><h1>Explorador do Leiaute NF-e e NFC-e</h1><p>MOC · Oracle · Relatórios e impressão</p></div></div>
 <div class="top-actions"><span class="status-chip" id="badgeStatus">Catálogo de demonstração</span><a class="btn light" href="https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div></header>
 <div class="app"><nav class="sidebar" aria-label="Navegação principal">
 <div class="navsection">Exploração</div>
@@ -426,18 +467,36 @@ function createPDF(root,opts={}){
  const groupTitle=el.dataset.groupTitle||'';
  const kind=r=>hierarchical?r.dataset.kind||'element':'element';
  const indent=r=>hierarchical&&fieldIndex>=0?(Number(r.dataset.depth)||0)*step:0;
- const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+ (indent(r)>0?5:0):0;return wrap(c?.textContent||'',Math.max(8,widths[i]-7-off),fs,head||(kind(r)==='structural'&&isField));});
- function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',root=structural&&Number(r.dataset.depth)===0,attr=kind(r)==='attribute';
- for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=d+(d>0?5:0);const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?(mono?'#e2e2e2':root?'#d9eaf7':'#e4f2e9'):attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
+ const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+8:0;
+ if(isField){const tag=c?.querySelector('.print-field-tag')?.textContent||'',ctx=c?.querySelector('.print-field-context')?.textContent||'',width=Math.max(8,widths[i]-7-off);return [...wrap(tag,width,fs,kind(r)==='structural').map(t=>({t,b:kind(r)==='structural'})),...(ctx?wrap(ctx,width,fs-1,false).map(t=>({t,b:false,context:true})):[])];}
+ return wrap(c?.textContent||'',Math.max(8,widths[i]-7),fs,head).map(t=>({t,b:head}));});
+ function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',depth=Number(r.dataset.depth)||0,attr=kind(r)==='attribute';
+ const fills=mono?['#dedede','#dddddd','#e8e8e8','#f0f0f0']:['#d9eaf7','#d7eadc','#e2f0df','#edf5e8'];
+ for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=isField?d+8:0;const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?fills[Math.min(depth,3)]:attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
  rect(x,y,widths[i],hh,fill,'#d1dce3',.35);
- if(isField&&d>0){const cx=x+3.5+d-2.5,cy=y+fs+1;line(cx,y+2,cx,cy,mono?'#777777':'#aacad2',.8);line(cx,cy,cx+5,cy,mono?'#777777':'#aacad2',.8);}
- for(let j=0;j<count;j++)if(a[i][start+j]!==undefined)text(a[i][start+j],x+3.5+off,y+fs+4+j*lh,fs,head||(structural&&isField),head?'#ffffff':'#17384f');x+=widths[i];}y+=hh;}
+ if(isField){const ink=mono?'#565656':'#5e8795',lane=l=>x+3.5+4+(l-1)*step,mid=y+fs*.55+4;
+  for(const l of (r.dataset.rails||'').split(',').filter(Boolean).map(Number))line(lane(l),y,lane(l),y+hh,ink,.85);
+  if(depth>0){line(lane(depth),y,lane(depth),r.dataset.tail==='true'||start+count<a[i].length?y+hh:mid,ink,.85);if(start===0)line(lane(depth),mid,lane(depth)+step+1,mid,ink,.85);}
+  if(r.dataset.child==='true')line(lane(depth+1),mid,lane(depth+1),y+hh,ink,.85);
+ }
+ const visible=a[i].slice(start,start+count),offset=0;
+ for(let j=0;j<visible.length;j++){const l=visible[j];text(l.t,x+3.5+off,y+fs+4+j*lh+offset,l.context?fs-1:fs,l.b,head?'#ffffff':l.context?'#576b76':'#17384f');}x+=widths[i];}y+=hh;}
  const ha=cells(hr,true),hn=Math.max(...ha.map(a=>a.length)),headerH=hn*lh+7;
  const groupLines=groupTitle?wrap(groupTitle+' (continuação)',U-14,fs+1,true):[],groupH=groupLines.length?(groupLines.length*(fs+4)+8):0;
- function drawHeader(continued=false){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}draw(hr,ha,0,hn,true,0);}
+ function drawHeader(continued=false,firstRow=null){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}if(continued&&firstRow?.dataset.path){const a=wrap('Caminho na continuação: '+firstRow.dataset.path,U-12,Math.max(7,fs-1));for(const l of a){text(l,M+5,y+fs,Math.max(7,fs-1),false,'#576b76');y+=fs+3;}y+=3;}draw(hr,ha,0,hn,true,0);}
  const first=rs.length?Math.max(...cells(rs[0]).map(a=>a.length)):1;
  need(groupH+3+headerH+Math.min(first,Math.max(1,Math.floor((B-M-headerH-groupH-10)/lh)))*lh+7);drawHeader();
- for(let i=0;i<rs.length;i++){const r=rs[i],a=cells(r),max=Math.max(...a.map(l=>l.length));let start=0;while(start<max){let cap=Math.floor((B-y-7)/lh);const fresh=Math.floor((B-M-headerH-groupH-10)/lh);if(cap<1||((max-start)<=fresh&&(max-start)>cap)){finish();drawHeader(true);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();drawHeader(true);}}}y+=9;}
+ const prepared=rs.map(r=>{const a=cells(r);return {r,a,max:Math.max(...a.map(l=>l.length))};});
+ const rowHeight=o=>o.max*lh+7;
+ for(let i=0;i<prepared.length;i++){const {r,a,max}=prepared[i];let start=0;
+  // Avoid orphaned group headings; if a tiny trailing page is inevitable, move a small complete branch instead.
+  const next=prepared[i+1],freshH=B-M-headerH-groupH-45,remain=B-y;
+  const pair=rowHeight(prepared[i])+(r.dataset.child==='true'&&next?rowHeight(next):0);
+  const tail=prepared.slice(i),tailH=tail.reduce((sum,o)=>sum+rowHeight(o),0),tailOverflow=tailH-remain;
+  const moveTail=tail.length>=5&&tail.length<=9&&tailOverflow>0&&tailOverflow<=3*(lh+7)&&tailH<=freshH&&kind(r)==='structural';
+  if((pair>remain&&pair<=freshH||moveTail)&&y>M+groupH+headerH+30){finish();drawHeader(true,r);}
+  while(start<max){let cap=Math.floor((B-y-7)/lh);const fresh=Math.floor((B-M-headerH-groupH-45)/lh);if(cap<1||((max-start)<=fresh&&(max-start)>cap)){finish();drawHeader(true,r);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();drawHeader(true,r);}}
+ }y+=9;}
  function svgFigure(fig){const svg=fig.querySelector('svg');if(!svg){paragraph(fig.textContent);return;}const vb=svg.getAttribute('viewBox').split(/\s+/).map(Number),sw=vb[2],sh=vb[3],widthAttr=Number(svg.getAttribute('width'))||sw,heightAttr=Number(svg.getAttribute('height'))||sh;let k=Math.min(U/sw,(B-M-24)/sh,widthAttr*.75/sw,heightAttr*.75/sh);let height=sh*k;need(height+24);paragraph(fig.querySelector('figcaption')?.textContent||'Diagrama XML',Math.max(8,F-1),true);if(y+height>B){finish();}const ox=M,oy=y;
  function path(d,dx,dy,stroke,width){let a=d.match(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/gi)||[],i=0,px=0,py=0,cmd=[];const X=v=>num(ox+(dx+v)*k),Y=v=>num(H-oy-(dy+v)*k),read=()=>Number(a[i++]);while(i<a.length){const op=a[i++];if(op==='M'||op==='L'){px=read();py=read();cmd.push(`${X(px)} ${Y(py)} ${op==='M'?'m':'l'}`);}else if(op==='H'){px=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='V'){py=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='C'){const x1=read(),y1=read(),x2=read(),y2=read();px=read();py=read();cmd.push(`${X(x1)} ${Y(y1)} ${X(x2)} ${Y(y2)} ${X(px)} ${Y(py)} c`);}else return;}
  ops.push(`q ${rgb(stroke)} RG ${num(width*k)} w ${cmd.join(' ')} S Q`);}
@@ -543,9 +602,29 @@ function mocHierarchyEntries(group,query='',includeAll=false){
 // O mesmo estado determina o rótulo e a ação em todas as telas.
 function branchAction(key,short=false){const all=printSelection.stateNode(key)==='all';return {label:short?(all?'− filhos':'+ filhos'):(all?'Desmarcar descendentes':'Selecionar descendentes'),title:all?'Desmarcar este nó e todos os seus descendentes':'Marcar este nó e todos os seus descendentes'};}
 function branchAttributes(key){return `title="${branchAction(key).title}" aria-label="${branchAction(key).title}"`;}
+// V2.3.16: the projected tree retains every ancestor level, but never adds unselected rows.
+function mocPrintBranches(entries){
+ const visible=new Set(entries.map(e=>e.n.key)),siblings=new Map(),paths=entries.map(e=>[...e.ancestors,e.n.key]);
+ for(const path of paths)for(let i=0;i<path.length;i++){const parent=i?path[i-1]:null;if(!siblings.has(parent))siblings.set(parent,new Set());siblings.get(parent).add(path[i]);}
+ const hasNext=(path,i)=>{const keys=[...(siblings.get(i?path[i-1]:null)||[])];return keys.indexOf(path[i])<keys.length-1;};
+ return entries.map((e,i)=>{const path=paths[i],d=e.depth,rails=[];
+  for(let j=1;j<d;j++)if(hasNext(path,j))rails.push(j);
+  const next=paths[i+1]||[],hasChild=next.length>path.length&&path.every((k,j)=>next[j]===k);
+  const missing=[];for(let j=e.ancestors.length-1;j>=0&&!visible.has(e.ancestors[j]);j--)missing.unshift(byKey.get(e.ancestors[j]));
+  const context=missing.length?`Contexto — não selecionado: ${missing.filter(Boolean).map(n=>n.id+' '+n.tag).join(' / ')}`:'';
+  const breadcrumb=e.ancestors.map(k=>byKey.get(k)).filter(Boolean).map(n=>n.id+' '+n.tag).join(' / ');
+  return {...e,branch:{rails,tail:d>0&&hasNext(path,d),hasChild,context,breadcrumb}};
+ });
+}
+function printBranchMarkup(e){const b=e.branch,d=e.depth;const pieces=b.rails.map(l=>`<i class="print-rail" style="--lane:${l}"></i>`);
+ if(d>0)pieces.push(`<i class="print-elbow ${b.tail?'print-tee':''}" style="--lane:${d}"></i>`);
+ if(b.hasChild)pieces.push(`<i class="print-child-stem" style="--lane:${d+1}"></i>`);
+ return `<span class="print-branch-lines" aria-hidden="true">${pieces.join('')}</span>`;
+}
 function mocHierarchyTable(entries,mode='hierarchy',interactive=true,observations=true,selectedKeys=null){
  const headers=['#','ID','Campo','Descrição','Ele','Pai','Tipo','Ocor.','Tam.','Observação'];
- const rows=entries.map(({n,depth})=>{
+ const rows=(interactive?entries:mocPrintBranches(entries)).map(e=>{
+  const {n,depth,branch}=e;
   const ch=(children.get(n.id)||[]).filter(k=>k.group===n.group),isParent=ch.length>0,isOpen=mocNodeOpen.has(n.key),level=Math.min(depth,12);
   const caret=interactive&&isParent?`<button class="moc-node-toggle" data-moc-toggle="${safe(n.key)}" aria-label="${isOpen?'Recolher':'Expandir e selecionar'} ${safe(n.tag)}" title="${isOpen?'Recolher sem alterar a seleção':'Expandir e selecionar este registro e filhos diretos visíveis'} · ${safe(n.tag)}">${isOpen?'▾':'▸'}</button>`:`<span class="moc-node-spacer">${isParent?'▾':'·'}</span>`;
   const groupMark=structural(n)?`<span class="moc-structural">${depth===0?'Grupo XML':'Subgrupo'}</span>`:n.kind==='A'||n.kind==='ID'?'<span class="moc-attribute">@ atributo</span>':'';
@@ -554,8 +633,8 @@ function mocHierarchyTable(entries,mode='hierarchy',interactive=true,observation
   const descendants=interactive&&isParent?`<button type="button" class="moc-desc-button" data-moc-descendants="${safe(n.key)}" ${branchAttributes(n.key)}>${branchAction(n.key,true).label}</button>`:'';
   const action='';
   const contextual=selectedKeys&&!selectedKeys.has(n.key);
-  const field=interactive?`<div class="moc-field-cell" style="--depth:${level}"><div class="moc-field-main">${caret}${check}<b>${safe(n.tag)}</b>${groupMark}${descendants}${action}</div>${technical}</div>`:`<div class="print-hierarchy-field" style="--depth:${depth}"><span class="print-field-tag">${safe(n.tag)}</span></div>`;
-  return `<tr data-key="${safe(n.key)}" data-depth="${depth}" data-kind="${rowClass(n)}" class="moc-level-${Math.min(depth,5)} moc-kind-${rowClass(n)}${selectedKeys&&!selectedKeys.has(n.key)?' moc-context':''}${interactive&&selected?.key===n.key?' moc-selected':''}">${td(uncaptured(n.order))}${td(n.officialId||n.id||'—')}<td>${field}</td>${td(contextual?'Somente contexto hierárquico':missing(n.description))}${td(contextual?'—':n.kind||'—')}${td(n.parent||'—')}${td(contextual?'—':n.type||'—')}${td(contextual?'—':n.occur||'—')}${td(contextual?'—':n.length||'—')}${td(contextual?'—':observations?uncaptured(n.observation):'—')}</tr>`;
+  const field=interactive?`<div class="moc-field-cell" style="--depth:${level}"><div class="moc-field-main">${caret}${check}<b>${safe(n.tag)}</b>${groupMark}${descendants}${action}</div>${technical}</div>`:`<div class="print-hierarchy-field" style="--depth:${depth}"><span class="print-field-tag">${safe(n.tag)}</span>${branch.context?`<small class="print-field-context">${safe(branch.context)}</small>`:''}</div>${printBranchMarkup(e)}`;
+  return `<tr data-key="${safe(n.key)}" data-depth="${depth}" data-kind="${rowClass(n)}"${branch?` data-rails="${branch.rails.join(',')}" data-tail="${branch.tail}" data-child="${branch.hasChild}" data-path="${safe(branch.breadcrumb)}"`: ''} class="moc-level-${Math.min(depth,5)} moc-kind-${rowClass(n)}${selectedKeys&&!selectedKeys.has(n.key)?' moc-context':''}${interactive&&selected?.key===n.key?' moc-selected':''}">${td(uncaptured(n.order))}${td(n.officialId||n.id||'—')}<td>${field}</td>${td(contextual?'Somente contexto hierárquico':missing(n.description))}${td(contextual?'—':n.kind||'—')}${td(n.parent||'—')}${td(contextual?'—':n.type||'—')}${td(contextual?'—':n.occur||'—')}${td(contextual?'—':n.length||'—')}${td(contextual?'—':observations?uncaptured(n.observation):'—')}</tr>`;
  }).join('');
  return `<table class="moc-table moc-hierarchy-table"><thead><tr>${headers.map(h=>`<th>${safe(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>`;
 }
@@ -726,15 +805,15 @@ function orderedScope(scope){const by=new Map(scope.all.map(n=>[n.key,n])),seen=
 function integratedDepth(n){return Math.min(11,printSelection.ancestors(n.key).length);}
 // A impressão usa a mesma travessia e classificação da tabela visível,
 // antes de filtrar a seleção; pais ausentes nunca achatam a profundidade.
-function integratedMoc(scope){return `<section class="print-integrated-section" data-integrated-section="moc"><h2>1. Leiaute do MOC · somente os registros escolhidos</h2><p class="print-source">Hierarquia original preservada. A coluna Pai identifica também os pais não selecionados; nenhuma linha extra é incluída.</p>${scope.groups.map(g=>`<div class="print-integrated-group" data-print-group="${safe(g)}"><h3>Grupo ${safe(g)} — ${safe(groupLabel(g))}</h3>${mocHierarchyTable(mocHierarchyEntries(g,'',true).filter(x=>scope.chosen.has(x.n.key)),'hierarchy',false)}</div>`).join('')}</section>`;}
+function integratedMoc(scope){return `<section class="print-integrated-section" data-integrated-section="moc"><h2>1. Leiaute do MOC · somente os registros escolhidos</h2><p class="print-source">Árvore: linhas verticais indicam ramos que continuam; cotovelos encerram os irmãos. Pais ausentes podem ser indicados como contexto, sem acrescentar registros.</p>${scope.groups.map(g=>`<div class="print-integrated-group" data-print-group="${safe(g)}"><h3>Grupo ${safe(g)} — ${safe(groupLabel(g))}</h3>${mocHierarchyTable(mocHierarchyEntries(g,'',true).filter(x=>scope.chosen.has(x.n.key)),'hierarchy',false)}</div>`).join('')}</section>`;}
 // Larguras e recuos compartilhados entre HTML e PDF direto (pontos físicos).
 function configureMocPrintTable(table,size,orient,margin,font){
- const weights=[6,7,22,23,4,6,5,6,6,23], headers=[...table.querySelectorAll('thead th')];
+ const weights=[6,8,29,22,4,7,5,6,6,21], headers=[...table.querySelectorAll('thead th')];
  const cols=headers.map((h,i)=>({h,i,w:weights[i]})).filter(c=>printVisibleColumns.has(c.i)),total=cols.reduce((s,c)=>s+c.w,0);
  const usable=(parseFloat(pageDimensions(size,orient))-2*margin)*72/25.4,fs=Math.max(7,font-1.5);
  const maxDepth=Math.max(0,...[...table.querySelectorAll('tbody tr')].map(r=>Number(r.dataset.depth)||0));
  const field=cols.find(c=>c.i===2),fieldWidth=field?usable*field.w/total:0;
- const step=maxDepth?Math.min(8,Math.max(1,(fieldWidth- Math.max(38,fs*5)-13)/maxDepth)):8;
+ const step=maxDepth?Math.min(12,Math.max(2,(fieldWidth-Math.max(45,fs*5)-15)/maxDepth)):12;
  table.classList.add('print-hierarchy-table');table.style.setProperty('--print-step',`${step}pt`);table.dataset.indentStep=String(step);
  table.querySelectorAll('tr').forEach(row=>[...row.children].forEach((cell,i)=>{if(!printVisibleColumns.has(i))cell.remove();else cell.dataset.mocCol=String(i)}));
  const colgroup=document.createElement('colgroup');for(const c of cols){const width=`${100*c.w/total}%`;c.h.dataset.weight=String(c.w);c.h.style.setProperty('width',width,'important');const col=document.createElement('col');col.style.width=width;colgroup.append(col);}table.prepend(colgroup);
@@ -802,6 +881,39 @@ function printable(){
  // A única lista de revisão é a própria tabela da prévia. Os controles nunca entram no PDF.
  preview.querySelectorAll('tr[data-key]').forEach(row=>{const button=document.createElement('button');button.type='button';button.className='preview-remove-inline';button.dataset.previewRemove=row.dataset.key;button.textContent='×';button.title='Retirar da seleção';const n=byKey.get(row.dataset.key);button.setAttribute('aria-label',`Retirar ${n?.id||row.dataset.key} ${n?.tag||''}`);button.onclick=()=>{printSelection.changeKeys([row.dataset.key],false);syncPrintSelection()};const cell=row.querySelector('[data-moc-col="2"]')||row.cells[0];cell?.append(button);cell?.classList.add('preview-review-cell');});
 }
+// Native print: physically paginated clone of the SAME document, not a new selection/render model.
+function clearBrowserPrint(){document.body.classList.remove('print-browser-paginated');$('#printBrowserPages')?.remove();}
+function prepareBrowserPrint(){
+ clearBrowserPrint();const source=$('#printDocument .integrated-document'),section=source?.querySelector('[data-integrated-section="moc"]');if(!section)return;
+ const margin=Number($('#printMargin').value)||12,[w,h]=pageDimensions($('#pageSize').value,$('#pageOrient').value).split(' ').map(parseFloat);
+ const stage=document.createElement('div');stage.id='printBrowserPages';stage.style.width=`${w-2*margin}mm`;stage.className='print-browser-measure';document.body.append(stage);
+ const usable=(h-2*margin-4)*96/25.4-10;let page=null,table=null;const fragments=[];
+ const addPage=()=>{page=source.cloneNode(false);page.classList.add('print-physical-page');stage.append(page);return page;};
+ const makeTable=(original,continued,first)=>{const wrap=document.createElement('div');wrap.className='print-integrated-group';const t=original.cloneNode(false);for(const c of original.children)if(c.tagName!=='TBODY')t.append(c.cloneNode(true));t.append(document.createElement('tbody'));wrap.append(t);page.append(wrap);const f={t,wrap,page,original,continued};fragments.push(f);if(continued)continuation(f,first);return f;};
+ const continuation=(f,first)=>{const head=f.t.tHead,heading=head.querySelector('.print-group-heading td');heading.textContent=f.original.dataset.groupTitle+' — continuação';head.querySelector('.print-continuation-path')?.remove();if(first?.dataset.path){const tr=document.createElement('tr'),td=document.createElement('td');tr.className='print-continuation-path';td.colSpan=f.t.tHead.querySelector('tr:has(th)').cells.length;td.textContent='Caminho na continuação: '+first.dataset.path;tr.append(td);head.insertBefore(tr,head.lastElementChild);}};
+ const fits=p=>p.getBoundingClientRect().height<=usable;
+ try{
+  addPage();for(const el of section.children)if(el.tagName==='H2'||el.tagName==='P')page.append(el.cloneNode(true));
+  for(const original of section.querySelectorAll('table.print-hierarchy-table')){
+   const rows=[...original.tBodies[0].rows],start=fragments.length;let f=makeTable(original,false,rows[0]);table=f.t;
+   for(let i=0;i<rows.length;){const unit=[rows[i]];if(rows[i].dataset.child==='true'&&rows[i+1])unit.push(rows[i+1]);const clones=unit.map(n=>n.cloneNode(true));clones.forEach(n=>table.tBodies[0].append(n));
+    if(!fits(page)){clones.forEach(n=>n.remove());const continued=i>0;
+     if(!table.tBodies[0].rows.length){f.wrap.remove();fragments.pop();}
+     if(page.children.length===0)page.remove();addPage();f=makeTable(original,continued,rows[i]);table=f.t;clones.forEach(n=>table.tBodies[0].append(n));
+     if(!fits(page)&&unit.length===2){clones[1].remove();unit.pop();}
+     if(!fits(page))throw Error('Linha maior que a área útil; impressão nativa mantém paginação de emergência.');
+    }i+=unit.length;
+   }
+   // Avoid a nearly empty last continuation, when moving an intact suffix is possible.
+   const ff=fragments.slice(start).filter(x=>x.original===original),last=ff.at(-1),prev=ff.at(-2);
+   if(last&&prev&&last.page!==prev.page&&last.t.tBodies[0].rows.length<=3){const a=prev.t.tBodies[0],b=last.t.tBodies[0],n=a.rows.length;
+    for(let cut=n-1;cut>=Math.max(1,n-9);cut--){const rr=[...a.rows].slice(cut);if(rr.length+b.rows.length<5)continue;const prior=a.rows[cut-1];if(prior?.dataset.child==='true')continue;const anchor=b.firstChild;rr.forEach(x=>b.insertBefore(x,anchor));continuation(last,b.firstElementChild);if(fits(last.page))break;rr.forEach(x=>a.append(x));continuation(last,b.firstElementChild);}
+   }
+  }
+  stage.classList.remove('print-browser-measure');document.body.classList.add('print-browser-paginated');
+ }catch(e){console.warn('Paginação explícita indisponível:',e.message);clearBrowserPrint();}
+}
+window.addEventListener('beforeprint',prepareBrowserPrint);window.addEventListener('afterprint',clearBrowserPrint);
 function go(view){if(!['moc','oracle','atualizacoes','impressao'].includes(view))return;const active=$('.view.active')?.id?.replace('view-','');if(view==='impressao'&&['moc','arvore','dicionario','diagrama'].includes(active)&&!(active==='diagrama'&&$('#diagramMode').value==='oracle'))captureCurrentView(active);$$('.view').forEach(e=>e.classList.toggle('active',e.id==='view-'+view));$$('.navlink').forEach(e=>e.classList.toggle('active',e.dataset.view===view));window.scrollTo({top:0,behavior:'instant'});if(view==='diagrama')requestAnimationFrame(renderDiagram);if(view==='impressao')printable();}
 async function fetchServer(){if(location.protocol==='file:')return;try{const pairs=[['/api/catalogo','./data/catalogo_atual.json'],['/api/status','./data/status.json'],['/api/historico','./data/historico.json'],['/api/diferencas','./data/ultima_diferenca.json'],['/api/xsd','./data/xsd_catalogo.json'],['/api/notificacoes','./data/notificacoes.json']];const getData=async([api,staticFile])=>{let r=await fetch(api).catch(()=>null);if(!r?.ok)r=await fetch(staticFile).catch(()=>null);if(!r?.ok)return null;const t=r.headers.get('content-type')||'';if(!t.includes('json'))return null;return r.json()};const [a,b,c,d,e,f]=await Promise.all(pairs.map(getData));if(a?.nodes?.length)normalize(a);if(b)status=b;if(c)history=c;if(d)diffs=d.changes||[];if(e)xsdData=e;if(f)notifications=f;renderXsd();renderUpdates();}catch(e){console.info('Backend ou catálogo estático não disponível; a seleção demonstrativa permanece visível.')}}
 async function importCatalog(file){if(!file)return;try{const parsed=JSON.parse(await file.text());if(!parsed.nodes?.length)throw Error('JSON sem nós');normalize(parsed);$('#updateMessage').textContent='Catálogo carregado para esta sessão. Sincronização persistente depende do backend.';}catch(e){$('#updateMessage').textContent='Não foi possível carregar: '+e.message}}

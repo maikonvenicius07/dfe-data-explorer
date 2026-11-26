@@ -92,9 +92,29 @@ function mocHierarchyEntries(group,query='',includeAll=false){
 // O mesmo estado determina o rótulo e a ação em todas as telas.
 function branchAction(key,short=false){const all=printSelection.stateNode(key)==='all';return {label:short?(all?'− filhos':'+ filhos'):(all?'Desmarcar descendentes':'Selecionar descendentes'),title:all?'Desmarcar este nó e todos os seus descendentes':'Marcar este nó e todos os seus descendentes'};}
 function branchAttributes(key){return `title="${branchAction(key).title}" aria-label="${branchAction(key).title}"`;}
+// V2.3.16: the projected tree retains every ancestor level, but never adds unselected rows.
+function mocPrintBranches(entries){
+ const visible=new Set(entries.map(e=>e.n.key)),siblings=new Map(),paths=entries.map(e=>[...e.ancestors,e.n.key]);
+ for(const path of paths)for(let i=0;i<path.length;i++){const parent=i?path[i-1]:null;if(!siblings.has(parent))siblings.set(parent,new Set());siblings.get(parent).add(path[i]);}
+ const hasNext=(path,i)=>{const keys=[...(siblings.get(i?path[i-1]:null)||[])];return keys.indexOf(path[i])<keys.length-1;};
+ return entries.map((e,i)=>{const path=paths[i],d=e.depth,rails=[];
+  for(let j=1;j<d;j++)if(hasNext(path,j))rails.push(j);
+  const next=paths[i+1]||[],hasChild=next.length>path.length&&path.every((k,j)=>next[j]===k);
+  const missing=[];for(let j=e.ancestors.length-1;j>=0&&!visible.has(e.ancestors[j]);j--)missing.unshift(byKey.get(e.ancestors[j]));
+  const context=missing.length?`Contexto — não selecionado: ${missing.filter(Boolean).map(n=>n.id+' '+n.tag).join(' / ')}`:'';
+  const breadcrumb=e.ancestors.map(k=>byKey.get(k)).filter(Boolean).map(n=>n.id+' '+n.tag).join(' / ');
+  return {...e,branch:{rails,tail:d>0&&hasNext(path,d),hasChild,context,breadcrumb}};
+ });
+}
+function printBranchMarkup(e){const b=e.branch,d=e.depth;const pieces=b.rails.map(l=>`<i class="print-rail" style="--lane:${l}"></i>`);
+ if(d>0)pieces.push(`<i class="print-elbow ${b.tail?'print-tee':''}" style="--lane:${d}"></i>`);
+ if(b.hasChild)pieces.push(`<i class="print-child-stem" style="--lane:${d+1}"></i>`);
+ return `<span class="print-branch-lines" aria-hidden="true">${pieces.join('')}</span>`;
+}
 function mocHierarchyTable(entries,mode='hierarchy',interactive=true,observations=true,selectedKeys=null){
  const headers=['#','ID','Campo','Descrição','Ele','Pai','Tipo','Ocor.','Tam.','Observação'];
- const rows=entries.map(({n,depth})=>{
+ const rows=(interactive?entries:mocPrintBranches(entries)).map(e=>{
+  const {n,depth,branch}=e;
   const ch=(children.get(n.id)||[]).filter(k=>k.group===n.group),isParent=ch.length>0,isOpen=mocNodeOpen.has(n.key),level=Math.min(depth,12);
   const caret=interactive&&isParent?`<button class="moc-node-toggle" data-moc-toggle="${safe(n.key)}" aria-label="${isOpen?'Recolher':'Expandir e selecionar'} ${safe(n.tag)}" title="${isOpen?'Recolher sem alterar a seleção':'Expandir e selecionar este registro e filhos diretos visíveis'} · ${safe(n.tag)}">${isOpen?'▾':'▸'}</button>`:`<span class="moc-node-spacer">${isParent?'▾':'·'}</span>`;
   const groupMark=structural(n)?`<span class="moc-structural">${depth===0?'Grupo XML':'Subgrupo'}</span>`:n.kind==='A'||n.kind==='ID'?'<span class="moc-attribute">@ atributo</span>':'';
@@ -103,8 +123,8 @@ function mocHierarchyTable(entries,mode='hierarchy',interactive=true,observation
   const descendants=interactive&&isParent?`<button type="button" class="moc-desc-button" data-moc-descendants="${safe(n.key)}" ${branchAttributes(n.key)}>${branchAction(n.key,true).label}</button>`:'';
   const action='';
   const contextual=selectedKeys&&!selectedKeys.has(n.key);
-  const field=interactive?`<div class="moc-field-cell" style="--depth:${level}"><div class="moc-field-main">${caret}${check}<b>${safe(n.tag)}</b>${groupMark}${descendants}${action}</div>${technical}</div>`:`<div class="print-hierarchy-field" style="--depth:${depth}"><span class="print-field-tag">${safe(n.tag)}</span></div>`;
-  return `<tr data-key="${safe(n.key)}" data-depth="${depth}" data-kind="${rowClass(n)}" class="moc-level-${Math.min(depth,5)} moc-kind-${rowClass(n)}${selectedKeys&&!selectedKeys.has(n.key)?' moc-context':''}${interactive&&selected?.key===n.key?' moc-selected':''}">${td(uncaptured(n.order))}${td(n.officialId||n.id||'—')}<td>${field}</td>${td(contextual?'Somente contexto hierárquico':missing(n.description))}${td(contextual?'—':n.kind||'—')}${td(n.parent||'—')}${td(contextual?'—':n.type||'—')}${td(contextual?'—':n.occur||'—')}${td(contextual?'—':n.length||'—')}${td(contextual?'—':observations?uncaptured(n.observation):'—')}</tr>`;
+  const field=interactive?`<div class="moc-field-cell" style="--depth:${level}"><div class="moc-field-main">${caret}${check}<b>${safe(n.tag)}</b>${groupMark}${descendants}${action}</div>${technical}</div>`:`<div class="print-hierarchy-field" style="--depth:${depth}"><span class="print-field-tag">${safe(n.tag)}</span>${branch.context?`<small class="print-field-context">${safe(branch.context)}</small>`:''}</div>${printBranchMarkup(e)}`;
+  return `<tr data-key="${safe(n.key)}" data-depth="${depth}" data-kind="${rowClass(n)}"${branch?` data-rails="${branch.rails.join(',')}" data-tail="${branch.tail}" data-child="${branch.hasChild}" data-path="${safe(branch.breadcrumb)}"`: ''} class="moc-level-${Math.min(depth,5)} moc-kind-${rowClass(n)}${selectedKeys&&!selectedKeys.has(n.key)?' moc-context':''}${interactive&&selected?.key===n.key?' moc-selected':''}">${td(uncaptured(n.order))}${td(n.officialId||n.id||'—')}<td>${field}</td>${td(contextual?'Somente contexto hierárquico':missing(n.description))}${td(contextual?'—':n.kind||'—')}${td(n.parent||'—')}${td(contextual?'—':n.type||'—')}${td(contextual?'—':n.occur||'—')}${td(contextual?'—':n.length||'—')}${td(contextual?'—':observations?uncaptured(n.observation):'—')}</tr>`;
  }).join('');
  return `<table class="moc-table moc-hierarchy-table"><thead><tr>${headers.map(h=>`<th>${safe(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>`;
 }
@@ -275,15 +295,15 @@ function orderedScope(scope){const by=new Map(scope.all.map(n=>[n.key,n])),seen=
 function integratedDepth(n){return Math.min(11,printSelection.ancestors(n.key).length);}
 // A impressão usa a mesma travessia e classificação da tabela visível,
 // antes de filtrar a seleção; pais ausentes nunca achatam a profundidade.
-function integratedMoc(scope){return `<section class="print-integrated-section" data-integrated-section="moc"><h2>1. Leiaute do MOC · somente os registros escolhidos</h2><p class="print-source">Hierarquia original preservada. A coluna Pai identifica também os pais não selecionados; nenhuma linha extra é incluída.</p>${scope.groups.map(g=>`<div class="print-integrated-group" data-print-group="${safe(g)}"><h3>Grupo ${safe(g)} — ${safe(groupLabel(g))}</h3>${mocHierarchyTable(mocHierarchyEntries(g,'',true).filter(x=>scope.chosen.has(x.n.key)),'hierarchy',false)}</div>`).join('')}</section>`;}
+function integratedMoc(scope){return `<section class="print-integrated-section" data-integrated-section="moc"><h2>1. Leiaute do MOC · somente os registros escolhidos</h2><p class="print-source">Árvore: linhas verticais indicam ramos que continuam; cotovelos encerram os irmãos. Pais ausentes podem ser indicados como contexto, sem acrescentar registros.</p>${scope.groups.map(g=>`<div class="print-integrated-group" data-print-group="${safe(g)}"><h3>Grupo ${safe(g)} — ${safe(groupLabel(g))}</h3>${mocHierarchyTable(mocHierarchyEntries(g,'',true).filter(x=>scope.chosen.has(x.n.key)),'hierarchy',false)}</div>`).join('')}</section>`;}
 // Larguras e recuos compartilhados entre HTML e PDF direto (pontos físicos).
 function configureMocPrintTable(table,size,orient,margin,font){
- const weights=[6,7,22,23,4,6,5,6,6,23], headers=[...table.querySelectorAll('thead th')];
+ const weights=[6,8,29,22,4,7,5,6,6,21], headers=[...table.querySelectorAll('thead th')];
  const cols=headers.map((h,i)=>({h,i,w:weights[i]})).filter(c=>printVisibleColumns.has(c.i)),total=cols.reduce((s,c)=>s+c.w,0);
  const usable=(parseFloat(pageDimensions(size,orient))-2*margin)*72/25.4,fs=Math.max(7,font-1.5);
  const maxDepth=Math.max(0,...[...table.querySelectorAll('tbody tr')].map(r=>Number(r.dataset.depth)||0));
  const field=cols.find(c=>c.i===2),fieldWidth=field?usable*field.w/total:0;
- const step=maxDepth?Math.min(8,Math.max(1,(fieldWidth- Math.max(38,fs*5)-13)/maxDepth)):8;
+ const step=maxDepth?Math.min(12,Math.max(2,(fieldWidth-Math.max(45,fs*5)-15)/maxDepth)):12;
  table.classList.add('print-hierarchy-table');table.style.setProperty('--print-step',`${step}pt`);table.dataset.indentStep=String(step);
  table.querySelectorAll('tr').forEach(row=>[...row.children].forEach((cell,i)=>{if(!printVisibleColumns.has(i))cell.remove();else cell.dataset.mocCol=String(i)}));
  const colgroup=document.createElement('colgroup');for(const c of cols){const width=`${100*c.w/total}%`;c.h.dataset.weight=String(c.w);c.h.style.setProperty('width',width,'important');const col=document.createElement('col');col.style.width=width;colgroup.append(col);}table.prepend(colgroup);
@@ -351,6 +371,39 @@ function printable(){
  // A única lista de revisão é a própria tabela da prévia. Os controles nunca entram no PDF.
  preview.querySelectorAll('tr[data-key]').forEach(row=>{const button=document.createElement('button');button.type='button';button.className='preview-remove-inline';button.dataset.previewRemove=row.dataset.key;button.textContent='×';button.title='Retirar da seleção';const n=byKey.get(row.dataset.key);button.setAttribute('aria-label',`Retirar ${n?.id||row.dataset.key} ${n?.tag||''}`);button.onclick=()=>{printSelection.changeKeys([row.dataset.key],false);syncPrintSelection()};const cell=row.querySelector('[data-moc-col="2"]')||row.cells[0];cell?.append(button);cell?.classList.add('preview-review-cell');});
 }
+// Native print: physically paginated clone of the SAME document, not a new selection/render model.
+function clearBrowserPrint(){document.body.classList.remove('print-browser-paginated');$('#printBrowserPages')?.remove();}
+function prepareBrowserPrint(){
+ clearBrowserPrint();const source=$('#printDocument .integrated-document'),section=source?.querySelector('[data-integrated-section="moc"]');if(!section)return;
+ const margin=Number($('#printMargin').value)||12,[w,h]=pageDimensions($('#pageSize').value,$('#pageOrient').value).split(' ').map(parseFloat);
+ const stage=document.createElement('div');stage.id='printBrowserPages';stage.style.width=`${w-2*margin}mm`;stage.className='print-browser-measure';document.body.append(stage);
+ const usable=(h-2*margin-4)*96/25.4-10;let page=null,table=null;const fragments=[];
+ const addPage=()=>{page=source.cloneNode(false);page.classList.add('print-physical-page');stage.append(page);return page;};
+ const makeTable=(original,continued,first)=>{const wrap=document.createElement('div');wrap.className='print-integrated-group';const t=original.cloneNode(false);for(const c of original.children)if(c.tagName!=='TBODY')t.append(c.cloneNode(true));t.append(document.createElement('tbody'));wrap.append(t);page.append(wrap);const f={t,wrap,page,original,continued};fragments.push(f);if(continued)continuation(f,first);return f;};
+ const continuation=(f,first)=>{const head=f.t.tHead,heading=head.querySelector('.print-group-heading td');heading.textContent=f.original.dataset.groupTitle+' — continuação';head.querySelector('.print-continuation-path')?.remove();if(first?.dataset.path){const tr=document.createElement('tr'),td=document.createElement('td');tr.className='print-continuation-path';td.colSpan=f.t.tHead.querySelector('tr:has(th)').cells.length;td.textContent='Caminho na continuação: '+first.dataset.path;tr.append(td);head.insertBefore(tr,head.lastElementChild);}};
+ const fits=p=>p.getBoundingClientRect().height<=usable;
+ try{
+  addPage();for(const el of section.children)if(el.tagName==='H2'||el.tagName==='P')page.append(el.cloneNode(true));
+  for(const original of section.querySelectorAll('table.print-hierarchy-table')){
+   const rows=[...original.tBodies[0].rows],start=fragments.length;let f=makeTable(original,false,rows[0]);table=f.t;
+   for(let i=0;i<rows.length;){const unit=[rows[i]];if(rows[i].dataset.child==='true'&&rows[i+1])unit.push(rows[i+1]);const clones=unit.map(n=>n.cloneNode(true));clones.forEach(n=>table.tBodies[0].append(n));
+    if(!fits(page)){clones.forEach(n=>n.remove());const continued=i>0;
+     if(!table.tBodies[0].rows.length){f.wrap.remove();fragments.pop();}
+     if(page.children.length===0)page.remove();addPage();f=makeTable(original,continued,rows[i]);table=f.t;clones.forEach(n=>table.tBodies[0].append(n));
+     if(!fits(page)&&unit.length===2){clones[1].remove();unit.pop();}
+     if(!fits(page))throw Error('Linha maior que a área útil; impressão nativa mantém paginação de emergência.');
+    }i+=unit.length;
+   }
+   // Avoid a nearly empty last continuation, when moving an intact suffix is possible.
+   const ff=fragments.slice(start).filter(x=>x.original===original),last=ff.at(-1),prev=ff.at(-2);
+   if(last&&prev&&last.page!==prev.page&&last.t.tBodies[0].rows.length<=3){const a=prev.t.tBodies[0],b=last.t.tBodies[0],n=a.rows.length;
+    for(let cut=n-1;cut>=Math.max(1,n-9);cut--){const rr=[...a.rows].slice(cut);if(rr.length+b.rows.length<5)continue;const prior=a.rows[cut-1];if(prior?.dataset.child==='true')continue;const anchor=b.firstChild;rr.forEach(x=>b.insertBefore(x,anchor));continuation(last,b.firstElementChild);if(fits(last.page))break;rr.forEach(x=>a.append(x));continuation(last,b.firstElementChild);}
+   }
+  }
+  stage.classList.remove('print-browser-measure');document.body.classList.add('print-browser-paginated');
+ }catch(e){console.warn('Paginação explícita indisponível:',e.message);clearBrowserPrint();}
+}
+window.addEventListener('beforeprint',prepareBrowserPrint);window.addEventListener('afterprint',clearBrowserPrint);
 function go(view){if(!['moc','oracle','atualizacoes','impressao'].includes(view))return;const active=$('.view.active')?.id?.replace('view-','');if(view==='impressao'&&['moc','arvore','dicionario','diagrama'].includes(active)&&!(active==='diagrama'&&$('#diagramMode').value==='oracle'))captureCurrentView(active);$$('.view').forEach(e=>e.classList.toggle('active',e.id==='view-'+view));$$('.navlink').forEach(e=>e.classList.toggle('active',e.dataset.view===view));window.scrollTo({top:0,behavior:'instant'});if(view==='diagrama')requestAnimationFrame(renderDiagram);if(view==='impressao')printable();}
 async function fetchServer(){if(location.protocol==='file:')return;try{const pairs=[['/api/catalogo','./data/catalogo_atual.json'],['/api/status','./data/status.json'],['/api/historico','./data/historico.json'],['/api/diferencas','./data/ultima_diferenca.json'],['/api/xsd','./data/xsd_catalogo.json'],['/api/notificacoes','./data/notificacoes.json']];const getData=async([api,staticFile])=>{let r=await fetch(api).catch(()=>null);if(!r?.ok)r=await fetch(staticFile).catch(()=>null);if(!r?.ok)return null;const t=r.headers.get('content-type')||'';if(!t.includes('json'))return null;return r.json()};const [a,b,c,d,e,f]=await Promise.all(pairs.map(getData));if(a?.nodes?.length)normalize(a);if(b)status=b;if(c)history=c;if(d)diffs=d.changes||[];if(e)xsdData=e;if(f)notifications=f;renderXsd();renderUpdates();}catch(e){console.info('Backend ou catálogo estático não disponível; a seleção demonstrativa permanece visível.')}}
 async function importCatalog(file){if(!file)return;try{const parsed=JSON.parse(await file.text());if(!parsed.nodes?.length)throw Error('JSON sem nós');normalize(parsed);$('#updateMessage').textContent='Catálogo carregado para esta sessão. Sincronização persistente depende do backend.';}catch(e){$('#updateMessage').textContent='Não foi possível carregar: '+e.message}}

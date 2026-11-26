@@ -29,18 +29,36 @@ function createPDF(root,opts={}){
  const groupTitle=el.dataset.groupTitle||'';
  const kind=r=>hierarchical?r.dataset.kind||'element':'element';
  const indent=r=>hierarchical&&fieldIndex>=0?(Number(r.dataset.depth)||0)*step:0;
- const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+ (indent(r)>0?5:0):0;return wrap(c?.textContent||'',Math.max(8,widths[i]-7-off),fs,head||(kind(r)==='structural'&&isField));});
- function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',root=structural&&Number(r.dataset.depth)===0,attr=kind(r)==='attribute';
- for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=d+(d>0?5:0);const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?(mono?'#e2e2e2':root?'#d9eaf7':'#e4f2e9'):attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
+ const cells=(r,head=false)=>hs.map((_,i)=>{const c=r.children[i],isField=i===fieldIndex&&!head,off=isField?indent(r)+8:0;
+ if(isField){const tag=c?.querySelector('.print-field-tag')?.textContent||'',ctx=c?.querySelector('.print-field-context')?.textContent||'',width=Math.max(8,widths[i]-7-off);return [...wrap(tag,width,fs,kind(r)==='structural').map(t=>({t,b:kind(r)==='structural'})),...(ctx?wrap(ctx,width,fs-1,false).map(t=>({t,b:false,context:true})):[])];}
+ return wrap(c?.textContent||'',Math.max(8,widths[i]-7),fs,head).map(t=>({t,b:head}));});
+ function draw(r,a,start,count,head,index){const hh=count*lh+7;let x=M;const structural=kind(r)==='structural',depth=Number(r.dataset.depth)||0,attr=kind(r)==='attribute';
+ const fills=mono?['#dedede','#dddddd','#e8e8e8','#f0f0f0']:['#d9eaf7','#d7eadc','#e2f0df','#edf5e8'];
+ for(let i=0;i<n;i++){const isField=i===fieldIndex&&!head,d=isField?indent(r):0,off=isField?d+8:0;const fill=head?(mono?'#444444':i%2?'#347958':'#28658e'):structural?fills[Math.min(depth,3)]:attr?(mono?'#f1f1f1':'#fffaf0'):index%2?'#f3f7fa':'#fff';
  rect(x,y,widths[i],hh,fill,'#d1dce3',.35);
- if(isField&&d>0){const cx=x+3.5+d-2.5,cy=y+fs+1;line(cx,y+2,cx,cy,mono?'#777777':'#aacad2',.8);line(cx,cy,cx+5,cy,mono?'#777777':'#aacad2',.8);}
- for(let j=0;j<count;j++)if(a[i][start+j]!==undefined)text(a[i][start+j],x+3.5+off,y+fs+4+j*lh,fs,head||(structural&&isField),head?'#ffffff':'#17384f');x+=widths[i];}y+=hh;}
+ if(isField){const ink=mono?'#565656':'#5e8795',lane=l=>x+3.5+4+(l-1)*step,mid=y+fs*.55+4;
+  for(const l of (r.dataset.rails||'').split(',').filter(Boolean).map(Number))line(lane(l),y,lane(l),y+hh,ink,.85);
+  if(depth>0){line(lane(depth),y,lane(depth),r.dataset.tail==='true'||start+count<a[i].length?y+hh:mid,ink,.85);if(start===0)line(lane(depth),mid,lane(depth)+step+1,mid,ink,.85);}
+  if(r.dataset.child==='true')line(lane(depth+1),mid,lane(depth+1),y+hh,ink,.85);
+ }
+ const visible=a[i].slice(start,start+count),offset=0;
+ for(let j=0;j<visible.length;j++){const l=visible[j];text(l.t,x+3.5+off,y+fs+4+j*lh+offset,l.context?fs-1:fs,l.b,head?'#ffffff':l.context?'#576b76':'#17384f');}x+=widths[i];}y+=hh;}
  const ha=cells(hr,true),hn=Math.max(...ha.map(a=>a.length)),headerH=hn*lh+7;
  const groupLines=groupTitle?wrap(groupTitle+' (continuação)',U-14,fs+1,true):[],groupH=groupLines.length?(groupLines.length*(fs+4)+8):0;
- function drawHeader(continued=false){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}draw(hr,ha,0,hn,true,0);}
+ function drawHeader(continued=false,firstRow=null){if(groupTitle){const a=wrap(groupTitle+(continued?' (continuação)':''),U-14,fs+1,true),h=a.length*(fs+4)+8;rect(M,y,U,h,mono?'#eeeeee':'#e2f2e8');rect(M,y,3,h,mono?'#444444':'#b58e42');a.forEach((l,j)=>text(l,M+8,y+fs+5+j*(fs+4),fs+1,true));y+=h+3;}if(continued&&firstRow?.dataset.path){const a=wrap('Caminho na continuação: '+firstRow.dataset.path,U-12,Math.max(7,fs-1));for(const l of a){text(l,M+5,y+fs,Math.max(7,fs-1),false,'#576b76');y+=fs+3;}y+=3;}draw(hr,ha,0,hn,true,0);}
  const first=rs.length?Math.max(...cells(rs[0]).map(a=>a.length)):1;
  need(groupH+3+headerH+Math.min(first,Math.max(1,Math.floor((B-M-headerH-groupH-10)/lh)))*lh+7);drawHeader();
- for(let i=0;i<rs.length;i++){const r=rs[i],a=cells(r),max=Math.max(...a.map(l=>l.length));let start=0;while(start<max){let cap=Math.floor((B-y-7)/lh);const fresh=Math.floor((B-M-headerH-groupH-10)/lh);if(cap<1||((max-start)<=fresh&&(max-start)>cap)){finish();drawHeader(true);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();drawHeader(true);}}}y+=9;}
+ const prepared=rs.map(r=>{const a=cells(r);return {r,a,max:Math.max(...a.map(l=>l.length))};});
+ const rowHeight=o=>o.max*lh+7;
+ for(let i=0;i<prepared.length;i++){const {r,a,max}=prepared[i];let start=0;
+  // Avoid orphaned group headings; if a tiny trailing page is inevitable, move a small complete branch instead.
+  const next=prepared[i+1],freshH=B-M-headerH-groupH-45,remain=B-y;
+  const pair=rowHeight(prepared[i])+(r.dataset.child==='true'&&next?rowHeight(next):0);
+  const tail=prepared.slice(i),tailH=tail.reduce((sum,o)=>sum+rowHeight(o),0),tailOverflow=tailH-remain;
+  const moveTail=tail.length>=5&&tail.length<=9&&tailOverflow>0&&tailOverflow<=3*(lh+7)&&tailH<=freshH&&kind(r)==='structural';
+  if((pair>remain&&pair<=freshH||moveTail)&&y>M+groupH+headerH+30){finish();drawHeader(true,r);}
+  while(start<max){let cap=Math.floor((B-y-7)/lh);const fresh=Math.floor((B-M-headerH-groupH-45)/lh);if(cap<1||((max-start)<=fresh&&(max-start)>cap)){finish();drawHeader(true,r);cap=Math.floor((B-y-7)/lh);}const count=Math.min(max-start,Math.max(1,cap));draw(r,a,start,count,false,i);start+=count;if(start<max){finish();drawHeader(true,r);}}
+ }y+=9;}
  function svgFigure(fig){const svg=fig.querySelector('svg');if(!svg){paragraph(fig.textContent);return;}const vb=svg.getAttribute('viewBox').split(/\s+/).map(Number),sw=vb[2],sh=vb[3],widthAttr=Number(svg.getAttribute('width'))||sw,heightAttr=Number(svg.getAttribute('height'))||sh;let k=Math.min(U/sw,(B-M-24)/sh,widthAttr*.75/sw,heightAttr*.75/sh);let height=sh*k;need(height+24);paragraph(fig.querySelector('figcaption')?.textContent||'Diagrama XML',Math.max(8,F-1),true);if(y+height>B){finish();}const ox=M,oy=y;
  function path(d,dx,dy,stroke,width){let a=d.match(/[a-zA-Z]|[-+]?(?:\d*\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/gi)||[],i=0,px=0,py=0,cmd=[];const X=v=>num(ox+(dx+v)*k),Y=v=>num(H-oy-(dy+v)*k),read=()=>Number(a[i++]);while(i<a.length){const op=a[i++];if(op==='M'||op==='L'){px=read();py=read();cmd.push(`${X(px)} ${Y(py)} ${op==='M'?'m':'l'}`);}else if(op==='H'){px=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='V'){py=read();cmd.push(`${X(px)} ${Y(py)} l`);}else if(op==='C'){const x1=read(),y1=read(),x2=read(),y2=read();px=read();py=read();cmd.push(`${X(x1)} ${Y(y1)} ${X(x2)} ${Y(y2)} ${X(px)} ${Y(py)} c`);}else return;}
  ops.push(`q ${rgb(stroke)} RG ${num(width*k)} w ${cmd.join(' ')} S Q`);}
