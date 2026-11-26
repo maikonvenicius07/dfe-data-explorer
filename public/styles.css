@@ -329,3 +329,40 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 .moc-structural-map svg{display:block;max-width:100%;height:auto}
 .print-map-option{display:flex!important;align-items:center;gap:7px;align-self:center}
 @media print{.moc-structural-map{break-inside:avoid-page}.print-branch-label{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* V2.3.18 — dimensionamento físico comum, sem mudar as ramificações aprovadas. */
+.print-planned{box-sizing:border-box;display:flow-root;margin:0!important;padding:0!important;width:100%;font-family:Arial,sans-serif}
+.print-planned .print-hierarchy-table{font-size:var(--print-font)!important;line-height:var(--print-line)!important}
+.print-planned .print-hierarchy-table th,.print-planned .print-hierarchy-table td{padding-top:var(--print-pad)!important;padding-bottom:var(--print-pad)!important}
+.print-planned .print-hierarchy-table td[data-moc-col="2"]{--branch-anchor:calc(var(--print-pad) + var(--print-font)*.675 + 1pt)}
+.print-planned .print-group-heading td{padding-top:var(--print-pad)!important;padding-bottom:var(--print-pad)!important}
+.print-density-compact h2{margin:0 0 5px!important;padding-bottom:4px!important;font-size:14pt!important;line-height:1.15}
+.print-density-compact .print-source{margin:3px 0!important;line-height:1.15;font-size:7.5pt}
+.print-density-compact .print-integrated-group{margin-top:5px}
+.print-density-compact .print-branch-label,.print-density-compact .print-field-context{margin-top:1px;line-height:1.1;font-size:max(7pt,.82em)}
+#printPreviewRender .physical-preview{box-sizing:border-box;max-width:none;max-height:none;overflow:visible;margin:0 auto 16px;position:relative}
+#printPreviewRender .physical-preview .print-page{padding:0!important;font-size:var(--print-base-font,10pt)!important}
+#printPreviewRender .physical-preview .preview-page-number{position:absolute;bottom:5px;right:12mm;font-size:8pt;color:#576b76}
+#printPreviewRender .physical-preview .preview-review-cell{padding-right:4px!important}
+#printPreviewRender .physical-preview .preview-remove-inline{right:-8px;top:1px;width:13px;height:13px;font-size:10px;z-index:3;opacity:.7}
+#printPreviewRender{overflow-x:auto}
+@media print{.print-planned{break-inside:auto!important;page-break-inside:auto!important}.print-planned .print-hierarchy-table tr[data-child="true"]{break-after:auto;page-break-after:auto}.print-planned .print-integrated-group{break-inside:auto!important}.print-planned .print-hierarchy-table tr{break-inside:avoid;page-break-inside:avoid}}
+
+/* Colunas curtas conservam a largura aprovada; retirar somente folga lateral excessiva. */
+.print-planned .print-hierarchy-table :is(th,td):is([data-moc-col="0"],[data-moc-col="1"],[data-moc-col="4"],[data-moc-col="5"],[data-moc-col="6"],[data-moc-col="7"],[data-moc-col="8"]){padding-left:1px!important;padding-right:1px!important}
+/* Numeração editorial longa pode quebrar em vez de invadir o ID vizinho. */
+.print-planned .print-hierarchy-table td[data-moc-col="0"]{overflow-wrap:anywhere!important;word-break:normal!important;padding-right:2px!important}
+.print-planned .print-hierarchy-table td[data-moc-col="1"]{overflow-wrap:anywhere!important;padding-left:3px!important}
+
+/* V2.3.19: Ctrl+P usa fluxo contínuo, sem as quebras pré-calculadas de outro papel.
+   O botão Abrir PDF usa o documento vetorial, não window.print(). */
+@media print{
+ #printBrowserPages.print-browser-flow .print-planned,
+ #printBrowserPages.print-browser-flow [data-integrated-section="moc"],
+ #printBrowserPages.print-browser-flow .print-integrated-group,
+ #printBrowserPages.print-browser-flow table,
+ #printBrowserPages.print-browser-flow tbody{break-before:auto!important;break-after:auto!important;break-inside:auto!important;page-break-before:auto!important;page-break-after:auto!important;page-break-inside:auto!important;overflow:visible!important;height:auto!important;min-height:0!important;max-height:none!important}
+ #printBrowserPages.print-browser-flow .print-hierarchy-table tr{break-inside:avoid;page-break-inside:avoid;break-after:auto!important;page-break-after:auto!important}
+ #printBrowserPages.print-browser-flow .print-hierarchy-table thead{display:table-header-group;break-inside:avoid}
+ #printBrowserPages.print-browser-flow .moc-map-section{break-after:page;page-break-after:always}
+}

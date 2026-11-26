@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.17-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.19-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -109,3 +109,10 @@ A coluna Campo apresenta trilhas verticais contínuas e bifurcações reais da s
 
 ### V2.3.17 — blocos hierárquicos e versão verificável
 A impressão mantém a tabela única de dez colunas, com faixas estruturais, níveis explícitos, trilhos reforçados e linhas de fechamento dos ramos. O mapa hierárquico é opcional e inicia desmarcado; ele usa a mesma seleção e distingue os pais de contexto. O PDF mostra V2.3.17 no cabeçalho/rodapé. Confira essa identificação depois da publicação. Assets possuem `?v=2.3.17`; o HTML offline é reconstruído a partir dos mesmos módulos. Exemplos em `docs/exemplos_v2317/`.
+
+### V2.3.18 — ajuste de página e paginação
+Central de Impressão: **Ajustar relatório em uma página** (padrão), **Paginação automática** (tenta compactar sem diminuir a fonte) e **Tamanho real**. A prévia mostra páginas físicas, tamanho efetivo da fonte e aviso se uma folha não comportar os registros. O PDF direto e o navegador consomem o mesmo plano. A3 é indicado para seleções extensas. O visual hierárquico e a base de dados permanecem inalterados. Exemplos em `docs/exemplos_v2318/`.
+
+### V2.3.19 — impressão em fluxo e documento físico
+
+O botão Abrir PDF para imprimir utiliza os mesmos bytes do botão Baixar PDF direto. Abra o arquivo no leitor PDF e use o papel escolhido e tamanho real (100%). O Ctrl+P do navegador é apenas alternativa em fluxo contínuo. O modo de uma página preserva a fonte da tabela e ajusta o espaçamento, sem redução automática. O A4 retrato recebe uma distribuição de colunas mais eficiente para descrições e observações. Verifique V2.3.19 no rodapé.

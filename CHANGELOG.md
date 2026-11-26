@@ -1,3 +1,17 @@
+# V2.3.19-beta.1 — 2026-11-26
+
+- Corrige quebra antecipada no fluxo HTML, elimina agrupamento artificial de linhas e limita folga de compatibilidade entre motores.
+- Preserva fonte da tabela, redistribui largura no A4 retrato e abre o mesmo PDF vetorial para imprimir ou baixar.
+- Validação de versão do HTML e gerador PDF, assets versionados e offline sincronizado.
+- Caso real de 22 registros: uma página A4 retrato, 8,5 pt, sem redução da fonte.
+
+# V2.3.18-beta.1 — ajuste de página e paginação
+
+- Paginação com medição física de linhas e alternativas moderadas de densidade; sem agrupamento indivisível de ramificações.
+- Prévia paginada, modo de ajuste em uma página, automático e tamanho real; validação cruzada com o PDF direto.
+- Mantidos colunas, pesos, níveis, conectores, cores, seleção e catálogo.
+- Aviso quando a seleção não cabe em uma página dentro dos limites de legibilidade.
+
 # V2.3.17-beta.1 — blocos hierárquicos no MOC
 
 - Faixas de grupo com nível explícito, trilhos de conexão reforçados, delimitação dos ramos e mais espaço na coluna Campo.

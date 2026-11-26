@@ -26,3 +26,7 @@
 - Desde V2.3.16, a impressão MOC mostra linhas de árvore contínuas e término dos ramos, com profundidade original, pais ausentes apenas como contexto textual, e cabeçalhos de continuação. Nenhuma seção além do MOC é incluída.
 
 - V2.3.17: tabela MOC por faixas estruturais com conectores contínuos e encerramentos de ramos; mapa opcional desmarcado inicialmente, sem reintroduzir telas. Versão da aplicação identificada na saída PDF.
+
+- V2.3.18: leiaute hierárquico V2.3.17 aprovado; somente a paginação é ajustada. Não forçar uma folha à custa da leitura, nem alterar a seleção.
+
+- V2.3.19: não reduzir automaticamente a fonte para encaixar; preencher a altura útil antes da quebra, manter linhas íntegras e imprimir a partir do PDF físico, preservando o leiaute hierárquico.
