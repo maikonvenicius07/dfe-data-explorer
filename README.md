@@ -1,6 +1,6 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.13-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.14-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
@@ -14,9 +14,9 @@ Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer
 - Leiaute MOC nas dez colunas e modo hierárquico com subgrupos.
 - Navegação simplificada: MOC, Modelagem Oracle, Atualizações e histórico e Central de impressão. Os módulos de árvore, dicionário, diagrama e XSD permanecem internos para preservar a infraestrutura de relatórios; não são páginas acessíveis pelo menu.
 - A impressão agora contém exclusivamente as tabelas do MOC com os registros selecionados. DER **proposto**, não oficial, continua na Modelagem Oracle.
-- Central de Impressão com árvore de caixas de seleção: grupo, subgrupo, subdivisão, elementos e atributos; seleção parcial, pesquisa e conjuntos salvos no navegador.
+- Seleção exclusivamente no Leiaute do MOC; a Central de Impressão oferece prévia com retirada individual de registros, configurações, conjuntos salvos opcionais e geração do documento.
 - Nenhum pai ou filho não selecionado é incluído como linha do relatório. Os títulos editoriais organizam os registros marcados.
-- PDF A4/A3 pelo navegador, relatórios por grupo, comparativos e modelagem Oracle; catálogo XSD, monitoramento e histórico se houver dados verificados.
+- PDF A4/A3 direto ou pelo navegador, exclusivamente com as linhas selecionadas do MOC; exportação CSV da seleção, modelagem Oracle separada, monitoramento e histórico.
 
 ## Repositório permanente e publicação sem reconstruir o projeto
 
@@ -26,7 +26,7 @@ Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos d
 
 ## Limitações importantes
 
-1. O catálogo de 196 nós continua demonstrativo e não garante completude do MOC. Os XSD oficiais não foram importados/validados nesta entrega.
+1. O catálogo embutido de 196 nós continua demonstrativo. O ZIP recebido contém adicionalmente 1.173 registros da extração HTML do MOC, de 25/11/2026; não equivale à validação do XSD. Os XSD oficiais não foram importados/validados nesta entrega.
 2. A rotina agendada está preparada, mas só será executada após a configuração do GitHub e ativação do Actions. A implantação no Render exige configurar `ADMIN_TOKEN` e armazenamento persistente.
 3. A seleção salva utiliza `localStorage` do navegador; não é sincronizada entre computadores e pode ser apagada quando os dados locais do navegador forem limpos.
 4. O XLSX gerado pelo backend utiliza o catálogo oficial completo armazenado no servidor; **não** aplica a seleção da impressão. Para exportar exatamente os campos marcados, utilize CSV da Central de Impressão.
@@ -34,7 +34,7 @@ Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos d
 
 ## Verificações
 
-Execute `node tests/test_selection_logic_v23.js`, `python -m pytest -q tests/test_import.py tests/test_publication_v232.py` e `python tests/test_simplified_navigation_v2310.py`. O último requer Playwright, Chromium e PyMuPDF. Os testes de interface anteriores que abrem as quatro telas retiradas são históricos e não representam os requisitos de navegação atuais.
+Execute `node tests/test_selection_logic_v23.js`, `python -m pytest -q tests/test_import.py tests/test_publication_v232.py` e `python tests/test_simplified_controls_v2314.py`. O último requer Playwright, Chromium e PyMuPDF. Os testes de interface anteriores que abrem as quatro telas retiradas são históricos e não representam os requisitos de navegação atuais.
 
 Arquivos para manter sincronizados: `public/index.html`, `public/styles.css`, `public/selection.js`, `public/app.js` e `public/EXPLORADOR_OFFLINE_COMPLETO.html`. Ao alterar o código, execute `python scripts/build_offline.py`; ao importar MOC validado, execute `python scripts/build_static.py`.
 
@@ -99,3 +99,7 @@ A seta individual de um grupo XML ou subgrupo marca o próprio registro e os fil
 ## V2.3.13 — impressão exclusiva do MOC
 
 A Central gera apenas a seção Leiaute do MOC, sem capa, sumário ou outras representações. Selecione registros explicitamente; a impressão vazia é bloqueada. Para imprimir tudo, use Selecionar toda documentação.
+
+## V2.3.14 — interface enxuta
+
+Selecione no MOC, clique em Imprimir selecionados e confira a própria tabela na Central. O botão × de cada linha da prévia retira o registro da seleção, sem entrar no PDF. As opções de papel, fonte, margens, cor e colunas atualizam a prévia automaticamente. Observação é controlada na seleção de colunas. Ações de seleção integral redundantes ficam ocultas quando o filtro abrange toda a base. Testes antigos que dependem dos controles removidos são históricos.

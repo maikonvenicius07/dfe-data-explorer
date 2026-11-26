@@ -1,3 +1,10 @@
+# V2.3.14-beta.1 — simplificação de controles
+
+- Seleção concentrada no Leiaute do MOC; Central de impressão sem segunda árvore ou lista de revisão repetida.
+- Retirada de campos diretamente na prévia; atualização automática; observações controladas pela coluna.
+- Remoção de dois atalhos de impressão redundantes, link duplicado e referência fixa no menu.
+- Catálogo recebido preservado, incluindo os 1.173 registros da extração HTML.
+
 ## V2.3.13-beta.1 — 26/11/2026
 
 - Impressão e PDF exclusivamente do Leiaute do MOC com os registros marcados, sem capa, sumário, árvore, dicionário ou diagrama.

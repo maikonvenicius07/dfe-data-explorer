@@ -231,3 +231,14 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 
 /* V2.3.13: controles legados permanecem internos, sem ocupar a Central de impressão. */
 #view-impressao [hidden]{display:none!important}
+
+/* V2.3.14 — seleção no MOC, revisão diretamente na prévia. */
+#view-moc [hidden]{display:none!important}
+.print-presets>summary{cursor:pointer;font-weight:700;color:#24496b}
+.print-presets .selection-aside{margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end}
+.print-presets .selection-aside>b,.print-presets .selection-aside>p,.print-presets #printSelectionMessage{grid-column:1/-1}
+.print-presets .selection-aside label{display:flex;flex-direction:column;gap:5px}
+.preview-remove-inline{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin:2px 0 0 4px;border:1px solid #b8cbd8;border-radius:4px;background:#fff;color:#8a3740;font-size:15px;line-height:1;cursor:pointer;vertical-align:middle}
+.preview-remove-inline:hover,.preview-remove-inline:focus-visible{background:#fae9e9;border-color:#8a3740}
+@media(max-width:760px){.print-presets .selection-aside{grid-template-columns:1fr}}
+@media print{.preview-remove-inline{display:none!important}}

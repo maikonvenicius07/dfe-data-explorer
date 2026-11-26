@@ -11,10 +11,10 @@
 - O checkbox do cabeçalho seleciona/desmarca os itens exibidos pelos filtros atuais; estado parcial visível.
 - Alterar filtros, grupos, subgrupos, busca, ordenação ou tela não apaga o conjunto selecionado.
 - “Imprimir selecionados” usa exclusivamente o conjunto escolhido independentemente do filtro atual.
-- Na Central de Impressão, checkbox de grupo ou subgrupo é uma ação explícita e pode selecionar seus descendentes; somente abrir o nó não seleciona.
+- Desde V2.3.14, seleção de campos no MOC; a Central não repete a árvore de seleção.
 - Pais não escolhidos não aparecem como registros na impressão MOC.
 - Nenhum documento é impresso se a seleção estiver vazia.
-- Prévia lista os itens e permite retirá-los; o usuário escolhe as colunas do MOC, papel e orientação.
+- Prévia apresenta a tabela uma única vez e permite retirar registros diretamente de suas linhas; o usuário escolhe colunas, papel e orientação.
 - O processo de publicação deverá ser incremental via GitHub e ZIPs completo + modificado + relatório técnico.
 
 - Desde V2.3.12, exceção no Leiaute MOC: expandir pela seta individual marca o nó e seus filhos diretos apresentados na tabela; recolher não desmarca. Expandir tudo, filtros e busca não marcam.
