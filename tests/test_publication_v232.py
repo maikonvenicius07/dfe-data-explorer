@@ -1,9 +1,10 @@
-"""Regressão: o Pages deve abrir o aplicativo, preservando todas as telas exceto Visão Geral."""
+"""Regressão: o Pages deve abrir o aplicativo, com quatro telas acessíveis e quatro módulos internos."""
 from pathlib import Path
 from html.parser import HTMLParser
 
 R = Path(__file__).resolve().parents[1]
-VIEWS = {'moc', 'arvore', 'dicionario', 'diagrama', 'xsd', 'oracle', 'atualizacoes', 'impressao'}
+VIEWS = {'moc', 'oracle', 'atualizacoes', 'impressao'}
+INTERNAL = {'arvore', 'dicionario', 'diagrama', 'xsd'}
 
 class Tags(HTMLParser):
     def __init__(self):
@@ -12,6 +13,7 @@ class Tags(HTMLParser):
         self.sections = []
         self.active_menu = []
         self.active_sections = []
+        self.hidden_sections = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -22,6 +24,8 @@ class Tags(HTMLParser):
         if tag == 'section' and a.get('id', '').startswith('view-'):
             view = a['id'][5:]
             self.sections.append(view)
+            if 'hidden' in a and 'inert' in a:
+                self.hidden_sections.append(view)
             if 'active' in a.get('class', '').split():
                 self.active_sections.append(view)
 
@@ -35,14 +39,15 @@ def test_entrada_pages_modo_branch():
     assert (R / '.nojekyll').is_file()
 
 
-def test_oito_telas_mantidas_em_ambos_html():
+def test_quatro_telas_publicas_e_modulos_internos():
     for name in ('index.html', 'EXPLORADOR_OFFLINE_COMPLETO.html'):
         t = Tags()
         t.feed((R / 'public' / name).read_text(encoding='utf-8'))
         assert set(t.menu) == VIEWS, (name, t.menu)
         assert len(t.menu) == len(VIEWS)
-        assert set(t.sections) == VIEWS, (name, t.sections)
-        assert len(t.sections) == len(VIEWS)
+        assert set(t.sections) == VIEWS | INTERNAL, (name, t.sections)
+        assert len(t.sections) == len(VIEWS | INTERNAL)
+        assert set(t.hidden_sections) == INTERNAL
         assert t.active_menu == ['moc']
         assert t.active_sections == ['moc']
         assert 'resumo' not in t.menu

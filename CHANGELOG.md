@@ -1,3 +1,9 @@
+## V2.3.10-beta.1 — 26/11/2026
+
+- Navegação reduzida a quatro telas: MOC, Oracle, Atualizações e Central de impressão.
+- Árvore, dicionário, diagrama e XSD retirados da navegação, preservados internamente para relatórios e processamento.
+- Removido o atalho do MOC para a tela de diagrama. Seleção reversível e PDF horizontal preservados.
+
 ## V2.3.9-beta.1 — seleção reversível de filhos (25/11/2026)
 
 - Botões de seleção de ramificações alternam entre marcar e desmarcar o mesmo conjunto (nó + descendentes).

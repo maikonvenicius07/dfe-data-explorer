@@ -1,8 +1,8 @@
 # Funcionalidades preservadas e regras aprovadas — V2.3.3
 
 - O MOC é a tela inicial; **Visão Geral foi removida** por solicitação expressa.
-- Manter as oito telas do projeto (MOC, árvore, dicionário, diagrama, XSD, Oracle, atualizações, impressão).
-- Quatro modalidades de diagrama; controle de exibição com o botão visível “Tela cheia”.
+- Desde V2.3.10, manter apenas quatro telas acessíveis (MOC, Oracle, atualizações, impressão). Os quatro módulos retirados do menu permanecem internos; suas representações de relatório continuam disponíveis.
+- Diagramas horizontal, vertical e compacto na Central de impressão; DER proposto na Modelagem Oracle.
 - MOC com dez colunas, três modalidades de apresentação e hierarquia por vínculo pai-filho.
 - O catálogo de 196 nós é **parcial** e jamais deve ser declarado integralmente oficial.
 - A seleção para impressão começa **vazia** e nunca deriva automaticamente dos filtros.

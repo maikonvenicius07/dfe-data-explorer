@@ -228,3 +228,6 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 @media print{.print-graph-fragment{break-inside:avoid;page-break-inside:avoid}.print-graph-fragment svg{max-width:100%;height:auto}.integrated-document .print-integrated-section:first-child{break-before:auto;page-break-before:auto}}
 .integrated-document > .print-source:first-child + .print-integrated-section,.integrated-document > .print-integrated-summary:first-child + .print-integrated-section{break-before:auto;page-break-before:auto}
 .print-graph-compact svg{background:#f8fbfc;border:1px solid #d9e5ea;border-radius:5px}
+
+/* V2.3.10: módulos legados fora da navegação; motores de relatório mantidos. */
+.view[hidden]{display:none!important}

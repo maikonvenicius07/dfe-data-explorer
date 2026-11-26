@@ -1,19 +1,19 @@
 # DF-e Data Explorer — NF-e e NFC-e
 
-**Versão do aplicativo:** V2.3.9-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.10-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
 ## Abrir imediatamente
 
-Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde estão todas as oito telas restantes. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
+Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde estão as quatro telas principais. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
 
 ## Recursos preservados e ampliados
 
 - A aplicação abre diretamente no Leiaute do MOC; a tela Visão Geral foi retirada por solicitação do usuário.
 - Leiaute MOC nas dez colunas e modo hierárquico com subgrupos.
-- Explorador, ficha do campo, dicionário de dados com filtros, ordenação e colunas selecionáveis.
-- Diagramas horizontal, vertical, compacto e DER **proposto**, não oficial.
+- Navegação simplificada: MOC, Modelagem Oracle, Atualizações e histórico e Central de impressão. Os módulos de árvore, dicionário, diagrama e XSD permanecem internos para preservar a infraestrutura de relatórios; não são páginas acessíveis pelo menu.
+- Diagramas horizontal, vertical e compacto disponíveis na impressão; DER **proposto**, não oficial, na Modelagem Oracle.
 - Central de Impressão com árvore de caixas de seleção: grupo, subgrupo, subdivisão, elementos e atributos; seleção parcial, pesquisa e conjuntos salvos no navegador.
 - Os pais não selecionados entram **apenas como contexto** no relatório hierárquico, com identificação visual. As contagens e exportação CSV consideram os campos efetivamente marcados.
 - PDF A4/A3 pelo navegador, relatórios por grupo, comparativos e modelagem Oracle; catálogo XSD, monitoramento e histórico se houver dados verificados.
@@ -34,7 +34,7 @@ Consulte [docs/PUBLICACAO_GITHUB.md](docs/PUBLICACAO_GITHUB.md) para os passos d
 
 ## Verificações
 
-Execute `node tests/test_selection_logic_v23.js`, `python tests/test_productivity_v23.py`, `python tests/test_fullscreen_only_v221.py` e `python -m pytest -q tests/test_import.py`. Executados localmente com aprovação. A suíte gráfica completa das versões antigas possui um caso extenso não concluído no limite local; consulte o relatório.
+Execute `node tests/test_selection_logic_v23.js`, `python -m pytest -q tests/test_import.py tests/test_publication_v232.py` e `python tests/test_simplified_navigation_v2310.py`. O último requer Playwright, Chromium e PyMuPDF. Os testes de interface anteriores que abrem as quatro telas retiradas são históricos e não representam os requisitos de navegação atuais.
 
 Arquivos para manter sincronizados: `public/index.html`, `public/styles.css`, `public/selection.js`, `public/app.js` e `public/EXPLORADOR_OFFLINE_COMPLETO.html`. Ao alterar o código, execute `python scripts/build_offline.py`; ao importar MOC validado, execute `python scripts/build_static.py`.
 
@@ -87,3 +87,7 @@ O diagrama XML inicia em árvore horizontal. Na Central de Impressão, mantenha 
 ## Seleção reversível de ramificações (V2.3.9)
 
 O botão `+ filhos` marca o nó e todos os descendentes; quando a ramificação está completa, muda para `− filhos` e desmarca o mesmo conjunto. Em seleção parcial, completa a ramificação. A caixa individual continua independente e as demais seleções são preservadas. A mesma ação vale na árvore, ficha técnica, diagrama e Central de Impressão.
+
+## V2.3.10 — navegação simplificada
+
+Selecione os campos no MOC ou na Central de impressão. Os botões + filhos e − filhos continuam disponíveis. A Central permite incluir as quatro representações no PDF, sem manter quatro telas separadas. O formato horizontal é o padrão; o botão Baixar PDF direto mantém a orientação escolhida.
