@@ -3,7 +3,7 @@ import sys,json,html
 import pytest
 R=Path(__file__).resolve().parents[1];sys.path.insert(0,str(R/'scripts'))
 from import_dce import extract,HEAD
-CAT=json.loads((R/'public/data/dce/catalogo_atual.json').read_text())
+CAT=json.loads((R/'tests/fixtures/dce_v2324.json').read_text())
 def fixture(rows):
     def tr(cells,tag='td'):return '<tr>'+''.join(f'<{tag}>{html.escape(str(c or ""))}</{tag}>' for c in cells)+'</tr>'
     out=['<h1>Leiaute DC-e</h1><p>Atualizado até a NT 2024.001 v.1.21, publicada em junho de 2026</p>']

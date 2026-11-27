@@ -1,3 +1,13 @@
+## V2.3.25-beta.1 — monitoramento multidocumento
+
+- Verificação diária única às 11:17 UTC (07:17 em Rondônia), cobrindo 14 catálogos em 10 fontes.
+- Comparação de inclusões, alterações, exclusões propostas, grupos e referência do manual; snapshots e histórico por documento.
+- Proteção contra extração incompleta e aumento de inconsistências hierárquicas; falha isolada por documento.
+- Central de atualizações com última verificação/sucesso, diferenças, CSV e avisos lidos localmente; relatório offline incluído.
+- Solicitação explícita de publicação do Pages após commit, inclusive diagnóstico de falhas; e-mail SMTP opcional após commit.
+- Preservação integral dos catálogos e da interface de leiaute/impressão; 42 testes Python, quatro suítes JS e regressão em Chromium.
+- Execução real do agendamento e publicação dependem de ativação no GitHub; não inclui monitoramento de XSD/NT em fontes externas.
+
 ## V2.3.24-beta.1 — inicialização e consistência da publicação
 
 - Catálogo NF-e real embutido na página inicial, sem dependência de requisição para sair da demonstração.

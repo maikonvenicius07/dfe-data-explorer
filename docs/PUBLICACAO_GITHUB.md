@@ -1,3 +1,5 @@
+> **Atualização V2.3.25:** siga [LEIA_PRIMEIRO_V2325.md](../LEIA_PRIMEIRO_V2325.md). O workflow agendado agora é `importar_documentos.yml` e cobre os 14 catálogos. As instruções abaixo descrevem etapas históricas e não substituem a configuração atual.
+
 # Publicação e continuidade do projeto
 
 ## Publicação existente — correção V2.3.2
