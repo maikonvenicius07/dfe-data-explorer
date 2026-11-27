@@ -1,0 +1,10 @@
+nf3e Atenção à cobertura da NF3-e. Tabelas reconhecidas da seção Leiaute extraídas; cobertura integral e XSD não certificados. Colunas Domínio/Exp. Reg. preservadas em Observação e JSON. 114 vínculos requerem revisão; 3 tabelas não estruturais ou não reconhecidas foram registradas para auditoria. Vínculos ainda pendentes na visualização: 114.
+ramo nf3e 20 20 2
+nfcom Atenção à cobertura da NFCom. Tabelas reconhecidas da seção Leiaute extraídas; cobertura integral e XSD não certificados. Colunas Domínio/Exp. Reg. preservadas em Observação e JSON. 140 vínculos requerem revisão; 2 tabelas não estruturais ou não reconhecidas foram registradas para auditoria.
+Na visualização: 24 vínculos recuperados pela categoria estrutural e nível da fonte. Vínculos ainda pendentes na visualização: 116.
+ramo nfcom 5 5 1
+mdfe Atenção à cobertura da MDF-e. Tabelas reconhecidas da seção Leiaute extraídas; cobertura integral e XSD não certificados. Colunas Domínio/Exp. Reg. preservadas em Observação e JSON. 3 vínculos requerem revisão; 0 tabelas não estruturais ou não reconhecidas foram registradas para auditoria. Vínculos ainda pendentes na visualização: 3.
+ramo mdfe 25 25 3
+cte Atenção à cobertura da CT-e / CT-e OS / GTVe. Tabelas reconhecidas da seção Leiaute extraídas; cobertura integral e XSD não certificados. Colunas Domínio/Exp. Reg. preservadas em Observação e JSON. 21 vínculos requerem revisão; 2 tabelas não estruturais ou não reconhecidas foram registradas para auditoria.
+Na visualização: 10 vínculos recuperados pela categoria estrutural e nível da fonte. Vínculos ainda pendentes na visualização: 11.
+ramo cte 20 20 2

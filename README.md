@@ -1,8 +1,10 @@
+> **V2.3.23-beta.1 — padronização multidocumento.** Os 14 catálogos presentes no ZIP (5.830 registros) usam o leiaute compartilhado, seleção progressiva e impressão. Os dados originais foram preservados; vínculos não confirmados são sinalizados. Consulte `RELATORIO_TECNICO_V2_3_23.md`.
+
 > **V2.3.22-beta.1:** leia [LEIA_PRIMEIRO_V2322.md](LEIA_PRIMEIRO_V2322.md) para instalar e executar os workflows no diretório correto. A disponibilização dos novos leiautes depende da coleta real e validação dos catálogos.
 
 # DF-e Data Explorer — plataforma multidocumento
 
-**Versão do aplicativo:** V2.3.21-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.23-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 

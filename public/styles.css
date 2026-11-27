@@ -373,3 +373,7 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
 @media print{body.pending-document-print #printDocument,body.pending-document-print #printBrowserPages{display:none!important}}
 
 .document-only-selected{display:inline-flex;align-items:center;gap:6px;margin:6px 0 10px;font-size:12px;color:var(--muted)}
+
+/* V2.3.23 — sinalização de vínculos não confirmados, sem fabricar hierarquia. */
+.moc-hierarchy-warning{display:inline-block;font-size:9px;font-weight:600;color:#79571c;background:#fff5df;border:1px solid #e8d5a7;border-radius:4px;padding:2px 5px;white-space:normal}
+@media screen{#mocTables .moc-hierarchy-table td:nth-child(1),#mocTables .moc-hierarchy-table td:nth-child(2),#mocTables .moc-hierarchy-table td:nth-child(6){overflow-wrap:normal;word-break:normal;white-space:nowrap}#mocTables .moc-hierarchy-table td:nth-child(3){min-width:250px}#mocTables .moc-hierarchy-table td:nth-child(5),#mocTables .moc-hierarchy-table td:nth-child(7),#mocTables .moc-hierarchy-table td:nth-child(8){white-space:nowrap}}

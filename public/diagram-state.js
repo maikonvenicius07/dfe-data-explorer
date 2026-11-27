@@ -9,7 +9,7 @@ class DiagramState{
  expandAll(){this.open=new Set([...this.children.keys()])}
  collapseAll(){this.open.clear();for(const n of this.nodes)if(n.id==='ROOT'||n.id==='A01')this.open.add(n.key)}
  reveal(key){const seen=new Set();let cur=key;while(this.parent.has(cur)&&!seen.has(cur)){seen.add(cur);cur=this.parent.get(cur);this.open.add(cur)}}
- branchRoots(group,focus){if(focus&&this.map.has(focus))return [focus];if(group==='__ALL__'){const r=this.nodes.filter(n=>n.id==='ROOT');return r.length?r.map(n=>n.key):this.nodes.filter(n=>!this.parent.has(n.key)).map(n=>n.key)}const scoped=this.nodes.filter(n=>n.group===group),set=new Set(scoped.map(n=>n.key));return scoped.filter(n=>!set.has(this.parent.get(n.key))).map(n=>n.key)}
+ branchRoots(group,focus){if(focus&&this.map.has(focus))return [focus];if(group==='__ALL__'){const r=this.nodes.filter(n=>n.id==='ROOT');return this.nodes.some(n=>n.sourceSection)?this.nodes.filter(n=>!this.parent.has(n.key)).map(n=>n.key):r.length?r.map(n=>n.key):this.nodes.filter(n=>!this.parent.has(n.key)).map(n=>n.key)}const scoped=this.nodes.filter(n=>n.group===group),set=new Set(scoped.map(n=>n.key));return scoped.filter(n=>!set.has(this.parent.get(n.key))).map(n=>n.key)}
  visible(group,focus,all=false){const items=[],seen=new Set(),roots=this.branchRoots(group,focus),stack=roots.map(key=>({key,d:0})).reverse();while(stack.length){const {key,d}=stack.pop();if(seen.has(key))continue;seen.add(key);const n=this.map.get(key);if(!n)continue;if(group!=='__ALL__'&&n.group!==group)continue;items.push({n,d});if(all||this.open.has(key)){const kids=this.children.get(key)||[];for(let i=kids.length-1;i>=0;i--)stack.push({key:kids[i],d:d+1})}}return items}
 }
 return {DiagramState};

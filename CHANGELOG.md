@@ -1,3 +1,11 @@
+## V2.3.23-beta.1 — paridade dos leiautes multidocumento
+
+- Aplicados os mesmos comandos de expansão e seleção da NF-e a todos os documentos.
+- Rótulos de grupos mais claros; atributos isolados reunidos à seção do pai quando comprovado.
+- Reconhecimento de GS/SG e Raiz; recuperação conservadora de 34 vínculos na visualização, demais avisos explícitos.
+- Coluna Pai ampliada nos relatórios sem ID oficial; preservado o PDF NF-e.
+- Catálogos originais, chaves, importadores e workflows preservados; 19 PDFs reais de QA.
+
 ## V2.3.22-beta.1 — correção da instalação e publicação dos importadores
 
 - Workflows executáveis diretamente em `.github/workflows/`; preservadas cópias históricas inertes.
