@@ -1,12 +1,25 @@
-# DF-e Data Explorer — NF-e e NFC-e
+# DF-e Data Explorer — plataforma multidocumento
 
-**Versão do aplicativo:** V2.3.19-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.20-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
 ## Abrir imediatamente
 
-Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde estão as quatro telas principais. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
+Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde está o explorador de documentos. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
+
+## V2.3.20 — primeira etapa da expansão
+
+A NF-e/NFC-e continua sendo o documento inicial, com o catálogo publicado original intacto (1.173 registros). A DC-e (modelo 99) possui um catálogo estrutural piloto de 111 registros em 16 grupos, baseado nas tabelas do [MOC on-line da DC-e](https://moc.sped.fazenda.pr.gov.br/DCe/Leiaute.html), referência NT 2024.001 v.1.21. Descrições e observações ainda não foram importadas; `n/i` sinaliza essa limitação. O XSD ainda não foi validado. Os demais oito itens de navegação mostram a situação pendente e o link do respectivo manual, sem reutilizar os dados de outro documento.
+
+Seleções, ramificações abertas, filtro principal e conjuntos salvos são separados por documento. A expansão individual da NF-e preserva a seleção progressiva aprovada; na DC-e, expansão e seleção são independentes, conforme a nova especificação. Consultas técnicas (árvore, dicionário, diagrama e XSD) estão acessíveis em um painel recolhível do leiaute ativo. A Central de Impressão utiliza o mesmo motor da V2.3.19, apenas com a identificação do documento ativo.
+
+### Completar o catálogo DC-e
+
+1. No GitHub, publique os arquivos da versão e abra **Actions → Importar catálogo DC-e (piloto) → Run workflow**. A rotina precisa de acesso à internet e permissão de escrita. Se a coleta falhar, o catálogo anterior permanece disponível.
+2. Alternativamente, execute `pip install -r requirements.txt` e `python scripts/import_dce.py` em um ambiente com internet. Para um HTML previamente salvo do manual, execute `python scripts/import_dce.py --html Leiaute_DCe.html`.
+3. Após o sucesso, publique as alterações em `public/` conforme a configuração atual do Pages. Se utilizar workflow de publicação e ele não for disparado pelo commit automatizado, execute **Publicar Explorador no GitHub Pages** manualmente.
+4. Confirme a cobertura e a versão exibidas na interface. O importador do HTML não valida automaticamente o pacote XSD nem os manuais originais. A verificação automática agendada permanece exclusiva da NF-e nesta fase.
 
 ## Recursos preservados e ampliados
 

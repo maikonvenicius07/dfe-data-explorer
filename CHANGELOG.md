@@ -1,3 +1,10 @@
+# V2.3.20-beta.1 — 2026-11-26
+
+- Primeira etapa multidocumento: registro único dos dez itens do portal e dois catálogos navegáveis (NF-e/NFC-e e piloto DC-e).
+- Separação de seleção, contexto, filtros e conjuntos salvos; oito documentos pendentes não exibem dados de NF-e.
+- DC-e: 111 registros estruturais, importador HTML independente com validação e workflow manual; descrições, observações e XSD ainda pendentes.
+- Consultas técnicas contextuais; motor e layout de impressão compartilhados. Caso de regressão NF-e W22 preservado em A4 retrato.
+
 # V2.3.19-beta.1 — 2026-11-26
 
 - Corrige quebra antecipada no fluxo HTML, elimina agrupamento artificial de linhas e limita folga de compatibilidade entre motores.

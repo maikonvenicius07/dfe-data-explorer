@@ -366,3 +366,10 @@ body:not(.integrated-print-mode) .integrated-sections{display:none!important}
  #printBrowserPages.print-browser-flow .print-hierarchy-table thead{display:table-header-group;break-inside:avoid}
  #printBrowserPages.print-browser-flow .moc-map-section{break-after:page;page-break-after:always}
 }
+
+/* Multi-DF-e: apenas navegação e controles contextuais; impressão preservada. */
+.document-nav{display:flex;flex-direction:column;gap:3px}.document-nav .navlink{width:100%;text-align:left;align-items:center}.doc-pending{display:block;font-size:10px;opacity:.68;margin-left:auto}.document-tools{margin-top:12px}.document-tools .actions{margin-top:10px;flex-wrap:wrap}.document-back{margin-bottom:12px}.document-label{font-size:.65em;color:var(--muted)}.navlink:disabled{opacity:.45;cursor:not-allowed}@media(max-width:760px){.document-nav{display:flex;flex-direction:row;overflow-x:auto;max-width:100%;gap:5px}.document-nav .navlink{width:auto;flex-shrink:0}.doc-pending{display:none}}
+
+@media print{body.pending-document-print #printDocument,body.pending-document-print #printBrowserPages{display:none!important}}
+
+.document-only-selected{display:inline-flex;align-items:center;gap:6px;margin:6px 0 10px;font-size:12px;color:var(--muted)}

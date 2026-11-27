@@ -3,13 +3,16 @@ from pathlib import Path
 from html.parser import HTMLParser
 
 R = Path(__file__).resolve().parents[1]
-VIEWS = {'moc', 'oracle', 'atualizacoes', 'impressao'}
+VIEWS = {'oracle', 'atualizacoes', 'impressao'}
+DOCUMENT_VIEWS = {'moc', 'pending'}
 INTERNAL = {'arvore', 'dicionario', 'diagrama', 'xsd'}
 
 class Tags(HTMLParser):
     def __init__(self):
         super().__init__()
         self.menu = []
+        self.documents = []
+        self.context = []
         self.sections = []
         self.active_menu = []
         self.active_sections = []
@@ -17,6 +20,10 @@ class Tags(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'button' and 'data-document' in a:
+            self.documents.append(a['data-document'])
+        if tag == 'button' and 'data-goto' in a:
+            self.context.append(a['data-goto'])
         if tag == 'button' and 'data-view' in a:
             self.menu.append(a['data-view'])
             if 'active' in a.get('class', '').split():
@@ -45,10 +52,12 @@ def test_quatro_telas_publicas_e_modulos_internos():
         t.feed((R / 'public' / name).read_text(encoding='utf-8'))
         assert set(t.menu) == VIEWS, (name, t.menu)
         assert len(t.menu) == len(VIEWS)
-        assert set(t.sections) == VIEWS | INTERNAL, (name, t.sections)
-        assert len(t.sections) == len(VIEWS | INTERNAL)
-        assert set(t.hidden_sections) == INTERNAL
-        assert t.active_menu == ['moc']
+        assert set(t.sections) == VIEWS | INTERNAL | DOCUMENT_VIEWS, (name, t.sections)
+        assert len(t.sections) == len(VIEWS | INTERNAL | DOCUMENT_VIEWS)
+        assert set(t.hidden_sections) == INTERNAL | {'pending'}
+        assert t.active_menu == []
+        assert t.documents == ['nfe']
+        assert INTERNAL.issubset(t.context)
         assert t.active_sections == ['moc']
         assert 'resumo' not in t.menu
         assert 'resumo' not in t.sections
