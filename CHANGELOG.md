@@ -1,3 +1,10 @@
+## V2.3.27-beta.1 — grupos recolhidos
+
+- Todos os grupos editoriais e subgrupos XML do Leiaute MOC começam recolhidos em cada catálogo.
+- Recolher tudo fecha grupos e subgrupos, preservando a seleção para impressão.
+- A seleção de um filtro ou uma pesquisa abre os grupos correspondentes sem selecionar registros.
+- Dados, monitoramento, hierarquia visual e impressão preservados.
+
 ## V2.3.26-beta.1 — comprovação da publicação
 
 - Reconstroi os artefatos com os catálogos do checkout de publicação, antes de enviar ao Pages.

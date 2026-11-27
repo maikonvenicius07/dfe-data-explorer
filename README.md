@@ -1,3 +1,5 @@
+> **V2.3.27-beta.1 — navegação inicial recolhida.** Todos os grupos e subgrupos do Leiaute MOC começam fechados na primeira abertura de cada documento. Recolher tudo fecha a estrutura sem desmarcar a seleção. Pesquisa e filtro explícito revelam os grupos correspondentes.
+
 > **V2.3.26-beta.1 — comprovante e verificação pública da publicação; monitoramento diário preservado.** Os 14 catálogos existentes são preservados. O workflow `Importar leiautes de todos os DF-e` verifica as dez fontes HTML diariamente às 07:17 de Rondônia (11:17 UTC), compara registros e referências técnicas, guarda snapshots, publica alterações aprovadas e registra falhas por documento. Consulte [LEIA_PRIMEIRO_V2325.md](LEIA_PRIMEIRO_V2325.md). A primeira execução real no GitHub ainda precisa ser confirmada; validação XSD continua separada.
 
 > **V2.3.24-beta.1 — correção da inicialização e publicação.** A página inicial usa a base NF-e disponível no pacote, os demais catálogos continuam separados e são carregados sob demanda. Consulte `RELATORIO_TECNICO_V2_3_24.md`.
@@ -8,7 +10,7 @@
 
 # DF-e Data Explorer — plataforma multidocumento
 
-**Versão do aplicativo:** V2.3.26-beta.1 · **Base embutida:** catálogo NF-e/NFC-e com 1.173 registros; demais catálogos independentes.
+**Versão do aplicativo:** V2.3.27-beta.1 · **Base embutida:** catálogo NF-e/NFC-e com 1.173 registros; demais catálogos independentes.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
