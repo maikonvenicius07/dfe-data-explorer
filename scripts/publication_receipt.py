@@ -12,7 +12,7 @@ from urllib.parse import urljoin, urlsplit, urlencode
 from urllib.request import Request, urlopen
 
 DOCS = 'nfe dce cte cteos gtve abi nfgas nfag nf3e nfcom bpe bpetm bpeta mdfe'.split()
-ASSETS = ('index.html','app.js','documents.js','selection.js','diagram-state.js','pdf-export.js','styles.css','EXPLORADOR_OFFLINE_COMPLETO.html','data/monitoramento.json','data/catalogo_atual.json')
+ASSETS = ('index.html','app.js','documents.js','selection.js','diagram-state.js','pdf-export.js','styles.css','EXPLORADOR_OFFLINE_COMPLETO.html','data/monitoramento.json','data/xsd_monitoramento.json','data/catalogo_atual.json')
 RECEIPT = 'publicacao.json'
 
 def digest(data):

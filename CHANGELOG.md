@@ -1,3 +1,11 @@
+## V2.3.28-beta.1 — monitoramento independente de XSD
+
+- Consulta fontes de publicação de dez famílias (14 catálogos/variantes).
+- Registra publicações, downloads reconhecidos, diferenças estruturais e snapshots anteriores.
+- Protege referências anteriores de perdas suspeitas e sinaliza limitações de cobertura.
+- Inclui status e eventos na Central de Atualizações, HTML offline e comprovante de publicação.
+- Mantém o leiaute, seleção e impressão anteriores. Primeira coleta real pendente de validação.
+
 ## V2.3.27-beta.1 — grupos recolhidos
 
 - Todos os grupos editoriais e subgrupos XML do Leiaute MOC começam recolhidos em cada catálogo.

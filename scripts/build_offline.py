@@ -26,5 +26,9 @@ monitor=PUBLIC/'data/monitoramento.json'
 if monitor.exists():
     payload=json.dumps(json.loads(monitor.read_text(encoding='utf8')),ensure_ascii=False).replace('<','\\u003c')
     html=html.replace('</head>','<script id="offlineMonitoring" type="application/json">'+payload+'</script></head>',1)
+xsd=PUBLIC/'data/xsd_monitoramento.json'
+if xsd.exists():
+    payload=json.dumps(json.loads(xsd.read_text(encoding='utf8')),ensure_ascii=False).replace('<','\\u003c')
+    html=html.replace('</head>','<script id="offlineXsdMonitor" type="application/json">'+payload+'</script></head>',1)
 (PUBLIC/'EXPLORADOR_OFFLINE_COMPLETO.html').write_text(html,encoding='utf8')
 print('HTML offline gerado:',len(html),'caracteres')

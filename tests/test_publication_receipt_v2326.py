@@ -24,8 +24,8 @@ def test_real_catalogs_and_bytes(package):
     p,r=package
     assert set(r['documents'])==set(DOCS)
     assert sum(d['rows'] for d in r['documents'].values())==sum(len(json.loads((p/d['path']).read_bytes())['nodes']) for d in r['documents'].values())
-    assert r['version']==(R/'VERSION').read_text().strip() and len(r['files'])==23
-    assert verify_once('https://example.test/dfe-data-explorer/public/',r,server(p))==23
+    assert r['version']==(R/'VERSION').read_text().strip() and len(r['files'])==24
+    assert verify_once('https://example.test/dfe-data-explorer/public/',r,server(p))==24
 
 def test_old_commit_and_receipt_rejected(package):
     p,r=package;old={**r,'commit':'b'*40}

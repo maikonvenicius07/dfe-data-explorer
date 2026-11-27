@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": null,
+  "families": {
+    "nfe": {
+      "label": "NF-e/NFC-e",
+      "documents": [
+        "nfe"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "dce": {
+      "label": "DC-e",
+      "documents": [
+        "dce"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "cte": {
+      "label": "CT-e / CT-e OS / GTVe",
+      "documents": [
+        "cte",
+        "cteos",
+        "gtve"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "abi": {
+      "label": "NF-e ABI",
+      "documents": [
+        "abi"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "nfgas": {
+      "label": "NFGAS",
+      "documents": [
+        "nfgas"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "nfag": {
+      "label": "NFAG",
+      "documents": [
+        "nfag"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "nf3e": {
+      "label": "NF3-e",
+      "documents": [
+        "nf3e"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "nfcom": {
+      "label": "NFCom",
+      "documents": [
+        "nfcom"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "bpe": {
+      "label": "BP-e / TM / TA",
+      "documents": [
+        "bpe",
+        "bpetm",
+        "bpeta"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    },
+    "mdfe": {
+      "label": "MDF-e",
+      "documents": [
+        "mdfe"
+      ],
+      "status": "aguardando",
+      "lastCheckAt": null,
+      "lastSuccessAt": null,
+      "publications": [],
+      "packages": {},
+      "events": []
+    }
+  }
+}
