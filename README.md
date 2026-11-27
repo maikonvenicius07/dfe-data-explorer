@@ -1,3 +1,5 @@
+> **V2.3.24-beta.1 — correção da inicialização e publicação.** A página inicial usa a base NF-e disponível no pacote, os demais catálogos continuam separados e são carregados sob demanda. Consulte `RELATORIO_TECNICO_V2_3_24.md`.
+
 > **V2.3.23-beta.1 — padronização multidocumento.** Os 14 catálogos presentes no ZIP (5.830 registros) usam o leiaute compartilhado, seleção progressiva e impressão. Os dados originais foram preservados; vínculos não confirmados são sinalizados. Consulte `RELATORIO_TECNICO_V2_3_23.md`.
 
 > **V2.3.22-beta.1:** leia [LEIA_PRIMEIRO_V2322.md](LEIA_PRIMEIRO_V2322.md) para instalar e executar os workflows no diretório correto. A disponibilização dos novos leiautes depende da coleta real e validação dos catálogos.

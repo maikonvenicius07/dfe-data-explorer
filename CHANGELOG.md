@@ -1,3 +1,10 @@
+## V2.3.24-beta.1 — inicialização e consistência da publicação
+
+- Catálogo NF-e real embutido na página inicial, sem dependência de requisição para sair da demonstração.
+- Recursos auxiliares inválidos não interrompem a coleta dos demais; Pages consulta caminhos estáticos.
+- Verificação de versão e reconstrução de artefatos antes da publicação; testes de regressão de navegação e PDF.
+- Sem alterações nos catálogos, hierarquia, seleção ou estilos aprovados.
+
 ## V2.3.23-beta.1 — paridade dos leiautes multidocumento
 
 - Aplicados os mesmos comandos de expansão e seleção da NF-e a todos os documentos.

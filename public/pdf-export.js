@@ -17,7 +17,7 @@ function createPDF(root,opts={}){
  function line(x1,t1,x2,t2,color='#b5cad3',sw=.7){ops.push(`q ${rgb(color)} RG ${num(sw)} w ${num(x1)} ${num(H-t1)} m ${num(x2)} ${num(H-t2)} l S Q`);}
  function measure(t,fs,bold=false){cv.font=`${bold?'bold ':''}${fs*96/72}px Arial`;return cv.measureText(t).width*72/96;}
  function wrap(t,width,fs,bold=false){const a=[];let cur='';for(let w of normalized(t).split(' ')){if(cur&&measure(cur+' '+w,fs,bold)>width){a.push(cur);cur='';}while(w.length>1&&measure(w,fs,bold)>width){let n=1;while(n<w.length&&measure(w.slice(0,n+1),fs,bold)<=width)n++;a.push(w.slice(0,n));w=w.slice(n);}if(w)cur+=(cur?' ':'')+w;}if(cur)a.push(cur);return a.length?a:[''];}
- function finish(){if(!ops.length)return;line(M,H-M-9,W-M,H-M-9);text('DF-e Data Explorer · V2.3.23',M,H-M+2,7,false,'#526779');text('Página '+(pages.length+1),W-M-45,H-M+2,7,false,'#526779');pages.push(ops.join('\n'));ops=[];y=M;}
+ function finish(){if(!ops.length)return;line(M,H-M-9,W-M,H-M-9);text('DF-e Data Explorer · V2.3.24',M,H-M+2,7,false,'#526779');text('Página '+(pages.length+1),W-M-45,H-M+2,7,false,'#526779');pages.push(ops.join('\n'));ops=[];y=M;}
  function need(h){if(y+h>B&&ops.length)finish();}
  function paragraph(t,fs=F,bold=false,color='#17384f',indent=0){const a=wrap(t,U-indent,fs,bold);for(const l of a){need(fs+4);y+=fs+(compact?0:2);text(l,M+indent,y,fs,bold,color);y+=compact?1:2;}y+=compact?2:4;}
  function heading(t,fs=F+4){need(fs*2+12);paragraph(t,fs,true);line(M,y,W-M,y,'#286080',.9);y+=6;}
@@ -66,5 +66,5 @@ function createPDF(root,opts={}){
  visit(root);finish();if(opts.measureOnly)return pages.length;if(!pages.length)throw new Error('Nenhum conteúdo para gerar PDF.');
  const objects=['','<< /Type /Catalog /Pages 2 0 R >>','', '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>','<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'];const refs=[];for(const stream of pages){const id=objects.length;refs.push(id+' 0 R');objects.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${num(W)} ${num(H)}] /Rotate 0 /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${id+1} 0 R >>`,`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`);}objects[2]=`<< /Type /Pages /Count ${refs.length} /Kids [${refs.join(' ')}] >>`;let pdf='%PDF-1.4\n',offsets=[0];for(let i=1;i<objects.length;i++){offsets.push(pdf.length);pdf+=`${i} 0 obj\n${objects[i]}\nendobj\n`;}const xref=pdf.length;pdf+=`xref\n0 ${objects.length}\n0000000000 65535 f \n${offsets.slice(1).map(n=>String(n).padStart(10,'0')+' 00000 n \n').join('')}trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;return new Blob([pdf],{type:'application/pdf'});
 }
-global.DfePdfExport={createPDF,version:'2.3.23'};
+global.DfePdfExport={createPDF,version:'2.3.24'};
 })(globalThis);
