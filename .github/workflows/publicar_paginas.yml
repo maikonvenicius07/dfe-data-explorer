@@ -18,7 +18,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Obter arquivos do repositorio
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Verificar pagina inicial
         run: |
           test -f public/index.html

@@ -10,3 +10,4 @@ jobs:
     uses: ./.github/workflows/importar_documentos.yml
     with:
       documento: dce
+    secrets: inherit
