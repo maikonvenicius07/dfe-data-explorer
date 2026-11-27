@@ -1,0 +1,35 @@
+name: Verificar leiaute oficial MOC
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 11 * * *' # 11:17 UTC diariamente; agendamentos do GitHub podem atrasar
+permissions:
+  contents: write
+concurrency:
+  group: atualizar-catalogos-main
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Validar e sincronizar documentação oficial
+        id: sincronizar
+        continue-on-error: true
+        run: python scripts/monitor.py
+      - name: Preparar catálogo para GitHub Pages
+        if: steps.sincronizar.outcome == 'success'
+        run: python scripts/build_static.py
+      - name: Registrar snapshots e falhas no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/ public/data/
+          git diff --cached --quiet || (git commit -m "dados: sincronizar MOC com validação" && git push)
+      - name: Sinalizar erro de coleta
+        if: steps.sincronizar.outcome == 'failure'
+        run: exit 1

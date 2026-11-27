@@ -15,18 +15,21 @@ on:
     branches: [main]
     paths:
       - 'scripts/import_documents.py'
+      - 'scripts/import_dce.py'
+      - 'scripts/build_document_registry.py'
+      - 'scripts/build_offline.py'
       - '.github/workflows/importar_documentos.yml'
 permissions:
   contents: write
   actions: write
   pages: write
 concurrency:
-  group: importar-documentos
+  group: atualizar-catalogos-main
   cancel-in-progress: false
 jobs:
   importar:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,6 +55,7 @@ jobs:
           if [ -d data/documents ]; then git add data/documents/; fi
           if ! git diff --cached --quiet; then
             git commit -m 'dados: importar leiautes multidocumento'
+            git pull --rebase origin main
             git push
           fi
       - name: Relatório da importação
@@ -68,11 +72,11 @@ jobs:
         run: |
           tipo=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type' || true)
           if [ "$tipo" = workflow ]; then
-            gh workflow run publicar_paginas.yml --ref main
+            gh workflow run publicar_paginas.yml --ref main || { echo 'Falha ao solicitar publicação. Execute Publicar Explorador no GitHub Pages manualmente.'; exit 1; }
           elif [ "$tipo" = legacy ]; then
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo 'Solicite a publicação pelo GitHub Pages; confira permissões.'
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds" || { echo 'Solicite a publicação pelo GitHub Pages; confira permissões.'; exit 1; }
           else
-            echo 'Não foi possível identificar a configuração do Pages. Publique manualmente.'
+            echo 'Não foi possível identificar a configuração do Pages. Publique manualmente.'; exit 1
           fi
       - name: Sinalizar fontes com falha
         if: steps.collect.outcome == 'failure'
