@@ -84,6 +84,7 @@ jobs:
             gh workflow run publicar_paginas.yml --ref main
           elif [ "$tipo" = legacy ]; then
             gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+            echo "::warning::Pages em modo branch: publicação solicitada, mas sem comprovante verificável. Recomenda-se GitHub Actions."
           else
             echo 'Configuração Pages não reconhecida. Use Settings > Pages > GitHub Actions.'; exit 1
           fi

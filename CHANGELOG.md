@@ -1,3 +1,11 @@
+## V2.3.26-beta.1 — comprovação da publicação
+
+- Reconstroi os artefatos com os catálogos do checkout de publicação, antes de enviar ao Pages.
+- Gera comprovante de versão, commit, horário de preparação e SHA-256 de 23 arquivos (14 catálogos, monitoramento e recursos do aplicativo).
+- Após deploy, verifica os bytes do endereço público /public/; falha explicitamente se o site divergir após novas tentativas.
+- Central de Atualizações diferencia a coleta do comprovante do pacote publicado e confere a integridade do monitoramento recebido; cópia offline e modo branch não alegam confirmação.
+- Agendamento e catálogos preservados; nenhuma alteração nas regras fiscais, na hierarquia ou na paginação.
+
 ## V2.3.25-beta.1 — monitoramento multidocumento
 
 - Verificação diária única às 11:17 UTC (07:17 em Rondônia), cobrindo 14 catálogos em 10 fontes.
