@@ -1,30 +1,230 @@
 {
   "schemaVersion": 1,
-  "checkedAt": null,
+  "checkedAt": "2026-11-27T16:44:41+00:00",
   "families": {
     "nfe": {
       "label": "NF-e/NFC-e",
       "documents": [
         "nfe"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Pacote de schemas - NT 2022.002 v1.30",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "6df2e1c43c07baf6736c1d8d"
+        },
+        {
+          "title": "Pacote de schemas - NT 2025.002 v1.30",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "2a0b251157bddf4ef127d044"
+        },
+        {
+          "title": "Pacote de schemas - Eventos da NT 2025.002 v1.30 - RTC",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "ef5d4e735d104e75ee990cca"
+        },
+        {
+          "title": "Pacote de schemas - NT 2025.002 v.1.20",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "10c3d748baf119c86b3d834a"
+        },
+        {
+          "title": "Pacote de schemas - NT 2025.002 v.1.10",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "feddde625ec31621947238eb"
+        },
+        {
+          "title": "Pacote de schemas - NT 2025.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "9b15314a5835c0dcdf377712"
+        },
+        {
+          "title": "Schemas NT 2024.001 v1.10",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "ebea29f0f74d436c437bd365"
+        },
+        {
+          "title": "Pacote de Schemas Econf",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "20c3728f012e11b6e41a5ce1"
+        },
+        {
+          "title": "Schemas NT 2023.005 v1.02",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "50a68cf56643d94b12c1943a"
+        },
+        {
+          "title": "Schemas da NT 2023.004 v1.11 e NT 2019.001 v1.62",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "58f8d067f2011c3b76fc71d0"
+        },
+        {
+          "title": "Schemas PL 9k (NT 2023.001) - Tributação Monofásica de Combustíveis",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "672ec14c571fdcb9a6f8bf55"
+        },
+        {
+          "title": "Pacote de Schemas PL 009j",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "01110ee1fc0d89b103070363"
+        },
+        {
+          "title": "Schemas NT 2022.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "cc22af069d938983851fa6c4"
+        },
+        {
+          "title": "Schemas NF-e 009i da NT 2021.004",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "f2075ec4aab65afcc4a26868"
+        },
+        {
+          "title": "Schemas NF-e 009g da NT 2020.005",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "7f14f365cfbb673b369030f3"
+        },
+        {
+          "title": "Schemas Eventos do Fisco - BT 2019.001 v1.23",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "d558b10db1355f50bc56961f"
+        },
+        {
+          "title": "Schemas NT 2020.07 - Evento do Transportador Interessado v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "370884ba8b2cbbd3b084136b"
+        },
+        {
+          "title": "Schemas NT 2020.006 - MarketPlace v1.00",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "08fac34fe5a3e85061781052"
+        },
+        {
+          "title": "Schemas XML NF-e/NFC-e - Pacote de Liberação No. 9 (Novo leiaute da NF-e, NT 2019.001 v.1.20a)",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "a09573ae190f285f219aeaf1"
+        },
+        {
+          "title": "Schemas XML NF-e / NFC-e - Evento Cancelamento",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "0f621e1168b5093b6402f3df"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Distribuição de DF-e v1.02",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "e19e49635d69ebeff695e84f"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento Prorrog. Indust. 1.0",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "7f77fafdc280af19d0d911df"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento Suframa Vistoria v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "bb5fee553c10e1112a35a272"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento Suframa Internaliza v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "33c635449d1eb450b7cd8d87"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento CCe v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "29dd480443a1a29047de454b"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento EPEC v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "1489b07ab2ea112a15a08012"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento Generico v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "70a8c843cd66f3eab8bf0bcc"
+        },
+        {
+          "title": "Schemas XML NF-e - Pacote de Liberação Evento Manifesta Destinatário v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/NFe/Documentos",
+          "id": "1176621e7cd4f044a113771d"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=BMPFMBoln3w%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 28,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "dce": {
       "label": "DC-e",
       "documents": [
         "dce"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas BT 2024.001 - SVD",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/DCE/Documentos",
+          "id": "838ae0e81791f1bbd3aad2a0"
+        },
+        {
+          "title": "Schemas NT 2024.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/DCE/Documentos",
+          "id": "30580776b5077c57aff55d7a"
+        },
+        {
+          "title": "Pacote de Schemas da DCe - Versão 1.00",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/DCE/Documentos",
+          "id": "ea67ca7ad7e1eb0d489754be"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [],
+      "listedThisCheck": 3,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "cte": {
       "label": "CT-e / CT-e OS / GTVe",
@@ -33,72 +233,866 @@
         "cteos",
         "gtve"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
-      "packages": {},
-      "events": []
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2026.005 SN",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "7e5af7fbecc8b0096dfebc9a"
+        },
+        {
+          "title": "Schemas NT 2026.004 RTC v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "a19b22d77d5362356e0631ab"
+        },
+        {
+          "title": "Schemas NT 2026.002 - correção 2",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "f0831630a69868f95818394c"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01c [correção 2]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "915dbe5329bbd1528b4b3616"
+        },
+        {
+          "title": "Schemas NT 2025.001 - RTC 1.14a correção",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "4f76ea68d10677acd4c76347"
+        },
+        {
+          "title": "Schemas NT 2024.002 - CTe Simplificado - v1.05",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "f489136942216280f554df40"
+        },
+        {
+          "title": "Schemas NT 2024.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "30580776b5077c57aff55d7a"
+        },
+        {
+          "title": "Schemas CTe 4.00",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/CTe/Documentos",
+          "id": "3b00021e11cdfa962032e4ba"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.005 - RTC - SN - v.1.00 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=jLXuXo1j17A=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0b3521f447f6d8689da913d8"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.004 - RTC - v.1.01 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=QwdGTKSlBAQ=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "654135bf026e6940272b4c58"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.004 - v.1.00 (Republicado em 16/10/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=zeylq8Ib5E0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0db909c6e6187dfbfcef1d68"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.002 RTC v.1.01 (Publicado em 24/08/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=qGIe20MvWf4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "79383bbbc7ea5e3d07de77bd"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.001 VincPgto RTC v1.01c (Publicado em 24/08/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=n7UzPbCmMkI=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "2e5b252d3e55fd06e28ca146"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2026.002 RTC v.1.00 (Publicado em 16/06/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=EGfyMjCQNeE=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "c9eb297309a4f68f52bf8fdf"
+        },
+        {
+          "title": "Schemas XML CT-e - NT 2025.001 - RTC 1.14a correção (Publicado em 16/06/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=DeEWRezKyLo=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "edc883fafab2626dd725983c"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2026.001 v.1.01 corrigido) (Publicado em 08/06/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=2oAI3pZFSWk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "758910631a9eb4f275848ebd"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.14) (Publicado em 07/04/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=zHoDdyNJHYA=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "df301b0a364a1fc99c9e8f29"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2026.001 v.1.00) (Publicado em 02/03/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=J8IFYRbf2 E=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "87cc958c3e6f2157d7891a82"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2026.001 v.1.00) (Publicado em 05/02/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=I4eu74ta5oQ=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "82f11ca7308abdbf25a492da"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.10) (Publicado em 06/10/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=z80171SC51s=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "c0ce3fd47e395886065caee7"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.09) (Publicado em 16/09/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=gzcvYfuPlEg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "ab4ed484fd1c6ff9d49d6d68"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.07) (Publicado em 24/07/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=j1HvYQqtnKY=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "8ab848abd6e67930484b0f3c"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.06) (Publicado em 18/07/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=mwK/IHfrgxM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "205599de4f9e05488d1acd4e"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.05) (Publicado em 06/06/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=p6ApThOzep0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "7513353af2e02ba982a9b6b9"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.04b) (Publicado em 02/06/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=kPpTpz/hy9w=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "09e34e7fe5ec93cb1de10379"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.04a) (Publicado em 29/05/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=D00HK4kDi/w=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "126b0094b749c13ba0918e1f"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.04) (Publicado em 28/05/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=pkD7NaVppOI=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "eee15785e860e7b7c6ed336d"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.03) (Publicado em 19/05/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=2TzOl6VUrX8=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b8d8049d9adab51b501516cf"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.02) (Publicado em 12/05/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=mOPRu9lYXo0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "fce7a9812c25470baacd68c8"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.01) (Publicado em 23/04/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=cRv TMX HDk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "c62e106879248559f14c15b5"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.01) (Publicado em 14/04/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=EOKGFW69ehw=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "9ff4cb08900e06fd28b19611"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2024.002 v.1.05) (Publicado em 10/10/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=EVgbCM4IxII=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "d64c720575312dd3f5412bc5"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2024.002 v.1.04) (Publicado em 29/08/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=lqlslXIsrCQ=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "aa006616244db5af4fbb9b10"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2024.002 v.1.03) (Publicado em 19/08/2024) (Atualizado em 23/08/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=PU1v8XEGOJM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "dcc08bb7b033b1668ffd483e"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2024.002 v.1.02) (Publicado em 13/08/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=TtPsjZ/WNGg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "f1d233b2aae6a64b79bcb02b"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2024.002) (Publicado em 08/04/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=1hNQGC4YA/o=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "d60db04a803340a882687f71"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00a (ZIP) (ref. NT 2024.001) (Publicado em 17/01/2024)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=JNinH9Eium8=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "7522727309f7a8db07dc625b"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00a (ZIP) (Publicado em 30/01/2023) Atualizado em 28/04/2023",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=kNBS3lIIyOY=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "a7a0a0df7bcab743b7696ed8"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 4.00a (ZIP) (Publicado em 30/01/2023) Atualizado em 19/04/2023",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=QbG16FAppyk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "56d91e3ebef1dddde2d094cc"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00a (ZIP) (NT 2022.001) (Publicado em 16/03/2022)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=AeLXnQASkWg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "27823e22a440783cf739e55a"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00a (ZIP) (NT 2021.001) (Publicado em 22/03/2021)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=hFnCT8GrfTY=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "6b2537f1ad7c64a76e288de3"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00a (ZIP) (Atualizado em 01/08/2019)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=KDM4F9CcWeE=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b97aa9da5d348803a36b6dbc"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (NT 2018.002) (Atualizado em 24/08/2018)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=xuFsi7DbwBk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0c055ff3d84175f583db3ea9"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (NT 2018.001)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=alHdI8/YsNM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0f8e0d0ef7bec890513213fe"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (NT 2017.003 - v 1.03)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=FSJ3mZIvlgo=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "31357832b343f5f99a33081f"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (NT 2017.002) (Atualizado em 13/11/2017)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=6EGOKt3cOR8=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "9e4e39261eeaade3869c612f"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (NT 2017.001) (Atualizado em 17/05/2017)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=eYOHkmqS4rs=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b22afde69e2c412c1af388bb"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (Atualizado em 24/11/2016)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=ASDOZQBADLc=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "6894849fe02398ba07098883"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 3.00 (ZIP) (Atualizado em 31/10/2016)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=DKnXmlBn7V4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "6f5a72ce45fe31c8cc76cdce"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00a (ZIP) (NT 2015.004) (Atualizado em 30/11/2015)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=w0jjyqUUXdg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "bdbe5dbf80f7216ea17591c5"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00a (ZIP) (NT 2015.003)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=/HeFG/7d7BA=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b5218a8856c5b33182941967"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00a (ZIP) (NT 2015.001) (Atualizado)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=0dkBsDbsG4k=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b38093d15947dc5504534a75"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00a (ZIP) (NT 2014.001)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=KT22JVvL8k4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "19a150ec60b27c1bc0a1e8f1"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00 (ZIP) (NT 2013.013) (Atualizado)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=WpAXRPy0xSk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "4b2f1f597efddac11d5c5998"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 2.00pre (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=A8ZFhBIu/eo=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "9ac8a28c8f6d411799995755"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.04C (ZIP) (NT 2013.004)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=JNuUDjaXUfg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "cb54c2d9f4358a3e6fa9d2cf"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.04B (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=YkoQKwGaI70=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "01f48daee12f696df3acf05e"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.04A (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=/SGylQ7WuNI=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "c8a5caf08e576f6a1fc6fe8f"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.04 (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=51xH84QL1wE=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b858aede07a000c05deb1111"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.03A (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=omH4QUwWFjI=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "dc174266cf796f6795e4e0bc"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.03 (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=nONsTLrwRus=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "ec426eaf097065c99e0f28e3"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.02B (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=HC/iuy94/Rk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "742202a175fb1eec05d97532"
+        },
+        {
+          "title": "Schemas XML CT-e - Pacote de Liberação 1.02 (ZIP)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=kksmKsigLAA=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0e3428050624117cee8dd9c3"
+        }
+      ],
+      "packages": {
+        "7b21ef1ac81d4625aec5eb65": {
+          "title": "Schemas XML CT-e - NT 2026.005 - RTC - SN - v.1.00 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=jLXuXo1j17A=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0b3521f447f6d8689da913d8",
+          "hash": "0e3d687c20719fbaa67595157abd4943aa7b2682f0d086e1184d075893c945af",
+          "fileCount": 49,
+          "fileNames": [
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/DFeTiposBasicos_v1.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/GTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/consSitCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/consSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/consStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/consStatServTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalAereo_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalAquaviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalDutoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalFerroviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalRodoviarioOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteModalRodoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteMultiModal_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cteTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/cte_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evApropriaCredPres_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCCeCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancTributacaoSN_v1.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evCancVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evEPECCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evGTV_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evRegMultimodal_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evTributacaoSN_v1.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/evVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/eventoCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/eventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/procCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/procCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/procCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/procEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/procGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retConsSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retConsStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/retGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/tiposGeralCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.005 RTC SN_1.00/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 8741,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "07fede8e7046e7f347701d30": {
+          "title": "Schemas XML CT-e - NT 2026.004 - RTC - v.1.01 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=QwdGTKSlBAQ=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "654135bf026e6940272b4c58",
+          "hash": "edbbe025d80675f80d54f0e3e9ea4145a25f217788a6c99d600958295b732e1d",
+          "fileCount": 47,
+          "fileNames": [
+            "PL_CTe_400_NT2026.004 RTC_1.01/DFeTiposBasicos_v1.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/GTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/consSitCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/consSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/consStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/consStatServTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalAereo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalAquaviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalDutoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalFerroviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalRodoviarioOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteModalRodoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteMultiModal_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cteTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/cte_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evApropriaCredPres_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCCeCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCancCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCancCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCancIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCancPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evCancVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evEPECCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evGTV_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evRegMultimodal_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/evVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/eventoCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/eventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/procCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/procCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/procCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/procEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/procGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retConsSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retConsStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/retGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/tiposGeralCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.01/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 8632,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "0a60f119560a1d82f7d05ac9": {
+          "title": "Schemas XML CT-e - NT 2026.004 - v.1.00 (Republicado em 16/10/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=zeylq8Ib5E0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "0db909c6e6187dfbfcef1d68",
+          "hash": "fdc473fb0f501f97890b877051bdf134498338ca76bdabdf988305ac0242f76c",
+          "fileCount": 47,
+          "fileNames": [
+            "PL_CTe_400_NT2026.004 RTC_1.00/DFeTiposBasicos_v1.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/GTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/consSitCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/consSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/consStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/consStatServTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalAereo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalAquaviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalDutoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalFerroviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalRodoviarioOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteModalRodoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteMultiModal_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cteTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/cte_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evApropriaCredPres_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCCeCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCancCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCancCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCancIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCancPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evCancVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evEPECCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evGTV_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evRegMultimodal_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/evVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/eventoCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/eventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/procCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/procCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/procCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/procEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/procGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retConsSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retConsStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/retGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/tiposGeralCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.004 RTC_1.00/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 8611,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "309f3ad648c18dd552c74bb3": {
+          "title": "Schemas XML CT-e - NT 2026.002 RTC v.1.01 (Publicado em 24/08/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=qGIe20MvWf4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "79383bbbc7ea5e3d07de77bd",
+          "hash": "a946d108fe05ecb877dfdcc44addd6caa26dc421c87f9d2699808785046a4a6c",
+          "fileCount": 46,
+          "fileNames": [
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/DFeTiposBasicos_v1.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/GTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/consSitCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/consSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/consStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/consStatServTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalAereo_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalAquaviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalDutoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalFerroviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalRodoviarioOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteModalRodoviario_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteMultiModal_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cteTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/cte_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCCeCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCancCECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCancCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCancIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCancPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evCancVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evEPECCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evGTV_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evIECTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evPrestDesacordo_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evRegMultimodal_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/evVincPgto_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/eventoCTeTiposBasico_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/eventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/procCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/procCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/procCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/procEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/procGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retCTeOS_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retCTeSimp_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retConsSitCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retConsStatServCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retEventoCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/retGTVe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/tiposGeralCTe_v4.00.xsd",
+            "PL_CTe_400_NT2026.002 RTC_1.01_corr/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 8511,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        }
+      },
+      "events": [],
+      "errors": [],
+      "listedThisCheck": 63,
+      "directLinks": 55,
+      "packagesChecked": 4,
+      "lastPackageCheckAt": "2026-11-27T16:44:41+00:00"
     },
     "abi": {
       "label": "NF-e ABI",
       "documents": [
         "abi"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Pacote de Schemas NFeABI 1.00 [versão 1.06]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfabi/Documentos",
+          "id": "40ebaca472557890371bcc0a"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=sNOtscnJo6w%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 1,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "nfgas": {
       "label": "NFGAS",
       "documents": [
         "nfgas"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2026.002 RTC",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfgas/Documentos",
+          "id": "d95895b951b3a0fe2883cb70"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfgas/Documentos",
+          "id": "85ba303a0542412a23c8e333"
+        },
+        {
+          "title": "Pacote de Schemas NFGas 1.00e",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfgas/Documentos",
+          "id": "3f5ab636cccb56ecea41dcdc"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=rRDFjf1Ps7M%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 3,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "nfag": {
       "label": "NFAG",
       "documents": [
         "nfag"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schema NT 2026.002 RTC",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfag/Documentos",
+          "id": "8c27bd908cdd97bc9d566798"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfag/Documentos",
+          "id": "85ba303a0542412a23c8e333"
+        },
+        {
+          "title": "Pacote de Schemas NFAG 1.00j",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfag/Documentos",
+          "id": "fe0ebd0605c83e140b7e187f"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=2DuboicICSo%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 3,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "nf3e": {
       "label": "NF3-e",
       "documents": [
         "nf3e"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2026.004 RTC v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "a19b22d77d5362356e0631ab"
+        },
+        {
+          "title": "Schemas NT 2026.002 RTC",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "d95895b951b3a0fe2883cb70"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "85ba303a0542412a23c8e333"
+        },
+        {
+          "title": "Schemas NT 2025.001 RTC 1.14",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "af51cf20a557e2114f859511"
+        },
+        {
+          "title": "Schemas NT 2024.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "30580776b5077c57aff55d7a"
+        },
+        {
+          "title": "Schemas NT 2023.001 v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "2c428cadd7956a25bdb505f4"
+        },
+        {
+          "title": "Schemas XML NF3e - Pacote de Liberação 1.00a (revisão)",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nf3e/Documentos",
+          "id": "d7b759594dc9b1032fd733d1"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=hgMnsRcQa8I%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 7,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "nfcom": {
       "label": "NFCom",
       "documents": [
         "nfcom"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2026.005 SN",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "7e5af7fbecc8b0096dfebc9a"
+        },
+        {
+          "title": "Schemas NT 2026.002 RTC",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "d95895b951b3a0fe2883cb70"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01 - correção",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "794b1a9e5dfb340cb7be1544"
+        },
+        {
+          "title": "Schemas NT 2025.001 - RTC 1.14 correção",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "dcd87f4c470dfb52d77cdc0d"
+        },
+        {
+          "title": "Schemas da NT 2024.002 [rev 1.00]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "09b47279e89e029568c1879c"
+        },
+        {
+          "title": "Schemas NT 2024.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "30580776b5077c57aff55d7a"
+        },
+        {
+          "title": "Schemas da NT 2023.002 [Revisão 1.01]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "d3a5cfb87664516367d8b445"
+        },
+        {
+          "title": "Schemas NFCom 1.00a - NT 2023.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Nfcom/Documentos",
+          "id": "f1c0ff6e5c2c708c1f800294"
+        }
+      ],
       "packages": {},
-      "events": []
+      "events": [],
+      "errors": [
+        "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=7%2BcF7zwBrZ0%3D: HTTP Error 302: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound"
+      ],
+      "listedThisCheck": 8,
+      "directLinks": 0,
+      "packagesChecked": 0,
+      "lastPackageCheckAt": null
     },
     "bpe": {
       "label": "BP-e / TM / TA",
@@ -107,24 +1101,420 @@
         "bpetm",
         "bpeta"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
-      "packages": {},
-      "events": []
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2026.005 SN",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "7e5af7fbecc8b0096dfebc9a"
+        },
+        {
+          "title": "Schemas NT 2026.004 v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "23adea0139a10c6a3271e320"
+        },
+        {
+          "title": "Schemas NT 2026.002",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "1a4766d6917f975b4046a078"
+        },
+        {
+          "title": "Schemas NT 2026.001 RTC Vinculação Pagamento v1.01b_corr",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "d99b15be90883d534543f2c8"
+        },
+        {
+          "title": "Schemas NT 2025.001 - RTC v1.14a",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "1d41e8499a7e4bbe22151288"
+        },
+        {
+          "title": "Schemas NT 2024.001",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "30580776b5077c57aff55d7a"
+        },
+        {
+          "title": "Schemas NT 2021.001 [v1.01]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "3136ea4eb8bc5eb47524a228"
+        },
+        {
+          "title": "Schemas NT 2020.001 - Evento Excesso de Bagagem [v1.01]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "4941b0d17f090953de832073"
+        },
+        {
+          "title": "Schemas da NT 2020.002 - BP-e TM [atualização]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "c26ed4b9c5b34854c2f234f2"
+        },
+        {
+          "title": "Schemas BP-e versão 1.00b",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Bpe/Documentos",
+          "id": "9c86132513fb197f8df37d0b"
+        },
+        {
+          "title": "Schemas XML BP-e - NT 2026.005 - RTC - SN - v.1.00 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=ysYXxjwjYyk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "205d8dabce28a7a2434dbe55"
+        },
+        {
+          "title": "Schemas XML BP-e - NT 2026.004 - RTC - v.1.01 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=oqjJXubRkb0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "11501fb5f0b742c01394351e"
+        },
+        {
+          "title": "Schemas XML BP-e - NT 2026.004 - v.1.00 (Publicado em 05/10/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=Sg8mFlS0NF4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "4e32da37ac142b01c06023c8"
+        },
+        {
+          "title": "Schemas XML BP-e - NT 2026.001 VincPgto RTC v.1.01b (Publicado em 18/06/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=TZec5oCNRwM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "513f2c836f5f66aada1037f3"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.14 e NT 2025.002 v.1.06) (Publicado em 07/04/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=3a5Pr2y2fKY=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "f605394912a402f74613ebeb"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2026.001 v.1.00) (Publicado em 02/03/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=9GL6 7kvbsc=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "4ffbc60b676253b28cc1673a"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.13a) (Publicado em 05/02/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=NLKKiCXw1ZM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "acbdf80e0b16946c13383238"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2026.001 v.1.00) (Publicado em 05/02/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=g/6T7 FDxUI=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "7441d7b7018190ad7e6491da"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 1.00b (ZIP) (ref. NT 2025.001 v.1.13 e NT 2025.002 v.1.05 (Publicado em 26/01/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=473DaYd6uIc=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "e0cfad79b0c486d9d2852ce8"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 1.00b (ZIP) (ref. NT 2025.001 v.1.11 e NT 2025.002 v.1.00) (Publicado em 16/01/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=duJPOLxX8cQ=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "6769cdbc48afc34847de2946"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 4.00 (ZIP) (ref. NT 2025.001 v.1.10 e NT 2025.002 v.1.00) (Publicado em 06/10/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=voW0leIppqU=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "d37faf0a752b432b7ab51650"
+        },
+        {
+          "title": "Schemas XML BP-e - Pacote de Liberação 1.00b (ZIP) (ref. NT 2025.001 v.1.09 e NT 2025.002 v.1.00) (Publicado em 16/09/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=GkF2jmevSVw=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "3e645dd3eb475ec3a600ae27"
+        }
+      ],
+      "packages": {
+        "b2121d277da153026d53e8b6": {
+          "title": "Schemas XML BP-e - NT 2026.005 - RTC - SN - v.1.00 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=ysYXxjwjYyk=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "205d8dabce28a7a2434dbe55",
+          "hash": "2e6bb8306eec53d5195de353edb740fa6bf39b4e6c2db857cb3cf6fa64dd4687",
+          "fileCount": 28,
+          "fileNames": [
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/DFeTiposBasicos_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/bpeTA_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/bpeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/bpeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/bpe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/consSitBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/consSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/consStatServBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/consStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evAlteracaoPoltrona_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evCancBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evCancTributacaoSN_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evCancVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evExcessoBagagem_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evNaoEmbBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evTributacaoSN_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/evVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/eventoBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/eventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/procBPeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/procBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/procEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/retBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/retConsSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/retConsStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/retEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/tiposGeralBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.005 RTC SN_1.00/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 4685,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "483e6542abd0435299401a55": {
+          "title": "Schemas XML BP-e - NT 2026.004 - RTC - v.1.01 (Republicado em 11/11/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=oqjJXubRkb0=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "11501fb5f0b742c01394351e",
+          "hash": "3e153dfdad9593550a3de66e5a2708b4eee396916bafd08d7ee5829ec17cd399",
+          "fileCount": 26,
+          "fileNames": [
+            "PL_BPe_100b_NT2026.004 RTC 1.01/DFeTiposBasicos_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/bpeTA_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/bpeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/bpeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/bpe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/consSitBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/consSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/consStatServBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/consStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evAlteracaoPoltrona_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evCancBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evCancVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evExcessoBagagem_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evNaoEmbBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/evVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/eventoBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/eventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/procBPeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/procBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/procEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/retBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/retConsSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/retConsStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/retEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/tiposGeralBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC 1.01/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 4576,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "598ba87085d6c84190315481": {
+          "title": "Schemas XML BP-e - NT 2026.004 - v.1.00 (Publicado em 05/10/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=Sg8mFlS0NF4=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "4e32da37ac142b01c06023c8",
+          "hash": "4f0d6a89e8e79900efaae364b2f0a7c141a61ff403e06f12402c22492ad8e0fa",
+          "fileCount": 27,
+          "fileNames": [
+            "PL_BPe_100b_NT2026.004 RTC_1.00/DFeTiposBasicos_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/DFeTiposBasicos_v1.00_old.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/bpeTA_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/bpeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/bpeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/bpe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/consSitBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/consSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/consStatServBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/consStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evAlteracaoPoltrona_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evCancBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evCancVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evExcessoBagagem_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evNaoEmbBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/evVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/eventoBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/eventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/procBPeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/procBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/procEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/retBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/retConsSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/retConsStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/retEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/tiposGeralBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.004 RTC_1.00/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 5419,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        },
+        "5a41fb6f992c58df501a4a1e": {
+          "title": "Schemas XML BP-e - NT 2026.001 VincPgto RTC v.1.01b (Publicado em 18/06/2026)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=TZec5oCNRwM=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "513f2c836f5f66aada1037f3",
+          "hash": "0ce0081714af98d3eebfb8d217252de70065c61b912e9ee4efb01b6db90623bc",
+          "fileCount": 26,
+          "fileNames": [
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/DFeTiposBasicos_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/bpeTA_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/bpeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/bpeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/bpe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/consSitBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/consSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/consStatServBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/consStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evAlteracaoPoltrona_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evCancBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evCancVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evExcessoBagagem_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evNaoEmbBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/evVincPgto_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/eventoBPeTiposBasico_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/eventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/procBPeTM_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/procBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/procEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/retBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/retConsSitBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/retConsStatServBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/retEventoBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/tiposGeralBPe_v1.00.xsd",
+            "PL_BPe_100b_NT2026.001 RTC_VincPgto_v1.01b_corr/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 4318,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        }
+      },
+      "events": [],
+      "errors": [],
+      "listedThisCheck": 22,
+      "directLinks": 12,
+      "packagesChecked": 4,
+      "lastPackageCheckAt": "2026-11-27T16:44:41+00:00"
     },
     "mdfe": {
       "label": "MDF-e",
       "documents": [
         "mdfe"
       ],
-      "status": "aguardando",
-      "lastCheckAt": null,
-      "lastSuccessAt": null,
-      "publications": [],
-      "packages": {},
-      "events": []
+      "status": "parcial",
+      "lastCheckAt": "2026-11-27T16:44:41+00:00",
+      "lastSuccessAt": "2026-11-27T16:44:41+00:00",
+      "publications": [
+        {
+          "title": "Schemas NT 2025.001 v 1.04",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "d3528a5461c78c0f8cc10d74"
+        },
+        {
+          "title": "Schemas NT 2024.002 v1.01",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "5bdd3acc0c0a383799c57faa"
+        },
+        {
+          "title": "Schemas NT 2024.001 v1.02",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "f214883b8995e3bf4a390803"
+        },
+        {
+          "title": "Schemas NT 2023.002 - Integração InfraSA",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "773f83f5295dbac004753fed"
+        },
+        {
+          "title": "Schemas da versão 3.00b do MDFe",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "5cab5767a30aad13eb51b209"
+        },
+        {
+          "title": "Schemas NT 2022.001 [v1.03]",
+          "url": "",
+          "source": "https://dfe-portal.svrs.rs.gov.br/Mdfe/Documentos",
+          "id": "7f1f5a3326a71fa446a6d280"
+        },
+        {
+          "title": "Schemas XML MDF-e - Pacote de Liberação 3.00b (ZIP) (ref. NT 2025.001 v.1.03) (Publicado em 10/10/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=KnJNEIBHgBg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b7c6908485bc24b1de7492ac"
+        }
+      ],
+      "packages": {
+        "5089f6a7fa10b4e370b65cc1": {
+          "title": "Schemas XML MDF-e - Pacote de Liberação 3.00b (ZIP) (ref. NT 2025.001 v.1.03) (Publicado em 10/10/2025)",
+          "url": "https://www.cte.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=KnJNEIBHgBg=",
+          "source": "https://www.cte.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=0xlG1bdBass%3D",
+          "id": "b7c6908485bc24b1de7492ac",
+          "hash": "ada44b547663203d4014b6ddfc69219551dfe05db822537193a5b038f7b4ecc5",
+          "fileCount": 41,
+          "fileNames": [
+            "PL_MDFe_300b_NT012025_1.03/consMDFeNaoEncTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consMDFeNaoEnc_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consReciMDFeTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consReciMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consSitMDFeTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consSitMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consStatServMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/consStatServTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/distMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/enviMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evAlteracaoPagtoServMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evCancMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evConfirmaServMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evEncMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evIncCondutorMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evInclusaoDFeMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/evPagtoOperMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/eventoMDFeTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/eventoMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/leiauteDistMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeConsultaDFeTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeConsultaDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeModalAereo_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeModalAquaviario_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeModalFerroviario_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeModalRodoviario_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfeTiposBasico_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/mdfe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/procEventoMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/procMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retConsMDFeNaoEnc_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retConsReciMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retConsSitMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retConsStatServMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retDistMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retEnviMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retEventoMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retMDFeConsultaDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/retMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/tiposGeralMDFe_v3.00.xsd",
+            "PL_MDFe_300b_NT012025_1.03/xmldsig-core-schema_v1.01.xsd"
+          ],
+          "declarations": 4161,
+          "lastCheckAt": "2026-11-27T16:44:41+00:00"
+        }
+      },
+      "events": [],
+      "errors": [],
+      "listedThisCheck": 7,
+      "directLinks": 1,
+      "packagesChecked": 1,
+      "lastPackageCheckAt": "2026-11-27T16:44:41+00:00"
     }
   }
 }

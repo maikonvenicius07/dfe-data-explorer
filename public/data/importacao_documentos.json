@@ -1,95 +1,95 @@
 {
-  "checkedAt": "2026-11-27T16:15:04+00:00",
+  "checkedAt": "2026-11-27T16:44:11+00:00",
   "documents": {
     "dce": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/DCe/Leiaute.html",
       "imported": 111,
-      "checkedAt": "2026-11-27T16:15:08+00:00",
+      "checkedAt": "2026-11-27T16:44:14+00:00",
       "error": null
     },
     "cte": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/CTe/Leiaute.html",
       "imported": 978,
-      "checkedAt": "2026-11-27T16:15:10+00:00",
+      "checkedAt": "2026-11-27T16:44:16+00:00",
       "error": null
     },
     "cteos": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/CTe/Leiaute.html",
       "imported": 314,
-      "checkedAt": "2026-11-27T16:15:16+00:00",
+      "checkedAt": "2026-11-27T16:44:20+00:00",
       "error": null
     },
     "gtve": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/CTe/Leiaute.html",
       "imported": 162,
-      "checkedAt": "2026-11-27T16:15:17+00:00",
+      "checkedAt": "2026-11-27T16:44:22+00:00",
       "error": null
     },
     "abi": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/NFe_ABI/Leiaute.html",
       "imported": 269,
-      "checkedAt": "2026-11-27T16:15:18+00:00",
+      "checkedAt": "2026-11-27T16:44:23+00:00",
       "error": null
     },
     "nfgas": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/NFGAS/Leiaute.html",
       "imported": 464,
-      "checkedAt": "2026-11-27T16:15:20+00:00",
+      "checkedAt": "2026-11-27T16:44:25+00:00",
       "error": null
     },
     "nfag": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/NFAG/Leiaute.html",
       "imported": 350,
-      "checkedAt": "2026-11-27T16:15:23+00:00",
+      "checkedAt": "2026-11-27T16:44:28+00:00",
       "error": null
     },
     "nf3e": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/NF3e/Leiaute.html",
       "imported": 507,
-      "checkedAt": "2026-11-27T16:15:26+00:00",
+      "checkedAt": "2026-11-27T16:44:30+00:00",
       "error": null
     },
     "nfcom": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/NFCom/Leiaute.html",
       "imported": 410,
-      "checkedAt": "2026-11-27T16:15:31+00:00",
+      "checkedAt": "2026-11-27T16:44:32+00:00",
       "error": null
     },
     "bpe": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/BPe/Leiaute.html",
       "imported": 293,
-      "checkedAt": "2026-11-27T16:15:33+00:00",
+      "checkedAt": "2026-11-27T16:44:35+00:00",
       "error": null
     },
     "bpetm": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/BPe/Leiaute.html",
       "imported": 228,
-      "checkedAt": "2026-11-27T16:15:36+00:00",
+      "checkedAt": "2026-11-27T16:44:37+00:00",
       "error": null
     },
     "bpeta": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/BPe/Leiaute.html",
       "imported": 246,
-      "checkedAt": "2026-11-27T16:15:36+00:00",
+      "checkedAt": "2026-11-27T16:44:38+00:00",
       "error": null
     },
     "mdfe": {
       "status": "sem-alteracoes",
       "source": "https://moc.sped.fazenda.pr.gov.br/MDFe/Leiaute.html",
       "imported": 325,
-      "checkedAt": "2026-11-27T16:15:37+00:00",
+      "checkedAt": "2026-11-27T16:44:39+00:00",
       "error": null
     }
   }
