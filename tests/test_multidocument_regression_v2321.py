@@ -22,12 +22,12 @@ def run():
     if pages is not None:assert len(doc)==pages,(name,len(doc))
     for i,p in enumerate(doc):p.get_pixmap(matrix=fitz.Matrix(1.2,1.2)).save(Q/(name+f'_{i+1}.png'))
    print(name,'OK',flush=True)
-  page.locator('#groupMoc').select_option('W');mark('W03');assert checked('W03');pdf('NF-e',['vBC','V2.3.21'],['vDC'])
+  page.locator('#groupMoc').select_option('W');mark('W03');assert checked('W03');pdf('NF-e',['vBC','V'+(R/'VERSION').read_text().strip().split('-')[0]],['vDC'])
   choose_doc('nfe');page.locator('#view-moc [data-select-command=clear]').click();keys='W01 W01a W02 W17 W23 W31 W34 W35 W36 W37 W42 W43 W44 W46 W47 W48 W49 W50 W57 W59e W59h W60'.split()
   for k in keys:mark(k)
-  pdf('NF-e-W22',['vNFTot','V2.3.21'],['vDC'],'portrait',1)
+  pdf('NF-e-W22',['vNFTot','V'+(R/'VERSION').read_text().strip().split('-')[0]],['vDC'],'portrait',1)
   choose_doc('nfe');page.locator('#view-moc [data-select-command=clear]').click();mark('W03')
-  choose_doc('dce');assert '111' in page.locator('#mocCount').inner_text();assert 'cobertura parcial' in page.locator('#badgeStatus').inner_text();assert not page.locator('#mocTables [data-moc-print]:checked').count();page.locator('#groupMoc').select_option('W');page.locator('[data-moc-toggle="W01"]').click();assert not checked('W01') and not checked('W16');mark('W16');assert checked('W16');pdf('DC-e',['vDC','DC-e','V2.3.21'],['vICMS','IBSCBSTot']);
+  choose_doc('dce');assert '111' in page.locator('#mocCount').inner_text();assert 'cobertura parcial' in page.locator('#badgeStatus').inner_text();assert not page.locator('#mocTables [data-moc-print]:checked').count();page.locator('#groupMoc').select_option('W');page.locator('[data-moc-toggle="W01"]').click();assert not checked('W01') and not checked('W16');mark('W16');assert checked('W16');pdf('DC-e',['vDC','DC-e','V'+(R/'VERSION').read_text().strip().split('-')[0]],['vICMS','IBSCBSTot']);
   choose_doc('dce');page.locator('#groupMoc').select_option('Z');page.locator('#searchMoc').fill('Z06');mark('Z06|Z05|xCampo');assert checked('Z06|Z05|xCampo') and not checked('Z06|Z05|xTexto')
   page.locator('.document-tools summary').click();page.locator('[data-goto="dicionario"]').click();assert page.locator('#view-dicionario').is_visible();page.locator('#searchDict').fill('Z06');assert page.locator('#dictionary tbody tr').count()==2;page.locator('#view-dicionario .document-back').click()
   page.locator('[data-document="nf3e"]').click();assert page.locator('#view-pending').is_visible();assert page.locator('[data-view="impressao"]').is_disabled();assert not page.locator('#view-moc').is_visible()

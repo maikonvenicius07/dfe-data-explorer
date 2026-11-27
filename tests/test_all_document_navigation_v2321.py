@@ -55,7 +55,7 @@ def run():
                     with page.expect_download() as dl:page.locator('#btnDownloadPdf').click()
                     pdf=p/(doc+'.pdf');dl.value.save_as(pdf)
                     with fitz.open(pdf) as f:
-                        t='\n'.join(pg.get_text() for pg in f);assert tag in t and 'V2.3.21' in t;assert all(pg.rotation==0 for pg in f)
+                        t='\n'.join(pg.get_text() for pg in f);assert tag in t and 'V'+(R/'VERSION').read_text().strip().split('-')[0] in t;assert all(pg.rotation==0 for pg in f)
                     choose(doc);assert page.locator(f'#mocTables [data-moc-print="{key}"]').is_checked()
                     print(doc,'fixture UI + PDF OK',flush=True)
                 page.locator('[data-document="nfe"]').click();assert page.locator('#mocTables [data-moc-print]:checked').count()==0

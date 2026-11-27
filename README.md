@@ -1,3 +1,5 @@
+> **V2.3.22-beta.1:** leia [LEIA_PRIMEIRO_V2322.md](LEIA_PRIMEIRO_V2322.md) para instalar e executar os workflows no diretório correto. A disponibilização dos novos leiautes depende da coleta real e validação dos catálogos.
+
 # DF-e Data Explorer — plataforma multidocumento
 
 **Versão do aplicativo:** V2.3.21-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.

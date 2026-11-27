@@ -1,3 +1,11 @@
+## V2.3.22-beta.1 — correção da instalação e publicação dos importadores
+
+- Workflows executáveis diretamente em `.github/workflows/`; preservadas cópias históricas inertes.
+- GitHub Pages preserva o endereço `/public/`; diagnóstico de coleta na tela de catálogo indisponível.
+- Alternativa de importação Windows e instrução para criação correta do workflow.
+- HTML offline inclui a base NF-e publicada; correção de título de catálogo.
+- Coleta remota de novos manuais e validação XSD ainda pendentes; sem catálogos fictícios.
+
 # V2.3.21-beta.1 — 2026-11-27 (entrega parcial)
 
 - Carregador multidocumento baseado nos catálogos presentes, com variantes CT-e e BP-e e seleção isolada.

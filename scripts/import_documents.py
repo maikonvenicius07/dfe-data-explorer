@@ -49,7 +49,7 @@ def table_rows(table):
 def extract(doc,html):
     if len(html)>25_000_000:raise ValueError('HTML excessivo')
     if doc=='dce':return extract_dce(html)
-    label,folder,root_tag=SOURCES[doc]; soup=BeautifulSoup(html,'lxml')
+    document_label,folder,root_tag=SOURCES[doc]; soup=BeautifulSoup(html,'lxml')
     # The actual page title and expected root prevent importing a different manual.
     title=soup.title.get_text(' ',strip=True) if soup.title else ''
     if 'leiaute' not in canon(title+' '+ ' '.join(h.get_text(' ',strip=True) for h in soup.find_all('h1'))):raise ValueError('Página não identificada como Leiaute')
@@ -186,7 +186,7 @@ def extract(doc,html):
     coverage+=f'{len(warnings)} vínculos requerem revisão; {len(skipped)} tabelas não estruturais ou não reconhecidas foram registradas para auditoria.'
     page_text=soup.get_text(' ',strip=True)
     note=re.search(r'Atualizado\s+até\s+a\s+(NT\s+[\d.]+\s*v\.?\s*[\d.]+)([^|]{0,100}?)\s*(?=☰|Leiaute|$)',page_text,re.I)
-    meta=dict(documentId=doc,title='Leiaute '+label,source=url(doc),status='official-html-extracted-unverified-xsd',coverage=coverage,extractedAt=now_utc(),sourceHash=hashlib.sha256(html.encode()).hexdigest(),totalRows=len(rows),tableCount=len(tables),hierarchyIssues=len(warnings),tables=tables,unmappedTables=skipped,warnings=warnings,technicalNote=note[1] if note else None,manualReference=note[0] if note else title)
+    meta=dict(documentId=doc,title='Leiaute '+document_label,source=url(doc),status='official-html-extracted-unverified-xsd',coverage=coverage,extractedAt=now_utc(),sourceHash=hashlib.sha256(html.encode()).hexdigest(),totalRows=len(rows),tableCount=len(tables),hierarchyIssues=len(warnings),tables=tables,unmappedTables=skipped,warnings=warnings,technicalNote=note[1] if note else None,manualReference=note[0] if note else title)
     return dict(metadata=meta,groups=[dict(id=v,description=k,order=i) for i,(k,v) in enumerate(groups.items(),1)],nodes=rows)
 
 def validate_source_coverage(doc,cat):
@@ -213,7 +213,7 @@ def validate_source_coverage(doc,cat):
 def fetch(doc,html_dir):
     if html_dir:
         f=html_dir/(doc+'.html'); f=f if f.exists() else html_dir/(SOURCES[doc][1]+'.html');return f.read_text(encoding='utf-8-sig')
-    req=Request(url(doc),headers={'User-Agent':'DF-e Data Explorer/2.3.21','Accept':'text/html'})
+    req=Request(url(doc),headers={'User-Agent':'DF-e Data Explorer/2.3.22','Accept':'text/html'})
     with urlopen(req,timeout=25) as r:
         if r.geturl().split('?')[0]!=url(doc):raise ValueError('Redirecionamento inesperado')
         raw=r.read(25_000_001);return raw.decode(r.headers.get_content_charset() or 'utf-8',errors='strict')
