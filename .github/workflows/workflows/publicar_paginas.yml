@@ -1,0 +1,53 @@
+name: Publicar Explorador no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - 'index.html'
+      - '.nojekyll'
+      - '.github/workflows/publicar_paginas.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Preparar pacote do site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter arquivos do repositorio
+        uses: actions/checkout@v4
+      - name: Verificar pagina inicial
+        run: |
+          test -f public/index.html
+          mkdir -p _site
+          cp index.html .nojekyll _site/
+          cp -a public _site/public
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Enviar pacote de arquivos para Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Publicar site
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

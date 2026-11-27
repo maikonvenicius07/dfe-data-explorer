@@ -1,21 +1,12 @@
-name: Importar catálogo DC-e (piloto)
+name: Importar somente DC-e
 on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
+  pages: write
 jobs:
   importar:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: pip install -r requirements.txt
-      - run: python scripts/import_dce.py
-      - name: Registrar catálogo DC-e validado pelo importador
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data/dce/ public/index.html public/EXPLORADOR_OFFLINE_COMPLETO.html data/documents/dce/
-          git diff --cached --quiet || (git commit -m 'dados: importar leiaute DC-e' && git push)
+    uses: ./.github/workflows/importar_documentos.yml
+    with:
+      documento: dce
