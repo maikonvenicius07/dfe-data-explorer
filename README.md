@@ -1,12 +1,24 @@
 # DF-e Data Explorer — plataforma multidocumento
 
-**Versão do aplicativo:** V2.3.20-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
+**Versão do aplicativo:** V2.3.21-beta.1 · **Base embutida:** seleção demonstrativa anterior, 196 nós.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
 ## Abrir imediatamente
 
 Abra o endereço principal `https://maikonvenicius07.github.io/dfe-data-explorer/` no navegador. Em GitHub Pages configurado pela branch `main` e `/ (root)`, o arquivo `index.html` da raiz encaminha automaticamente para `public/`, onde está o explorador de documentos. Também é possível abrir `public/EXPLORADOR_OFFLINE_COMPLETO.html` no navegador. Não necessita instalar nada. Também é possível executar `python scripts/serve.py` e acessar `http://localhost:8000`, para usar o servidor opcional.
+
+## V2.3.21 — importação multidocumento (entrega parcial)
+
+A arquitetura agora busca catálogos próprios de cada documento e variante. A coleta real nesta sessão falhou por DNS no ambiente de execução. Nenhum novo catálogo fiscal foi disponibilizado; NF-e/NFC-e e DC-e piloto permanecem intactos.
+
+1. Atualize o repositório `main` com o conteúdo do ZIP completo na raiz, inclusive `.github/workflows/` e `public/`.
+2. Abra **Actions → Importar leiautes de todos os DF-e → Run workflow**, com `documento=all`. Também é possível escolher uma chave específica (`mdfe`, `nf3e`, `cte`, `cteos`, `gtve`, `abi`, `nfgas`, `nfag`, `nfcom`, `bpe`, `bpetm`, `bpeta`, `dce`). O workflow tenta executar a coleta também após alteração do importador na branch main.
+3. Confira o log e o artefato `cobertura-documentos`. Um status de erro NÃO significa importação concluída. As fontes precisam estar acessíveis ao runner; a primeira importação real deve ser auditada. O workflow preserva catálogos anteriores em falhas detectadas.
+4. Confira o commit dos catálogos, o status da publicação e a URL `public/`. Se necessário, solicite manualmente **Publicar Explorador no GitHub Pages** (para configuração por Actions) ou a republicação da branch main (para configuração por branch).
+5. Alternativa local: `pip install -r requirements.txt` e `python scripts/import_documents.py` em uma máquina com rede. Com páginas Leiaute salvas em HTML: `python scripts/import_documents.py --html-dir pasta`. Nomeie os arquivos por chave (`mdfe.html`, `nf3e.html` etc.) ou pela pasta original do manual (`MDFe.html`, `NF3e.html`, `CTe.html`, `BPe.html`, `DCe.html` etc.).
+
+O importador genérico ainda não foi validado contra os HTML integrais reais nem os XSD. Os testes dos novos documentos utilizaram exclusivamente fixtures, que não são distribuídas como catálogos fiscais. Consulte `RELATORIO_TECNICO_V2_3_21.md`.
 
 ## V2.3.20 — primeira etapa da expansão
 

@@ -69,4 +69,5 @@ def test_workflow_github_pages_e_validacao():
     assert "      - 'index.html'" in workflow
     assert 'actions/upload-pages-artifact@v4' in workflow
     assert 'actions/deploy-pages@v4' in workflow
-    assert 'path: public' in workflow
+    assert 'path: _site' in workflow
+    assert 'cp -a public _site/public' in workflow

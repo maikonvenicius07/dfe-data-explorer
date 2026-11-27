@@ -1,3 +1,10 @@
+# V2.3.21-beta.1 — 2026-11-27 (entrega parcial)
+
+- Carregador multidocumento baseado nos catálogos presentes, com variantes CT-e e BP-e e seleção isolada.
+- Importador comum de tabelas Leiaute por Pai/ID ou Nível, com rastreabilidade, validação estrutural, diagnóstico e preservação de dados anteriores em falhas detectadas.
+- Workflows na pasta correta, publicação preservando o endereço /public/ e reconstrução da versão offline.
+- A tentativa de coleta real falhou por DNS; nenhum catálogo novo foi confirmado. NF-e/NFC-e e DC-e piloto preservados. Testes de novos documentos usam fixtures, não dados fiscais reais.
+
 # V2.3.20-beta.1 — 2026-11-26
 
 - Primeira etapa multidocumento: registro único dos dez itens do portal e dois catálogos navegáveis (NF-e/NFC-e e piloto DC-e).
