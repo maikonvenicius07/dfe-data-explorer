@@ -1,0 +1,103 @@
+name: Importar leiautes de todos os DF-e
+on:
+  workflow_dispatch:
+    inputs:
+      documento:
+        description: Documento (all ou chave do catálogo)
+        type: string
+        default: all
+  workflow_call:
+    inputs:
+      documento:
+        type: string
+        default: all
+  schedule:
+    - cron: '17 11 * * *' # 07:17 Rondônia
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/monitor_documents.py'
+      - 'scripts/import_documents.py'
+      - 'scripts/import_dce.py'
+      - '.github/workflows/importar_documentos.yml'
+permissions:
+  contents: write
+  actions: write
+  pages: write
+concurrency:
+  group: atualizar-catalogos-main
+  cancel-in-progress: false
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest -q tests/test_import.py tests/test_import_documents_v2321.py tests/test_import_dce.py tests/test_monitor_documents_v2325.py
+      - name: Verificar manuais e preservar catálogos válidos
+        id: collect
+        env:
+          DOCUMENTO: ${{ inputs.documento || 'all' }}
+        run: |
+          set +e
+          python scripts/monitor_documents.py --document "$DOCUMENTO" --email-events "$RUNNER_TEMP/dfe-email.json"
+          code=$?
+          set -e
+          if [ "$code" = 3 ]; then
+            echo 'partial=true' >> "$GITHUB_OUTPUT"
+          elif [ "$code" != 0 ]; then
+            exit "$code"
+          fi
+      - name: Registrar catálogos, histórico e diagnóstico
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A data/ public/data/ public/index.html public/EXPLORADOR_OFFLINE_COMPLETO.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'dados: monitorar leiautes dos DF-e'
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Relatório de cobertura e monitoramento
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura-documentos
+          path: |
+            public/data/importacao_documentos.json
+            public/data/monitoramento.json
+          if-no-files-found: warn
+      - name: Solicitar nova publicação explicitamente
+        if: steps.commit.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tipo=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type')
+          if [ "$tipo" = workflow ]; then
+            gh workflow run publicar_paginas.yml --ref main
+          elif [ "$tipo" = legacy ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+            echo "::warning::Pages em modo branch: publicação solicitada, mas sem comprovante verificável. Recomenda-se GitHub Actions."
+          else
+            echo 'Configuração Pages não reconhecida. Use Settings > Pages > GitHub Actions.'; exit 1
+          fi
+      - name: Notificar por e-mail (opcional, após commit e solicitação de publicação)
+        continue-on-error: true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SMTP_TO: ${{ secrets.SMTP_TO }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT || '465' }}
+        run: python scripts/monitor_documents.py --send-email "$RUNNER_TEMP/dfe-email.json"
+      - name: Sinalizar documentos que exigem atenção
+        if: steps.collect.outputs.partial == 'true'
+        run: exit 1

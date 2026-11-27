@@ -6,9 +6,13 @@ on:
     paths:
       - 'public/**'
       - 'index.html'
+      - 'VERSION'
+      - 'scripts/prepare_release.py'
+      - 'scripts/build_document_registry.py'
+      - 'scripts/build_offline.py'
+      - 'scripts/publication_receipt.py'
       - '.nojekyll'
       - '.github/workflows/publicar_paginas.yml'
-      - 'scripts/prepare_release.py'
   workflow_dispatch:
 
 permissions:
@@ -19,26 +23,40 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     name: Preparar pacote do site
     runs-on: ubuntu-latest
+    outputs:
+      commit: ${{ steps.snapshot.outputs.commit }}
     steps:
       - name: Obter arquivos do repositorio
         uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Preparar catálogos e arquivos da mesma versão
-        run: python scripts/prepare_release.py
+      - name: Preparar a versão a partir dos catálogos atuais
+        id: snapshot
+        run: |
+          python scripts/prepare_release.py
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Verificar pagina inicial
         run: |
           test -f public/index.html
           mkdir -p _site
           cp index.html .nojekyll _site/
           cp -a public _site/public
+          python scripts/publication_receipt.py build --public _site/public --version-file VERSION --commit "$(git rev-parse HEAD)"
+      - name: Guardar comprovante para conferência após deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprovante-publicacao
+          path: _site/public/publicacao.json
+          if-no-files-found: error
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Enviar pacote de arquivos para Pages
@@ -50,6 +68,7 @@ jobs:
     name: Publicar site
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -57,3 +76,18 @@ jobs:
       - name: Publicar no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build.outputs.commit }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: comprovante-publicacao
+          path: _receipt
+      - name: Confirmar versão e catálogos no endereço público
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python scripts/publication_receipt.py verify --base "${PAGE_URL%/}/public/" --receipt _receipt/publicacao.json
