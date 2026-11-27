@@ -1,3 +1,9 @@
+## V2.3.29-beta.1 — relacionamentos hierárquicos
+
+- Recupera vínculos entre tabelas do mesmo escopo e o caso documentado de pgto (Ele.=E, Tipo=G).
+- Preserva IDs, dados originais, seções legítimas e alertas sem evidência.
+- Não certifica XSD nem altera os catálogos e seus históricos.
+
 ## V2.3.28-beta.1 — monitoramento independente de XSD
 
 - Consulta fontes de publicação de dez famílias (14 catálogos/variantes).

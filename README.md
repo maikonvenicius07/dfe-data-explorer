@@ -1,3 +1,5 @@
+> **V2.3.29-beta.1 — recuperação conservadora de vínculos hierárquicos do MOC.** A projeção usa escopo de tabelas e Tipo=G de pgto, preserva as chaves e sinaliza pendências que precisam de XSD. Consulte o relatório técnico.
+
 > **V2.3.28-beta.1 — monitor de publicações e pacotes XSD.** Verificação diária integrada ao workflow multidocumento. A leitura integral dos pacotes oficiais ainda depende de acesso às fontes e links de download; a central diferencia publicação localizada, pacote lido e falha. O MOC não é sobrescrito pelos XSD. Consulte `RELATORIO_TECNICO_V2_3_28.md`.
 
 > **V2.3.27-beta.1 — navegação inicial recolhida.** Todos os grupos e subgrupos do Leiaute MOC começam fechados na primeira abertura de cada documento. Recolher tudo fecha a estrutura sem desmarcar a seleção. Pesquisa e filtro explícito revelam os grupos correspondentes.
@@ -12,7 +14,7 @@
 
 # DF-e Data Explorer — plataforma multidocumento
 
-**Versão do aplicativo:** V2.3.28-beta.1 · **Base embutida:** catálogo NF-e/NFC-e com 1.173 registros; demais catálogos independentes.
+**Versão do aplicativo:** V2.3.29-beta.1 · **Base embutida:** catálogo NF-e/NFC-e com 1.173 registros; demais catálogos independentes.
 
 > Projeto independente de documentação técnica. Não é uma publicação oficial do Fisco. A fonte de referência é o [MOC NF-e/NFC-e](https://moc.sped.fazenda.pr.gov.br/NFe_NFCe/Leiaute.html). Nenhum resultado do catálogo parcial deve ser confundido com cobertura oficial completa.
 
