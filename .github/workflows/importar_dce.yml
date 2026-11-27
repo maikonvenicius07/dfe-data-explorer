@@ -1,0 +1,12 @@
+name: Importar somente DC-e
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+  pages: write
+jobs:
+  importar:
+    uses: ./.github/workflows/importar_documentos.yml
+    with:
+      documento: dce

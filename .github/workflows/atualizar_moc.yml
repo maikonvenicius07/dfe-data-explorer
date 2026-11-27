@@ -5,6 +5,9 @@ on:
     - cron: '17 11 * * *' # 11:17 UTC diariamente; agendamentos do GitHub podem atrasar
 permissions:
   contents: write
+concurrency:
+  group: atualizar-catalogos-main
+  cancel-in-progress: false
 jobs:
   monitor:
     runs-on: ubuntu-latest
